@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ms-appdata: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+    
+      <!-- ionic/angularjs js -->
+     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+   
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="lib/datePicker/bootstrap-datepicker.js"></script>
+
+
+    <link href="lib/dropdownSearch/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+
+    <!-- Jquery Datatable -->
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Jquery Datatable -->
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    
+         <!-- date picker-->
+
+<!--    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+       <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+       <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+    
+    
+    
+  
+ <script src="lib/ionic/js/ionic.bundle.js"></script>
+    
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    
+    <!-- <script type="text/javascript" charset="utf-8" src="../plugins/cordova-plugin-deviceinformation/src/com/upchannel/cordova/plugins/DeviceInformation.java"></script>-->
+   
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+
+    <!-- ComonServce-->
+    <script src="CommonService/ApplicationUrls.js"></script>
+    <script src="CommonService/Camera.js"></script>
+    <script src="CommonService/Base.64.js"></script>
+    <script src="CommonService/GolbalCommon.js"></script>
+
+    <!-- Login-->
+    <script src="Login/loginCtrl.js"></script>
+     <script src="Login/CPloginCtrl.js"></script>
+    <script src="Login/LoginService.js"></script>
+
+    <!--HomePage-->
+    <script src="Home/homePageCtrl.js"></script>
+    <script src="Home/HomePageService.js"></script>
+    <script src="Home/mechanicHomeCtrl.js"></script>
+    <script src="Home/RH_AH_TH_homeCtrl.js"></script>
+
+    <!--QrCode-->
+    <script src="QrCode/gulfQRCtrl.js"></script>
+
+    <!--    Add Details-->
+    <script src="AddDetails/AddDetailsCtrl.js"></script>
+    <script src="AddDetails/AddValidateDetailsCtrl.js"></script>
+    <script src="AddDetails/AddRetailerDetailsCtrl.js"></script>
+
+    <!-- header-->
+    <script src="headerDirective/headerDirective.js"></script>
+    <script src="headerDirective/headerServices.js"></script>
+
+    <!--change Password-->
+    <script src="ChangePassword/changePassword.js"></script>
+
+    <!--My Profile-->
+    <script src="MyProfile/myProfileCtrl.js"></script>
+
+    <!--  Add Mechanic-->
+    <script src="AddMechanic/AddMechanicCtrl.js"></script>
+    <script src="AddMechanic/referralSuccessCtrl.js"></script>
+    <script src="AddMechanic/AddMechanicService.js"></script>
+    <script src="AddMechanic/addMechNavigationCtrl.js"></script>
+
+    <script src="UpdateMechanicProfile/updateMechanicProfileCtrl.js"></script>
+    <script src="UpdateMechanicProfile/mechProfilebyListCtrl.js"></script>
+    <script src="UpdateMechanicProfile/updateMechanicProfileService.js"></script>
+
+    <!--dashboard m-->
+    <script src="Dashboard/dashboardCtrl.js"></script>
+    <script src="Dashboard/dashboardService.js"></script>
+    <script src="Dashboard/mechDashBoardCtrl.js"></script>
+    <script src="Dashboard/activeMechnaicListCtrl.js"></script>
+    <script src="Dashboard/tierMechnicListCtrl.js"></script>
+     <script src="Dashboard/inactiveMechnicListCtrl.js"></script>
+    <script src="Dashboard/validatedMechnaicLIstctrl.js"></script>
+    <script src="Dashboard/volumeAchived.js"></script>
+    <script src="Dashboard/codeCheckedListCtrl.js"></script>
+    
+    <!--mech Validate-->
+    <script src="MechValidation/mechValidationCtrl.js"></script>
+    <script src="MechValidation/ValidateProfileCtrl.js"></script>
+    <script src="MechValidation/MechProfileEarningCtrl.js"></script>
+    <script src="MechValidation/MechProfileLinkCtrl.js"></script>
+    <script src="MechValidation/RejectionCtrl.js"></script>
+    
+    
+    <script src="Notification/notificationCtrl.js"></script>
+    <script src="Notification/CPnotificationCtrl.js"></script>
+    <script src="Notification/NonMlpNotificationCtrl.js"></script>
+
+    <!---mech Validation List -->
+
+    <script src="MechValidationList/mechValidationListCtrl.js"></script>
+    <script src="MechValidationList/PendingValidationListCtrl.js"></script>
+    <script src="MechValidationList/MechEarningCtrl.js"></script>
+    <script src="MechValidationList/MechValiditionListService.js"></script>
+
+    <!--  code Check in-->
+
+    <script src="CouponCode/couponCodeCtrl.js"></script>
+    <script src="CodeCheckIn/CodeCheckInCtrl.js"></script>
+    <script src="CodeCheckIn/CodeCheckInService.js"></script>
+    <script src="CodeCheckInOTP/codeCheckInOTPCtrl.js"></script>
+    <script src="QrCode/codeCheckinCongratulationCtrl.js"></script>
+    <script src="QrCode/multipleCodeChekinCongratulationCtrl.js"></script>
+
+    <!--code verification-->
+    <script src="CodeVerification/codeVerificationCtrl.js"></script>
+    <script src="CodeVerification/codeVerificationservice.js"></script>
+    <script src=CodeVerification/codeDetailsCtrl.js></script>
+
+
+    <!---transaction Report  -->
+
+    <script src="TransactionReport/transactionReportCtrl.js"></script>
+    <script src="TransactionReport/TransactionReportService.js"></script>
+    <script src="TransactionReport/mechanicTransactionReportCtrl.js"></script>
+
+    <!---chatbot  -->
+
+    <script src="ChatBootPreLogin/ChatbootCtrl.js"></script>
+    <script src="ChatBootPreLogin/ChatbootService.js"></script>
+     <script src="ChatBootPreLogin/chatBootColorCtrl.js"></script>
+      <script src="ChatBootPreLogin/productEarningChatCtrl.js"></script>
+    <script src="ChatBootPreLogin/prodcutEarningDetailsChatCtrl.js"></script>
+
+
+     <!---refer-a-friend  -->
+
+    
+
+
+    <script src="ReferFriend/referFriendCtrl.js"></script>
+    <script src="ReferFriend/ReferFriendService.js"></script>
+    <script src="ReferFriend/referralReportCtrl.js"></script>
+    <script src="ReferFriend/referFriendNonMLPCtrl.js"></script>
+    <script src="ReferFriend/referralReportNonMLPCtrl.js"></script>
+
+
+         <!---planner  -->
+
+    <script src="Planner/plannerCtrl.js"></script>
+    <script src="Planner/editPlannerCtrl.js"></script>
+    <script src="Planner/PlannerService.js"></script>
+    <script src="Planner/soAddPlannerCtrl.js"></script>
+    
+   <!-- Gulf Corner-->
+    <script src="GulfCorner/gulfCornerCtrl.js"></script>
+    <script src="GulfCorner/productEarningCtrl.js"></script>
+    <script src="GulfCorner/prodcutEarningDetailsCtrl.js"></script>
+    <script src="GulfCorner/RecommendationChart.Js"></script>
+    <script src="GulfCorner/tradeSchemeCtrl.js"></script>
+    <script src="GulfCorner/recomendationDetailCtrl.js"></script>
+    <script src="GulfCorner/recommendationService.js"></script>
+    <script src="GulfCorner/CPgulfCornerCtrl.js"></script>
+    <script src="GulfCorner/CPtradeSchemeCtrl.js"></script>
+     <script src="GulfCorner/CPRecommendationChart.js"></script>
+     <script src="GulfCorner/CPrecomendationDetailCtrl.js"></script>
+     <script src="GulfCorner/NonMlpGulfCornerCtrl.js"></script>
+     <script src="GulfCorner/NonMlpTradeSchemeCtrl.js"></script>
+      <script src="GulfCorner/NonMlpRecommendationChart.js"></script>
+      <script src="GulfCorner/NonMlpRecomendationDetailCtrl.js"></script>
+    
+   <!-- order Status-->
+    <script src="orderStatus/orderStatusCtrl.js"></script>
+    <script src="orderStatus/myOrderCtrl.js"></script>
+    <script src="orderStatus/orderHistoryCtrl.js"></script>
+    
+    <script src="BetaPlan/thingsToDo.js"></script>
+    <script src="BetaPlan/thingsBasedOnAreaCtrl.js"></script>
+    <script src="BetaPlan/addBeatPlanCtrl.js"></script>
+    
+    <script src="UpdateMechanicProfile/otpValiadteMobileCtrl.js"></script>
+    <script src="redeem/redeemMechCtrl.js"></script>
+    <script src="redeem/redeemOTPctrl.js"></script>
+    
+    <script src="Login/NewLoginForMLPAndNonMLPCtrl.js"></script>
+    <script src="NonMLPLoginValidation/NonMlpOtpValidationCtrl.js"></script>
+    <script src="NonMLPLoginValidation/NonMlpRegistrationCtrl.js"></script>
+    <script src="NonMLPLoginValidation/BankaccountDetailsCtrl.js"></script>
+    <script src="NonMLPLoginValidation/TransferOneCtrl.js"></script>
+    <script src="NonMLPLoginValidation/NonMlpSetPasswordCtrl.js"></script>
+    <script src="NonMLPLoginValidation/NonMlpUserTypeCtrl.js"></script>
+    <script src="NonMLPLoginValidation/SelectLanguageCtrl.js"></script>
+    <script src="NonMLPLoginValidation/RetailCodeInNonMlpCtrl.js"></script>
+    
+     <script src="NonMlp/NonMlpServices.js"></script>
+    <script src="NonMlp/NonMlpHomeCtrl.js"></script>
+
+     <script src="NonMlp/scanQrCodeNonMlpCtrl.js"></script>
+     <script src="NonMlp/singelCodeCheckInCtrl.js"></script>
+     <script src="NonMlp/MultipleCodeChekdinCtrl.js"></script>
+     <script src="NonMlp/MyProfileNonMLP.js"></script>
+     <script src="NonMlp/TransactionReportNonMlpCtrl.js"></script>
+    <script src="NonMlp/OrderReportCtrlNonMLpCtrl.js"></script>
+    <script src="NonMlp/EditBankDetailsCtrl.js"></script>
+    <script src="NonMlp/Contestctrl.js"></script>
+     <script src="NonMlp/NonMlpMechanicCtrl.js"></script>
+     <script src="NonMlp/BankDetailListCtrl.js"></script>
+     <script src="NonMlp/UpdateUserTypeCtrl.js"></script>
+     
+    
+    <script src="headerDirective/footerDirective.js"></script>
+    <script src="headerDirective/NonMlpHeader.js"></script>
+    <script src="headerDirective/nonMlpFooter.js"></script>
+    <script src="headerDirective/footerCustomerDirective.js"></script>
+
+    <script src="DreamIncome/DreamIncomeCtrl.js"></script>
+    <script src="DreamIncome/DreamIncomeService.js"></script>
+    <script src="DreamIncome/purchaseRecommendationCtrl.js"></script>
+    <script src="DreamIncome/SetAndEditDreamIncomeCtrl.js"></script>
+    <script src="DreamIncome/EditDreamIncomeCtrl.js"></script>
+    <script src="DreamIncome/DreamIncomeMainCtrl.js"></script>
+    <script src="DreamIncome/MechanicValidetaDreamIncomeCtrl.js"></script>
+    <script src="DreamIncome/DreamIncomePerformanceCtrl.js"></script>
+    <script src="DreamIncome/TypeSelcetionCtrl.js"></script>
+
+
+    <script src="Amazon/AmazonPromoCodeCtrl.js"></script>
+    <script src="Amazon/NonMlpAmazonPromoCodeCtrl.js"></script>
+    <script src="Gk/GkOtpCtrl.js"></script>
+    <script src="Gk/GkLoyalityOtpCtrl.js"></script>
+    <script src="Gk/GkLanguageCtrl.js"></script>
+    <script src="Gk/GkSetPasswordCtrl.js"></script>
+    <script src="Gk/GkRegistrationCtrl.js"></script>
+    <script src="Gk/GkBankDetailCtrl.js"></script>
+
+    <script src="VerifyCode/verifyCodeCtrl.js"></script>
+    <script src="VerifyCode/verifyCodeResult.js"></script>
+
+    <script src="VerifyCode/NonMlpVerifyCodeCtrl.js"></script>
+    <script src="VerifyCode/NonMlpVerifyCodeResult.js"></script>
+    
+    <script src="ChannelPartners/CPOTPValidationCtrl.js"></script>
+    <script src="ChannelPartners/CPSetPasswordCtrl.js"></script>
+    <script src="ChannelPartners/ChannelPartnersServices.js"></script>
+    <script src="ChannelPartners/CPRegistrationCtrl.js"></script>
+    <script src="ChannelPartners/CPHomeCtrl.js"></script>
+    <script src="headerDirective/ChannelPartnersHeader.js"></script>
+    <script src="ChannelPartners/CPTransactionReportCtrl.js"></script>
+    <script src="ChannelPartners/CPMyRewardsCtrl.js"></script>
+    <script src="headerDirective/ChannelPartnersFooter.js"></script>
+    <script src="ChannelPartners/CPPromoCodeCtrl.js"></script>
+    <script src="ChannelPartners/CPScanQrCodeCtrl.js"></script>
+    <script src="ChannelPartners/CPBankDetailListCtrl.js"></script>
+    <script src="ChannelPartners/CPBankAccountDetailsCtrl.js"></script>
+    <script src="ChannelPartners/CPNearByMechanicCtrl.js"></script>
+    <script src="ChannelPartners/CPScanCongratsCtrl.js"></script>
+    <script src="ChannelPartners/LoginPromoCPCtrl.js"></script>
+    <script src="ChannelPartners/CPsingleCodeCheckInCtrl.js"></script>
+    <script src="ChannelPartners/CPScanCodeCheckInResultCtrl.js"></script>
+    <script src="EffortApp/effortAppCtrl.js"></script>
+    <script src="TermCondtion/Term&CondtionCtrl.js"></script>
+    <script src="PanUpdate/panUpdateService.js"></script>
+    <script src="PanUpdate/PanUpdatePopupCtrl.js"></script>
+    <script src="PanUpdate/PanImageUploadCtrl.js"></script>
+    <script src="PanUpdate/SelfieForPanCtrl.js"></script>
+    <script src="PanUpdate/PanDetailSubmitCtrl.js"></script>
+    <script src="PanUpdate/PanSubmittedMsgCtrl.js"></script>
+    <script src="PanUpdate/panActionCtrl.js"></script>
+     <!--Commented and added in particular page 11May20-->
+     <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCANxGtdwavv5LVhSM-lIfzxG4gCZUN6qs"></script> -->
+     
+     <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAidu05TgX-t7tLyu2jwOUmdxsShE_WKiU"></script> -->
+
+        <script type="text/javascript">
+    var _paq = _paq || [];
+
+    var visitor_id;
+    _paq.push([ function() {
+      visitor_id = this.getVisitorId();
+        console.log("visitor_id------------>"+visitor_id);
+      localStorage.setItem("visitorId",visitor_id);
+
+    }]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://analytics.firsthive.com/";
+      _paq.push(['setTrackerUrl', u+'piwik.php']);
+      _paq.push(['setSiteId', '123']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+
+</head>
+
+<body ng-app="gulfStarter">
+    <ion-nav-view></ion-nav-view>
+</body>
+
+</html>

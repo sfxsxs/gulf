@@ -1,0 +1,114 @@
+<ion-view>
+  <style>
+    #mySidenavScan img {
+      float: left;
+      margin-right: 10px;
+      width: 35px;
+    }
+
+    #mySidenavScan li {
+      clear: both;
+      display: block;
+      height: 35px;
+      line-height: 35px;
+      margin-bottom: 5px;
+      vertical-align: middle;
+    }
+
+    .login-contain form {
+      padding: 10px 40px 20px;
+    }
+
+    .login-contain.text-center.code-verified {
+      padding: 20px;
+      background-color: #FE3200;
+      width: 270px;
+      margin: 20% auto;
+      border-radius: 5px;
+      min-height: 100px;
+    }
+
+    .code-verified p {
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .body-bg-1 {
+      background-image: url(./img/nonmlp-bg.png);
+    }
+
+    p {
+      color: #000A47;
+    }
+
+    label {
+      color: #000A47;
+    }
+
+    .login-otp h4 {
+      color: #000A47;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    footer .login-footer {
+      background-color: #004382;
+      /* For browsers that do not support gradients */
+      background-image: linear-gradient(to right, #004382 10%, #0094d6 50%, #004382);
+      /* Standard syntax (must be last) */
+      padding: 8px 0;
+    }
+
+    i.fa.fa-facebook-square {
+      color: #fff !important;
+    }
+
+    .form-control.user-name,
+    .gulf-btn {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      color: #fff !important;
+    }
+  </style>
+
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img class="img-responsive"
+          src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+    <nav-directive ng-if="!nonMlp"></nav-directive>
+    <non-mlp-header ng-if="nonMlp"></non-mlp-header>
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <!-- <h4 class="text-center">Code Verified</h4> -->
+              <div class="login-contain text-center code-verified">
+                <p ng-if="!isCodeUsed" class="congratulation-box">{{data.localAppLanguage.dear}}
+                  {{userName}},<br><b>{{data.localAppLanguage.hurray}} !</b>
+                  <br>{{data.localAppLanguage.Its_a_valid_code}} <i class="fa fa-smile-o" aria-hidden="true"
+                    style="font-size: 25px;"></i></p>
+                <p ng-if="isCodeUsed" class="congratulation-box">{{data.localAppLanguage.dear}}
+                  {{userName}},<br><br>{{data.localAppLanguage.Its_a_used_code}} <i class="fa fa-frown-o"
+                    aria-hidden="true"></i></p>
+                <p ng-if="!isCodeUsed" style="margin-top: 18px;">
+                  {{data.localAppLanguage.submit_the_code_in_scan_code_for_earning_the_points}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer ng-if="!Qa">
+      <footer-directive ng-if="!nonMlp"></footer-directive>
+      <footer-directive-nonmlp ng-if="nonMlp"></footer-directive-nonmlp>
+    </footer>
+  </div>
+  <script>
+    function openNav1() {
+      document.getElementById("mySidenavScan").style.width = "250px";
+    }
+    function closeNav1() {
+      document.getElementById("mySidenavScan").style.width = "0";
+    }
+  </script>
+</ion-view>
