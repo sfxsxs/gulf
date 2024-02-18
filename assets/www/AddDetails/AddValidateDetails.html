@@ -1,0 +1,150 @@
+<style>
+    .popup-title,
+    h3:first-child {
+        margin-top: 19px;
+    }
+
+    /*    .body-bg, .body-bg-1, .home-bg{
+       overflow: auto;
+       height: 100%;
+   }*/
+</style>
+
+<ion-view ng-onload="showLocation()">
+
+    <div style="overflow: auto;
+       height: 100%;" ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+        <!-- <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div> -->
+        <nav-directive></nav-directive>
+
+        <section class="section-pad-top">
+            <div class="container">
+                <div class="login-otp">
+                    <h4 class="text-center">Validate Mechanic</h4>
+                    <div class="login-contain validate-mech text-center padding-top-pixel">
+                        <form method="" style="    padding: 40px 0px 0px;">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="mechanic-photo">
+                                        <img style="width:100%;" ng-click="uploadPhoto('outer')" id="blah"
+                                            src="img/click-photo.png" alt="Click Photo of full View Outer" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="mechanic-photo">
+                                        <img style="width:100%;" ng-click="uploadPhoto('interior')" id="blah1"
+                                            src="img/click-photo.png" alt="Click Photo of full View Interior" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="row">
+                                    <!-- <div class="col-md-12 col-sm-12 col-xs-12">
+                                      <div class="form-group text-center">
+                                          <button type="button" class="btn gulf-btn signupbtn" style="margin-top: 10px;" ng-click="showLocation()" ng-disabled="disabledvalue">Get Current Location</button>
+                                      </div>
+                                  </div> -->
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group text-center  pull-right" style="margin-right:15px;">
+                                            <button type="submit" class="btn gulf-btn signupbtn"
+                                                style="margin-top: 10px;" ng-click="submit()">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <footer-directive></footer-directive>
+        </footer>
+    </div>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+    <script>
+        function initMap() {
+
+
+
+            var uluru = {
+                lat: 20.593684,
+                lng: 78.96288000000004
+            };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                draggable: true,
+            });
+            google.maps.event.addListener(marker, 'dragend', function () {
+                geocodePosition(marker.getPosition());
+            });
+
+            function geocodePosition(pos) {
+                geocoder = new google.maps.Geocoder();
+                geocoder.geocode({
+                    latLng: pos
+                },
+                    function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            console.log(pos);
+                            console.log(results[0].formatted_address);
+                            /* $("#mapSearchInput").val(results[0].formatted_address);
+                             $("#mapErrorMsg").hide(100);*/
+                        } else {
+                            // $("#mapErrorMsg").html('Cannot determine address at this location.'+status).show(100);
+                            console.log(results[0].formatted_address);
+                        }
+                    }
+                );
+            }
+        }
+    </script>
+
+    <!-- ======  Gulf Testing API start ====== -->
+
+
+
+    <!-- ======  Gulf Testing API end ====== -->
+
+
+    <!-- ======  Gulf Production API start ====== -->
+
+    <!--  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCANxGtdwavv5LVhSM-lIfzxG4gCZUN6qs&callback=initMap"></script> -->
+
+    <!-- ======  Gulf Deployed Production API end ====== -->
+
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAidu05TgX-t7tLyu2jwOUmdxsShE_WKiU&callback=initMap"></script> -->
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</ion-view>
