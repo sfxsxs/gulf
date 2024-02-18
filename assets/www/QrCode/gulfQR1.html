@@ -1,0 +1,84 @@
+<ion-view>
+  <div ng-class="{'home-bg':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="home-logo">
+            <a class="navbar-brand" href=""><img class="img-responsive" src="img/logo.png" alt="blue-bg-with-logo-half">
+            </a>
+          </div>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="">Home</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="">Page 1 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="">Page 1-1</a></li>
+                <li><a href="">Page 1-2</a></li>
+                <li><a href="">Page 1-3</a></li>
+              </ul>
+            </li>
+            <li><a href="">Page 2</a></li>
+            <li><a href="">Page 3</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 code-check ">
+          <h4>Code<br>Check In</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="qr-code-content">
+
+            <h4 class="text-center text-white" style="color:#fff;">Scan your QR code here</h4>
+            <div class="scanner-code1">
+              <img class="img-responsive" src="img/scanner.jpg" alt="code" ng-click="ScanBarCode()">
+            </div>
+            <h4 class="text-center" style="color:#fff;">OR</h4>
+            <div class="enter-code">
+              <input type="text" class="form-control" id="username" placeholder="Enter Code Manually">
+            </div>
+            <h5 class="text-center" style="color:#fff;">You can also enter multiple codes by entering comma after typing
+              each code</h5>
+            <div class="form-group text-center rq-submit">
+              <button type="submit" class="btn btn-default ">Submit</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login-footer">
+      <div class="container-fluid ">
+        <div class="row">
+          <div class="col-md-4 col-xs-4 col-sm-4">
+            <ul class="only-image-footer">
+              <li class="text-center flot-left"><a href=""><img class="img-responsive" src="img/phone.png"
+                    alt="code"></a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-xs-4 col-sm-4">
+            <ul class="only-image-footer">
+              <li><a href=""><img class="img-responsive" src="image/home-1.png" alt="code"></a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-xs-4 col-sm-4">
+            <ul class="only-image-footer">
+              <li class="messanger-logo"><a href=""><img class="img-responsive" src="img/messanger.png" alt="code"></a>
+              </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-view>

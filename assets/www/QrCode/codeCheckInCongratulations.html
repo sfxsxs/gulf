@@ -1,0 +1,283 @@
+<ion-view>
+  <style>
+    .table-bordered,
+    .table-responsive>.table>tbody>tr>td {
+      border: 1px solid #fff !important;
+    }
+
+    .table>thead>tr>th {
+      border-bottom: 1px solid #fff;
+    }
+  </style>
+
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()">
+        <img ng-if="modeProject == 'Gulf'" class="img-responsive" style="margin: 15px 15px;width: 17px;"
+          src="img/left-arrow.png" alt="blue-bg-with-logo-half" />
+        <img ng-if="modeProject == 'S-oil'" class="img-responsive" style="margin: 15px 15px;width: 17px;"
+          src="img/left-arrow-white.png" alt="blue-bg-with-logo-half" />
+      </a>
+    </div>
+    <nav-directive></nav-directive>
+
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12" ng-if="valid">
+              <h4 class="text-center gulf-h4">{{data.localAppLanguage.code_check_in_successful}}</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <div class="thumb-sign">
+                  <img class="img-responsive" src="img/conguralation-thumb.png" alt="conguralation-thumb"
+                    style="color:#fff;">
+                </div>
+
+                <div ng-if="so">
+                  <div ng-if="promoShow">
+                    <p ng-if="promocodevalid">Congratulations!,your Mechanic
+                      {{MechanicNameForCodeCheckin}}, Mob.{{MechanicMobileForCodeCheckin}} has earned
+                      {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon scan, {{prdctPointsPC}} Promo code points and
+                      {{prdctPointsAM}} Amazon points with this
+                      Code check in!</p>
+                    <!-- <p ng-if="promocodevalid && !amazoncodevalid">Congratulations!,your Mechanic
+                      {{MechanicNameForCodeCheckin}}, Mob.{{MechanicMobileForCodeCheckin}} has earned
+                      {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon scan, {{prdctPointsPC}} Promo code points
+                      <br /> Amazon code is invalid</p> -->
+                    <p ng-if="!promocodevalid">Congratulations!,your Mechanic
+                      {{MechanicNameForCodeCheckin}}, Mob.{{MechanicMobileForCodeCheckin}} has earned
+                      {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon scan, {{prdctPointsAM}} Amazon points <br />
+                      Promo code is invalid</p>
+                    <!-- <p ng-if="!amazoncodevalid && !promocodevalid">Congratulations!,your Mechanic
+                      {{MechanicNameForCodeCheckin}}, Mob.{{MechanicMobileForCodeCheckin}} has earned
+                      {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon scan<br /> Amazon code is invalid <br /> Promo
+                      code is invalid</p> -->
+                  </div>
+                  <!-- <div ng-if="amazonShow && !promoShow">
+                    <p ng-if="amazoncodevalid">Congratulations!,your Mechanic {{MechanicNameForCodeCheckin}},
+                      Mob.{{MechanicMobileForCodeCheckin}} has earned {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon
+                      scan, {{prdctPointsAM}} Amazon points</p>
+                    <p ng-if="!amazoncodevalid">Congratulations!,your Mechanic {{MechanicNameForCodeCheckin}},
+                      Mob.{{MechanicMobileForCodeCheckin}} has earned {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon
+                      scan, <br /> Amazon code is invalid</p>
+                  </div> -->
+                  <div ng-if="promoShow">
+                    <p ng-if="promocodevalid">Congratulations!,your Mechanic {{MechanicNameForCodeCheckin}},
+                      Mob.{{MechanicMobileForCodeCheckin}} has earned {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon
+                      scan, {{prdctPointsPC}} Promo code points </p>
+                    <p ng-if="!promocodevalid">Congratulations!,your Mechanic {{MechanicNameForCodeCheckin}},
+                      Mob.{{MechanicMobileForCodeCheckin}} has earned {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon
+                      scan, <br /> Promo code is invalid</p>
+                  </div>
+                  <div ng-if="!promoShow">
+                    <p> Congratulations!,your Mechanic {{MechanicNameForCodeCheckin}},
+                      Mob.{{MechanicMobileForCodeCheckin}} has earned {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon
+                      scan</p>
+                  </div>
+                  <!-- <p ng-if="promocodevalid && amazoncodevalid"> Congratulations!,your Mechanic {{MechanicNameForCodeCheckin}}, Mob.{{MechanicMobileForCodeCheckin}} has earned {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon scan, {{prdctPointsPC}} Promo code points and {{prdctPointsAM}} Amazon points with this
+                Code check in! </p>
+              <p ng-if="promocodevalid && !amazoncodevalid">Congratulations!,your Mechanic {{MechanicNameForCodeCheckin}}, Mob.{{MechanicMobileForCodeCheckin}} has earned {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon scan, {{prdctPointsPC}} Promo code points <br/> Amazon code is invalid</p>
+              <p ng-if="amazoncodevalid && !promocodevalid ">Congratulations!,your Mechanic {{MechanicNameForCodeCheckin}}, Mob.{{MechanicMobileForCodeCheckin}} has earned {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon scan, {{prdctPointsAM}} Amazon points with this
+                Code check in!  <br/> Promo code is invalid </p>
+              <p ng-if="!promocodevalid && !amazoncodevalid">Congratulations!,your Mechanic {{MechanicNameForCodeCheckin}}, Mob.{{MechanicMobileForCodeCheckin}} has earned {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon scan</p> -->
+                </div>
+
+                <div ng-if="mech">
+                  <div ng-if="promoShow">
+                    <p ng-if="promocodevalid">{{data.localAppLanguage.congratulations}}!
+                      {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}} Rs/-
+                      {{data.localAppLanguage.on_coupon_scan}}, {{prdctPointsPC}}
+                      {{data.localAppLanguage.promo_code_points}} {{data.localAppLanguage.and}} {{prdctPointsAM}}
+                      {{data.localAppLanguage.amazon_points}}</p>
+                    <!-- <p ng-if="promocodevalid && !amazoncodevalid">{{data.localAppLanguage.congratulations}}!
+                      {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}} Rs/-
+                      {{data.localAppLanguage.on_coupon_scan}}, {{prdctPointsPC}}
+                      {{data.localAppLanguage.promo_code_points}} <br />
+                      {{data.localAppLanguage.amazon_code_is_invalid}}</p> -->
+                    <p ng-if="!promocodevalid">{{data.localAppLanguage.congratulations}}!
+                      {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}} Rs/-
+                      {{data.localAppLanguage.on_coupon_scan}}, {{prdctPointsAM}}
+                      {{data.localAppLanguage.amazon_points}} <br />{{data.localAppLanguage.promo_code_is_invalid}}</p>
+                    <!-- <p ng-if="!amazoncodevalid && !promocodevalid">{{data.localAppLanguage.congratulations}}!
+                      {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}} Rs/-
+                      {{data.localAppLanguage.on_coupon_scan}}
+                      <br />{{data.localAppLanguage.amazon_code_is_invalid}}<br />
+                      {{data.localAppLanguage.promo_code_is_invalid}}</p> -->
+                  </div>
+                  <!-- <div ng-if="amazonShow && !promoShow">
+                    <p ng-if="amazoncodevalid">{{data.localAppLanguage.congratulations}}!
+                      {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}} Rs/-
+                      {{data.localAppLanguage.on_coupon_scan}}, {{prdctPointsAM}}
+                      {{data.localAppLanguage.amazon_points}}</p>
+                    <p ng-if="!amazoncodevalid">{{data.localAppLanguage.congratulations}}!
+                      {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}} Rs/-
+                      {{data.localAppLanguage.on_coupon_scan}}, <br /> {{data.localAppLanguage.amazon_code_is_invalid}}
+                    </p>
+                  </div> -->
+                  <div ng-if="promoShow">
+                    <p ng-if="promocodevalid">{{data.localAppLanguage.congratulations}}!
+                      {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}} Rs/-
+                      {{data.localAppLanguage.on_coupon_scan}}, {{prdctPointsPC}}
+                      {{data.localAppLanguage.promo_code_points}} </p>
+                    <p ng-if="!promocodevalid">{{data.localAppLanguage.congratulations}}!
+                      {{data.localAppLanguage.you_have_earned}}{{TotalEarnedPointsForCodeCheckin}} Rs/-
+                      {{data.localAppLanguage.on_coupon_scan}}, <br /> {{data.localAppLanguage.promo_code_is_invalid}}
+                    </p>
+                  </div>
+                  <div ng-if="!promoShow">
+                    <p> {{data.localAppLanguage.congratulations}}!
+                      {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}} Rs/-
+                      {{data.localAppLanguage.on_coupon_scan}}</p>
+                  </div>
+
+
+
+                  <!-- <p ng-if="promocodevalid && amazoncodevalid">Congratulations! You have earned {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon scan, {{prdctPointsPC}} Promo code points and {{prdctPointsAM}} Amazon points</p>
+              <p ng-if="promocodevalid && !amazoncodevalid">Congratulations! You have earned {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon scan, {{prdctPointsPC}} Promo code points <br/> Amazon code is invalid</p>
+              <p ng-if="amazoncodevalid && !promocodevalid">Congratulations! You have earned {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon scan, {{prdctPointsAM}} Amazon points <br/> Promo code is invalid</p>
+              <p ng-if="!promocodevalid && !amazoncodevalid">Congratulations! You have earned {{TotalEarnedPointsForCodeCheckin}} Rs/- on coupon scan</p> -->
+
+                </div>
+
+                <div class="form-group text-center sucessful">
+                  <button type="submit" class=" btn gulf-btn signupbtn"
+                    ng-click="scanNextCode()"><span>{{data.localAppLanguage.scan_next_code}}</span><img
+                      style="width:30px;float:left;" class="img-responsive" src="img/scan-next-code.png"
+                      alt="scan-next-code"></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-xs-12 col-sm-12" ng-if="inValid">
+              <h4 class="text-center gulf-h4">{{data.localAppLanguage.code_check_in_unsuccessful}}</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <div class="thumb-sign">
+                  <img class="img-responsive" src="img/sorry-thumb.png" alt="sorry-thumb" style="color:#fff;">
+                </div>
+                <p>
+                  {{data.localAppLanguage.sorry_you_seem_to_have_entered_an_invalid_code_please_check_and_enter_the_correct_code}}.
+                </p>
+
+                <div class="form-group text-center sucessful">
+                  <button type="submit" class=" btn gulf-btn signupbtn"
+                    ng-click="scanNextCode()"><span>{{data.localAppLanguage.scan_next_code}}</span><img
+                      style="width:30px;float:left;" class="img-responsive" src="img/scan-next-code.png"
+                      alt="scan-next-code"></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-xs-12 col-sm-12" ng-if="used">
+              <h4 class="text-center gulf-h4">{{data.localAppLanguage.code_check_in_unsuccessful}}</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <div class="thumb-sign">
+                  <img class="img-responsive" src="img/sorry-thumb.png" alt="sorry-thumb" style="color:#fff;">
+                </div>
+                <p>{{data.localAppLanguage.sorry_this_code_is_already_used}}.
+                  {{data.localAppLanguage.please_check_and_enter_the_correct_code}}.
+                  {{data.localAppLanguage.in_case_of_query_call}}</p>
+
+                <div class="form-group text-center sucessful">
+                  <button type="submit" class=" btn gulf-btn signupbtn"
+                    ng-click="scanNextCode()"><span>{{data.localAppLanguage.scan_next_code}}</span><img
+                      style="width:30px;float:left;" class="img-responsive" src="img/scan-next-code.png"
+                      alt="scan-next-code"></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-xs-12 col-sm-12" ng-if="inactive">
+              <h4 class="text-center gulf-h4">{{data.localAppLanguage.code_check_in_unsuccessful}}</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <div class="thumb-sign">
+                  <img class="img-responsive" src="img/sorry-thumb.png" alt="sorry-thumb" style="color:#fff;">
+                </div>
+                <p ng-if="mech">{{data.localAppLanguage.hi_this_code_is_expired_and_you_itself}}.</p>
+                <p ng-if="so">Hi, This code is expired and mechanic can now earn loyalty benefits by scanning cash
+                  coupon itself.</p>
+
+                <div class="form-group text-center sucessful">
+                  <button type="submit" class=" btn gulf-btn signupbtn"
+                    ng-click="scanNextCode()"><span>{{data.localAppLanguage.scan_next_code}}</span><img
+                      style="width:30px;float:left;" class="img-responsive" src="img/scan-next-code.png"
+                      alt="scan-next-code"></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-xs-12 col-sm-12" ng-if="!inactive && !used && !inValid && !so">
+              <div style="padding: 10px 20px;">
+                <p class="text-center">{{data.localAppLanguage.current_tier}}: {{currenttier}}</p>
+                <!-- <table  class="table table-bordered">
+            <thead>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Current Tier</td>
+                <td>{{currenttier}}</td>
+              </tr>
+              <tr>
+                <td>Total Points Earned</td>
+                <td>{{pointsearned}}</td>
+              </tr>
+              <tr>
+                <td>Coupon Points</td>
+                <td>{{couponpoints}}</td>
+              </tr>
+              <tr>
+                <td>Tier Points</td>
+                <td>{{tierpoints}}</td>
+              </tr>
+              <tr>
+                <td>Other Contest Points</td>
+                <td>{{othercontestpoints}}</td>
+              </tr>
+            </tbody>
+          </table> -->
+              </div>
+            </div>
+            <div class="col-md-12 col-xs-12 col-sm-12  mechani-list" ng-if="!inactive && !used && !inValid && !so">
+              <div style="padding: 10px 20px;">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th colspan="3">{{data.localAppLanguage.current_period}} : {{currentperiod}}</th>
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <th>{{data.localAppLanguage.coupon_scans_qtr}}</th>
+                      <th>{{data.localAppLanguage.vol_qtr}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{data.localAppLanguage.current_achievement}}</td>
+                      <td>{{currentachievementCoupon}}</td>
+                      <td>{{currentachievementVol}}</td>
+                    </tr>
+                    <tr>
+                      <td>{{data.localAppLanguage.balance_for_upgradation_to_next_tier}}</td>
+                      <td>{{upgradationtonexttierCoupon}}</td>
+                      <td>{{upgradationtonexttierVol}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
+</ion-view>
