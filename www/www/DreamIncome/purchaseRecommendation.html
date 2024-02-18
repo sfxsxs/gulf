@@ -1,0 +1,168 @@
+<ion-view>
+  <style>
+    .dataTables_wrapper.no-footer a:focus,
+    .dataTables_wrapper.no-footer a:hover {
+
+      text-decoration: none;
+    }
+
+    table.table.dt-responsive.dataTable.no-footer {
+      width: 100% !important;
+    }
+
+    table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child,
+    table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child {
+      width: 100px;
+    }
+
+    .login-contain form {
+      padding: 30px 20px 20px;
+    }
+
+    .bonus-list img {
+      width: 100px;
+      margin-top: -15px;
+    }
+
+    ul.list-inline.bonus-ul {
+      margin-top: 40px;
+    }
+
+    .bonus-ul h1 {
+      color: #fff;
+      font-size: 30px;
+    }
+
+    .progress {
+      width: 150px;
+      height: 150px;
+      background-color: transparent;
+      -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .1);
+      box-shadow: inset 0 0px 0px rgba(0, 0, 0, .1);
+    }
+
+    .progress .track,
+    .progress .fill {
+      fill: rgba(0, 0, 0, 0);
+      stroke-width: 3;
+      transform: rotate(90deg)translate(0px, -80px);
+    }
+
+    /*.progress .track{
+  stroke: rgb(255, 255, 255);
+}*/
+    .progress .fill {
+      stroke: rgb(255, 255, 255);
+      stroke-dasharray: 219.99078369140625;
+      stroke-dashoffset: -219.99078369140625;
+      transition: stroke-dashoffset 1s;
+    }
+
+    .progress.orange .fill {
+      stroke: rgb(291, 90, 34);
+    }
+
+    .progress .value,
+    .progress .text {
+      font-family: 'Open Sans';
+      fill: rgb(255, 255, 255);
+      text-anchor: middle;
+    }
+
+    .progress .text {
+      font-size: 12px;
+    }
+
+    .noselect {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: default;
+    }
+  </style>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <!-- <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img
+                    class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div> -->
+    <nav-directive></nav-directive>
+
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <p class="text-center" style="    color: #fff;margin-bottom: 15px;margin-top: 15%; font-size: 16px;">
+                Purchase recommendations to help<br> you achieve your goal</p>
+              <div class="login-contain  padding-top-pixel">
+
+                <div class="table-responsive mechani-list product-earning">
+                  <table id="productEarningInDream" class="table dt-responsive">
+                    <thead>
+                      <tr>
+                        <!-- <th></th> -->
+                        <th>Product</th>
+                        <th>Product Sku</th>
+                        <!-- <th>Weekly Target</th> -->
+                        <th>Monthly Target</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                  </table>
+                </div>
+                <div class="form-group text-center" style="margin-top:25px;">
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center">Dream Income Performance</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <form>
+                  <div class="center">
+                    <svg class="progress orange noselect" data-progress="{{per}}" x="0px" y="0px" viewBox="0 0 80 80"
+                      style="    margin-bottom: 0px;">
+                      <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                      <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                      <text class="value" x="50%" y="55%">0%</text>
+                    </svg>
+                  </div>
+                  <div class="form-group text-center username-login">
+                    <p style="margin-top: 20px;">Target Amount Rs. {{target}}<br>Achieved Amount Rs. {{achieved}}</p>
+                    <p>Target Date {{target_date}}<br> {{days}} days to go</p>
+                  </div>
+                  <div class="form-group">
+                    <ul class="list-inline bonus-ul">
+                      <li class="bonus-list"><img src="img/bonus.png" alt="bonus"></li>
+                      <li>
+                        <h1>Rs. {{bonus}}</h1>
+                      </li>
+                    </ul>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+    var forEach = function (array, callback, scope) {
+      for (var i = 0; i < array.length; i++) {
+        callback.call(scope, i, array[i]);
+      }
+    };
+  </script>
+</ion-view>

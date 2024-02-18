@@ -1,0 +1,59 @@
+<ion-view>
+  <style>
+    .add-mechanic-8 {
+      margin-top: 15%;
+    }
+  </style>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img class="img-responsive"
+          src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+    <nav-directive ng-if="!nonMlp"></nav-directive>
+    <non-mlp-header ng-if="nonMlp"></non-mlp-header>
+
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center gulf-h4">Dream Income</h4>
+              <div class="login-contain padding-top-pixel add-mechanic-8 btn-allignment">
+                <form action="" method="" style=" padding:0">
+                  <div class="form-group">
+                    <!-- <input type="text" class="form-control" placeholder="Select milestone date" id="milestoneDateEdit" ng-model="milestoneDateEdit" ng-change="milestoneDateselected()"> -->
+                    <input type="text" class="form-control" placeholder="Select milestone date" id="milestoneDateEdit1"
+                      ng-model="milestoneDateEdit" ng-change="milestoneDateselected()">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Enter amount required" ng-model="amountEdit">
+                    <div style="color: #fff;text-align: center;margin-top:5px;" ng-if="dateSlected">You have potential
+                      to earn Rs.{{potentialAmountEdit}}</div>
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control" rows="5" placeholder="Describe your dream milestone"
+                      ng-model="data.discritionEdit"></textarea>
+                  </div>
+                  <div class="form-group text-center" style="margin-top:25px;">
+                    <button type="button" class="btn gulf-btn signupbtn" ng-click="submitEdit()">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive ng-if="!nonMlp"></footer-directive>
+      <footer-directive-nonmlp ng-if="nonMlp"></footer-directive-nonmlp>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</ion-view>
