@@ -1,0 +1,167 @@
+<style>
+    .popup-buttons {
+        min-height: 55px;
+        width: 300px;
+        margin: 0 auto;
+        padding: 10px 20px;
+    }
+
+
+    .popup-buttons .button {
+        min-height: 30px;
+        line-height: 19px;
+    }
+
+    .popup-container {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .popup-body {
+        padding: 10px !important;
+    }
+
+    .popup-head {
+        padding: 0px 10px;
+    }
+
+    .notification .img-responsive {
+        padding: 10px;
+        position: relative;
+        width: 55px;
+    }
+
+    .notification-1 .img-responsive {
+        padding: 10px;
+        position: relative;
+        width: 48px;
+    }
+
+    .number {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        color: #000;
+        font-size: 13px;
+        min-width: 15px;
+        text-align: center;
+    }
+</style>
+
+<ion-view>
+    <div ng-class="{'home-bg':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+        <div class="notification" ng-if="shownotification"> <a class="pull-right" href="" ng-click="notification()"
+                style="position: relative;">
+                <img class="img-responsive" src="img/notification-4.png" alt=""><span
+                    class="number">{{notificationCount}}</span></a></div>
+
+
+        <div class="notification-1" ng-if="!shownotification"> <a class="pull-right" href="" ng-click="notification()"
+                style=" position: relative;">
+                <img class="img-responsive" src="img/notification-5.png" alt=""></a></div>
+        <nav-directive></nav-directive>
+
+        <section class="section-pad-top" style="margin-top: 12%;">
+            <div class="login-logo" style="position: absolute;left: 50%;margin: 0 auto;
+               transform: translate(-50%, -50%);">
+                <a href=""><img class="img-responsive" src="img/logo.png" alt="blue-bg-with-logo-half"
+                        style="width:120px;"></a>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 welcome-content" style="margin-top: 70px;">
+                        <h4 style="color:#fff;margin-bottom: 20px;">Welcome, {{userName}}</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <ul class="home-image-detail">
+                            <li class="redeem" ng-click="dashboard()">
+                                <a href=""><img class="img-responsive" src="img/dashborad_new.png" alt="dashborad_new">
+                                </a>
+                            </li>
+                            <!-- <li class="redeem" ng-click="addMechanic()">
+                                <img class="img-responsive" src="img/add-mechanics+1.png" alt="redeem-now">
+                            </li> -->
+                            <li class="redeem" ng-click="mechProfile()">
+                                <img class="img-responsive" src="img/mechanic-profile1-bg.png" alt="point structure">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <!-- <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="code-scanner" ng-click="betaPlan()">
+                                    <img class="img-responsive" src="img/Beat-plan.png" alt="code">
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xs-12" style="padding-right:0;">
+                                <div class="transcation-bg">
+                                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-right:0;">
+                                        <div class="bg-color12">
+                                            <div class="bg-color-img"><img class="img-responsive"
+                                                    src="img/product-earning.png" alt="Gulf"></div>
+                                            <div class="bg-color12-content" ng-click="productEarning()"><span>Product
+                                                    Earnings</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-right:0;">
+                                        <div class="bg-color12">
+                                            <div class="bg-color-img"><img class="img-responsive"
+                                                    src="img/gulf-corner.png" alt="refer"></div>
+                                            <div class="bg-color12-content" ng-click="gulfCorner()"><span>Gulf
+                                                    Corner</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-right:0;">
+                                        <div class="bg-color12">
+                                            <div class="bg-color-img"><img class="img-responsive"
+                                                    src="img/verification.png" alt="Gulf"></div>
+                                            <div class="bg-color12-content" ng-click="codeVerification()"><span>Verify
+                                                    Code</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <nav class="navbar  navbar-fixed-bottom">
+                <div class="login-footer">
+                    <div class="container-fluid ">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6 col-sm-6 border-orange">
+                                <ul class="list-inline">
+                                    <li><a href="tel:18001236224"><img class="img-responsive" src="img/phone-call.png"
+                                                alt="code"></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-xs-6 col-sm-6">
+                                <ul class="list-inline pull-right">
+                                    <li><a href="" ng-click="goTofacebook()"><i class="fa fa-facebook-square"
+                                                aria-hidden="true" style="color:#3b5998;font-size: 30px;"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </footer>
+
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</ion-view>

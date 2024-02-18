@@ -1,0 +1,155 @@
+<ion-view>
+
+  <!-- <div ng-class="{'home-bg':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}"> -->
+  <div class="home-bg">
+    <!--<nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <div class="home-logo">
+          <a class="navbar-brand" href=""><img class="img-responsive" src="img/logo.png" alt="blue-bg-with-logo-half"></a>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="">Home</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="">Page 1 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="">Page 1-1</a></li>
+              <li><a href="">Page 1-2</a></li>
+              <li><a href="">Page 1-3</a></li>
+            </ul>
+          </li>
+          <li><a href="">Page 2</a></li>
+          <li><a href="">Page 3</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+ -->
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="home-logo">
+            <a class="navbar-brand" href=""><img class="img-responsive" src="img/logo.png"
+                alt="blue-bg-with-logo-half"></a>
+          </div>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href=""><img class="img-responsive navbar-image" src="img/home-1.png"
+                  alt="home"><span>Home</span></a></li>
+            <li><a href=""><img class="img-responsive navbar-image" src="img/profile.png" alt="profile"><span>My
+                  Profile</span></a></li>
+            <li><a href=""><img class="img-responsive navbar-image" src="img/program-details.png"
+                  alt="program-details"><span>Program Details</span></a></li>
+            <li><a href=""><img class="img-responsive navbar-image" src="img/code.png" alt="code"><span>Code Check
+                  in</span></a></li>
+            <li><a href=""><img class="img-responsive navbar-image" src="img/transaction.png"
+                  alt="transaction"><span>Transaction Summary</span></a></li>
+            <li><a href=""><img class="img-responsive navbar-image" src="img/redeem-gift.png"
+                  alt="redeem-gift"><span>Redeem Gift</span></a></li>
+            <li><a href=""><img class="img-responsive navbar-image" src="img/order.png" alt="order"><span>Order
+                  Status</span></a></li>
+            <li><a href=""><img class="img-responsive navbar-image" src="img/customer.png" alt="customer"><span>My
+                  Customer</span></a></li>
+            <li><a href=""><img class="img-responsive navbar-image" src="img/gulf.png" alt="gulf"><span>Gulf
+                  Corner</span></a></li>
+            <!-- <li><a href=""><img class="img-responsive navbar-image" src="img/refer.png" alt="refer"><span>Refer a Friend</span></a></li> -->
+            <li><a href=""><img class="img-responsive navbar-image" src="img/phone.png" alt="phone"><span>Contact
+                  Us</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="page Section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 welcome-content">
+            <h4>Welcome<br><span>Mr Bunny</span></h4>
+          </div>
+        </div>
+        <div class="clear-both" style="clear:both;"></div>
+        <div class="row padding-bottom-pixel">
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <ul class="home-image-detail">
+              <li class="redeem">
+                <a href=""><img class="img-responsive" src="img/gulf-wallet-2.png" alt="gulf-wallet">
+                  <p class="total-number">XXXX</p>
+                </a>
+              </li>
+              <li class="redeem">
+                <a href=""><img class="img-responsive" src="img/redeem-now.png" alt="product 1" id="myImage"
+                    ng-click="takePicture()"></a>
+              </li>
+              <li class="redeem">
+                <a href=""><img class="img-responsive" src="img/point structure.png" alt="earn points"></a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="code-scanner">
+                  <img class="img-responsive" src="img/Code-2.png" alt="code" ng-click="goToQrCodePage()">
+                </div>
+              </div>
+              <div class="col-md-12  col-sm-12 col-xs-12">
+                <ul class="home-image-detail1">
+                  <li class="bg-color12">
+                    <ul class="list-inline">
+                      <li class="bg-color-img"><img class="img-responsive" src="img/customer.png" alt="code"></li>
+                      <li class="bg-color12-content"><a href="">My Customer</a></li>
+                    </ul>
+                  </li>
+                  <li class="bg-color12">
+                    <ul class="list-inline">
+                      <li class="bg-color-img"><img class="img-responsive" src="img/refer.png" alt="code"></li>
+                      <li class="bg-color12-content"><a href="">Refer a Friend</a></li>
+                    </ul>
+                  </li>
+                  <li class="bg-color12">
+                    <ul class="list-inline">
+                      <li class="bg-color-img"><img class="img-responsive" src="img/gulf.png" alt="code"></li>
+                      <li class="bg-color12-content"><a href="">Gulf Corner</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clear-both" style="clear:both;"></div>
+  <div class="login-footer">
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="col-md-6 col-xs-6 col-sm-6 border-orange">
+          <ul class="list-inline">
+            <li><a href="tel:18001236224"><img class="img-responsive" src="img/phone.png" alt="code"></a></li>
+            <li>Talk to us at</li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-xs-6 col-sm-6">
+          <ul class="list-inline messanger-content">
+            <li>Chat with Us</li>
+            <li class=" messanger"><a href=""><img class="img-responsive" src="img/messanger.png" alt="code"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-view>

@@ -1,0 +1,82 @@
+<style>
+  .btn-allignment .btn {
+    font-size: 13px;
+    ;
+  }
+</style>
+
+<ion-view>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()">
+      <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half">
+      <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png"
+        alt="left-arrow-white"></a></div>
+    <nav-directive ng-if="!isOtherCustomer && !nonMlp"></nav-directive>
+    <non-mlp-header ng-if="!isOtherCustomer && nonMlp"></non-mlp-header>
+
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center gulf-h4">{{data.localAppLanguage.gulf_corner}}</h4>
+              <div class="login-contain padding-top-pixel add-mechanic-8 btn-allignment">
+                <form action="" method="" style=" padding:0">
+                  <div class="form-group">
+                    <a ng-if="modeProject == 'Gulf'" href="" target="_blank" class=" form-control btn gulf-btn signupbtn" style="text-align:left;"
+                      ng-click="programBrochure()"><img src="img/program-brochure.png"
+                        alt="program-brochure">{{data.localAppLanguage.program_brochure}}</a>
+
+                        <a ng-if="modeProject == 'S-oil'" href="" target="_blank" class=" form-control btn gulf-btn signupbtn" style="text-align:left;background-color: #d9aa59;
+                        border: medium none #d9aa59;
+                        color: #000 !important;"
+                        ng-click="programBrochure()"><img src="img/program-brochure.png"
+                          alt="program-brochure">{{data.localAppLanguage.program_brochure}}</a>
+                  </div>
+                  <div class="form-group">
+                    <a ng-if="modeProject == 'Gulf'" href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"
+                      ng-click="recomendationchart()"><img src="img/recommendation-chart.png"
+                        alt="recommendation-chart">{{data.localAppLanguage.recommendation_charts}}</a>
+
+                        <a ng-if="modeProject == 'S-oil'" href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;background-color: #d9aa59;
+                        border: medium none #d9aa59;
+                        color: #000 !important;"
+                      ng-click="recomendationchart()"><img src="img/recommendation-chart.png"
+                        alt="recommendation-chart">{{data.localAppLanguage.recommendation_charts}}</a>
+                  </div>
+                  <div class="form-group">
+                    <a ng-if="modeProject == 'Gulf'" href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"
+                      ng-click="tradeScheme()"><img src="img/VideoGalleryicon.png"
+                        alt="trade-schemes">{{data.localAppLanguage.video_gallery}}</a>
+
+                        <a ng-if="modeProject == 'S-oil'" href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;background-color: #d9aa59;
+                        border: medium none #d9aa59;
+                        color: #000 !important;"
+                        ng-click="tradeScheme()"><img src="img/VideoGalleryicon.png"
+                          alt="trade-schemes">{{data.localAppLanguage.video_gallery}}</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive ng-if="!isOtherCustomer && !nonMlp"></footer-directive>
+      <footer-directive-nonmlp ng-if="!isOtherCustomer && nonMlp"></footer-directive-nonmlp>
+      <!-- <footer-customer-directive ng-if="isOtherCustomer"></footer-customer-directive> -->
+      <!-- <footer-customer-directive ng-if="isOtherCustomer"></footer-customer-directive> -->
+      <channel-partners-footer ng-if="isOtherCustomer"></channel-partners-footer>
+
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</ion-view>

@@ -1,0 +1,125 @@
+<ion-view>
+  <style>
+    .body-bg-1.cp-login {
+      background-image: url(./img/gulf-background-new.png);
+    }
+
+    .login-otp h4 {
+      color: #1f3d8a;
+      margin: 0 auto 30px auto;
+    }
+
+    footer .login-footer {
+      background-color: #004382;
+      /* For browsers that do not support gradients */
+      background-image: linear-gradient(to right, #004382 10%, #0094d6 50%, #004382);
+      /* Standard syntax (must be last) */
+      padding: 8px 0;
+    }
+
+    i.fa.fa-facebook-square {
+      color: #fff !important;
+    }
+
+    .form-control.user-name,
+    .gulf-btn {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      color: #fff !important;
+    }
+
+    .button.button-positive {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    .btn-allignment .btn {
+      font-size: 13px;
+      ;
+    }
+  </style>
+  <div ng-class="{'body-bg-1 cp-login':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()">
+      <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half">
+      <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png"
+        alt="left-arrow-white"></a></div>
+
+    <channel-partners-header></channel-partners-header>
+
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 ng-if="modeProject == 'Gulf'" class="text-center gulf-h4">{{data.localAppLanguage.gulf_corner}}</h4>
+              <h4 ng-if="modeProject == 'S-oil'" style="color: #fff;" class="text-center gulf-h4">
+                {{data.localAppLanguage.gulf_corner}}</h4>
+              <div ng-if="modeProject == 'Gulf'" class="login-contain padding-top-pixel add-mechanic-8 btn-allignment">
+                <form action="" method="" style=" padding:0">
+                  <div class="form-group">
+                    <a href="" target="_blank" class=" form-control btn gulf-btn signupbtn" style="text-align:left;"
+                      ng-click="programBrochure()"><img src="img/program-brochure.png"
+                        alt="program-brochure">{{data.localAppLanguage.program_brochure}}</a>
+                  </div>
+                  <div class="form-group">
+                    <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"
+                      ng-click="recomendationchart()"><img src="img/recommendation-chart.png"
+                        alt="recommendation-chart">{{data.localAppLanguage.recommendation_charts}}</a>
+                  </div>
+                  <div class="form-group">
+                    <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"
+                      ng-click="tradeScheme()"><img src="img/VideoGalleryicon.png"
+                        alt="trade-schemes">{{data.localAppLanguage.video_gallery}}</a>
+                  </div>
+                </form>
+              </div>
+
+              <div ng-if="modeProject == 'S-oil'" class="login-contain padding-top-pixel add-mechanic-8 btn-allignment">
+                <form action="" method="" style=" padding:0">
+                  <div class="form-group">
+                    <a href="" target="_blank" class=" form-control btn gulf-btn signupbtn" style="text-align:left;background-color: #d9aa59;
+                    border: medium none #d9aa59;
+                    color: #000 !important;"
+                      ng-click="programBrochure()"><img src="img/program-brochure.png"
+                        alt="program-brochure">{{data.localAppLanguage.program_brochure}}</a>
+                  </div>
+                  <div class="form-group">
+                    <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;background-color: #d9aa59;
+                    border: medium none #d9aa59;
+                    color: #000 !important;"
+                      ng-click="recomendationchart()"><img src="img/recommendation-chart.png"
+                        alt="recommendation-chart">{{data.localAppLanguage.recommendation_charts}}</a>
+                  </div>
+                  <div class="form-group">
+                    <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;background-color: #d9aa59;
+                    border: medium none #d9aa59;
+                    color: #000 !important;"
+                      ng-click="tradeScheme()"><img src="img/VideoGalleryicon.png"
+                        alt="trade-schemes">{{data.localAppLanguage.video_gallery}}</a>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <!-- <footer-customer-directive ng-if="isOtherCustomer"></footer-customer-directive> -->
+      <!-- <footer-customer-directive ng-if="isOtherCustomer"></footer-customer-directive> -->
+      <channel-partners-footer></channel-partners-footer>
+
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</ion-view>

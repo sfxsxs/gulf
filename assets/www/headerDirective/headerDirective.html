@@ -1,0 +1,117 @@
+<header>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+            <!-- <li ng-if="!so && !otherRole" ng-click="dashboard()"><a href=""><img class="img-responsive" src="img/dashboard.png"
+                        alt="dashboard">Dashboard</a></li> -->
+
+            <!-- <li  ng-click="showPanUpdatePopup()"><a href=""><img class="img-responsive"
+                            src="img/add-mechanic-menu.png" alt="PanUpdatePopup">Update Pan</a></li> -->
+            <li ng-if="!mech && !so && !otherRole" ng-click="addMechanic()"><a href=""><img class="img-responsive"
+                        src="img/add-mechanic-menu.png" alt="add-mechanic">Add Mechanic</a></li>
+            <li ng-if="!mech && !so && !otherRole" ng-click="mechProfile()"><a href=""><img class="img-responsive"
+                        src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">Mechanic Profile</a></li>
+
+            <!-- <li ng-if="!otherRole" ng-click="dreamIncome()"><a href=""><img class="img-responsive"
+                       src="img/product-earning-menu.png" alt="My Customer">Dream Income</a></li> -->
+
+            <!--  <li ng-if="so" ng-click="mechMobileNumberUpdate()"><a href=""><img class="img-responsive"
+                        src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">Edit Mechanic Mobile No.</a>
+            </li> -->
+
+            <!-- <li ng-if="so" ng-click="myGeography()"><a href=""><img class="img-responsive" src="img/pin.png"
+                        alt="mechanic-profile-menu">My Geography</a></li> -->
+
+            <li ng-if="mech" ng-click="myProfile()"><a href=""><img class="img-responsive"
+                        src="img/mechanic-profile-menu.png"
+                        alt="mechanic-profile-menu">{{data.localAppLanguage.my_profile}}</a></li>
+
+            <li ng-if="!mech" ng-click="notification()"><a href=""><img class="img-responsive" src="img/pin.png"
+                        alt="mechanic-profile-menu">{{localAppLanguage.notifications}}</a></li>
+            <li ng-if="mech" ng-click="notification()"><a href=""><img class="img-responsive" src="img/pin.png"
+                        alt="mechanic-profile-menu">{{data.localAppLanguage.notifications}}</a></li>
+
+            <li ng-if="!mech  && !otherRole" ng-click="productEarning()"><a href=""><img class="img-responsive"
+                        src="img/product-earning-menu.png" alt="product-earning-menu">{{localAppLanguage.product_earnings}}</a></li>
+            <li ng-click="couponCode()" ng-if="!otherRole && !so && !mech"><a href=""><img class="img-responsive"
+                        src="img/code-check-in.png" alt="code-check-in">{{data.localAppLanguage.code_check_in}}</a></li>
+            <li ng-if="!otherRole && !mech" ng-click="codeVerification()"><a href=""><img class="img-responsive"
+                        src="img/verification.png" alt="code-check-in">{{localAppLanguage.verify_code}}</a></li>
+            <li ng-if="mech" ng-click="codeVerification()"><a href=""><img class="img-responsive"
+                        src="img/verification.png" alt="code-check-in">{{data.localAppLanguage.verify_code}}</a></li>
+            <!--!mech && !otherRole-->
+            <!-- <li ng-if="otherRole" ng-click="addbeatPlan()"><a href=""><img class="img-responsive" src="img/wave.png"
+                        alt="code-check-in">Add Beat Plan</a></li> -->
+            <!-- <li ng-if="so" ng-click="addbeatPlan()"><a href=""><img class="img-responsive" src="img/wave.png"
+                        alt="code-check-in">Add Beat Plan</a></li> -->
+            <li ng-if="!mech && !so && !otherRole" ng-click="betaPlan()"><a href=""><img class="img-responsive"
+                        src="img/wave.png" alt="code-check-in">{{data.localAppLanguage.beat_plan}}</a></li>
+            <li ng-if="!mech" ng-click="transactionSummary()"><a href=""><img class="img-responsive"
+                        src="img/transaction-summary.png"
+                        alt="transaction-summary">{{localAppLanguage.transaction_summary}}</a></li>
+            <li ng-if="so" ng-click="mechProfile()"><a href=""><img class="img-responsive"
+                        src="img/mechanic-profile-menu.png"
+                        alt="mechanic-profile-menu">{{localAppLanguage.mechanic_profile}}</a></li>
+            <!-- <li ng-if="!mech" ng-click="PendingValidation()"><a href=""><img class="img-responsive" src="img/transaction-summary.png"
+                            alt="transaction-summary">Pending Validation</a></li>
+                            <li ng-if="!mech" ng-click="effortApp()"><a href=""><img class="img-responsive" src="img/transaction-summary.png"
+                                alt="transaction-summary"> Effort App</a></li> -->
+            <li ng-if="!otherRole && !mech && !so"><a href="" ng-click="redeemNow()"><img class="img-responsive"
+                        src="img/redeem-gift.png" alt="redeem-gift">{{data.localAppLanguage.redeem_gift}}</a></li>
+
+            <!-- <li ng-if="!otherRole && !mech && !so && block_status === 'Yes'" disabled><a href=""><img class="img-responsive"
+                        src="img/redeem-gift.png" alt="redeem-gift">{{localAppLanguage.redeem_gift}}</a></li> -->
+
+            <li ng-click="orderStatus()" ng-if="!mech"><a href=""><img class="img-responsive" src="img/order-status.png"
+                        alt="order-status">{{localAppLanguage.order_status}}</a></li>
+            <li ng-click="myorder()" ng-if="mech"><a href=""><img class="img-responsive" src="img/order-status.png"
+                        alt="order-status">{{data.localAppLanguage.my_order}}</a></li>
+            <li ng-click="mycontest()" ng-if="mech"><a href=""><img class="img-responsive" src="img/Contests.png"
+                        alt="order-status">{{data.localAppLanguage.contests}}</a></li>
+            <li ng-if="!mech && !so && !otherRole" ng-click="gulfCorner()"><a href=""><img class="img-responsive"
+                        src="img/gulf-corner-menu.png" alt="gulf-corner-menu">Gulf Corner</a></li>
+            <li ng-if="mech" ng-click="referAFriend()"><a href=""><img class="img-responsive" src="img/refer-friend.png"
+                        alt="refer-friend">{{data.localAppLanguage.refer_a_friend}}</a></li>
+            <li ng-if="mech" ng-click="ReferalReport()"><a href=""><img class="img-responsive"
+                        src="img/product-earning-menu.png" alt="refer-friend">{{data.localAppLanguage.referral_report}}</a>
+            </li>
+
+            <li ng-if="!mech" ng-click="myCustomer()"><a href=""><img class="img-responsive" src="img/customer.png"
+                        alt="My Customer">{{localAppLanguage.my_customer}}</a></li>
+            <li ng-if="mech" ng-click="customerReport()"><a href=""><img class="img-responsive"
+                        src="img/product-earning-menu.png" alt="My Customer">{{data.localAppLanguage.customer_report}}</a>
+            </li>
+
+            <li ng-if="!otherRole && !mech" ng-click="changepassword()"><a href=""><img class="img-responsive"
+                        src="img/product-earning-menu.png" alt="Change Password">{{localAppLanguage.change_password}}</a>
+            </li>
+
+            <!-- <li ng-if="!otherRole && !mech && !so"><a href="tel:18001236224"><img class="img-responsive" src="img/contact-us.png"
+                        alt="contact-us">Contact Us</a></li> -->
+            <li ng-if="mech" ng-click="promocode()"><a href=""><img class="img-responsive" src="img/dashboard.png"
+                        alt="dashboard">{{data.localAppLanguage.amazon_cash_back}}</a></li>
+            <li ng-if="!mech" ng-click="logout()"><a href=""><img class="img-responsive" src="img/logout.png"
+                        alt="Logout" style="width: 40px;">{{localAppLanguage.logout}}</a></li>
+            <li ng-if="mech" ng-click="logout()"><a href=""><img class="img-responsive" src="img/logout.png"
+                        alt="Logout" style="width: 40px;">{{data.localAppLanguage.logout}}</a></li>
+        </ul>
+    </div>
+    <div ng-if="modeProject == 'Gulf' || modeProject == null || modeProject == '' " style="padding:0 15px; "><span
+            style="color:#fe3200!important;font-size:30px;cursor:pointer" onclick="openNav()"><img src="img/menu1.png"
+                alt="menu" style="width:19px;padding-top: 10px;"></span></div>
+
+    <div ng-if="modeProject == 'S-oil'" style="padding:0 15px; "><span
+            style="color:#fe3200!important;font-size:30px;cursor:pointer" onclick="openNav()"><img
+                src="img/Menu-bar-new_Soil.png" alt="menu" style="width:19px;padding-top: 10px;"></span></div>
+
+    <script type="text/javascript">
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+</header>

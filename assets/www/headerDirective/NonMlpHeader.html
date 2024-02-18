@@ -1,0 +1,72 @@
+<header>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+            <!--         
+                    <li ng-click="home()" ><a href=""><img class="img-responsive" src="img/order-status.png" alt="order-status">Home</a></li> -->
+
+            <!-- <li ng-click="couponCode()" ><a href=""><img class="img-responsive" src="img/code-check-in.png" alt="code-check-in">Code Check-in</a></li> -->
+            <!-- <li  ng-click="showPanUpdatePopup()"><a href=""><img class="img-responsive"
+                src="img/add-mechanic-menu.png" alt="PanUpdatePopup">Update Pan</a></li> -->
+            <li ng-click="codeVerification()"><a href=""><img class="img-responsive" src="img/verification.png"
+                        alt="code-check-in">{{data.localAppLanguage.verify_code}}</a></li>
+
+            <!-- <li ng-click="myorder()" ><a href=""><img class="img-responsive" src="img/my-order.png" alt="order-status">My Order</a></li> -->
+            <li ng-click="promocode()"><a href=""><img class="img-responsive" src="img/dashboard.png"
+                        alt="dashboard">{{data.localAppLanguage.amazon_cash_back}}</a></li>
+
+            <!-- <li ng-click="transactionSummaryNonMlp()" ><a href=""><img class="img-responsive" src="img/transaction-summary.png" alt="order-status">View Transaction</a></li> -->
+
+            <!-- <li ng-if="!otherRole"><a href="" ng-click="redeemNow()"><img class="img-responsive" src="img/redeem-gift.png" alt="redeem-gift">Redeem Gift</a></li> -->
+
+
+            <!-- <li ng-if="!otherRole"><a href="" ng-click="BankDetail()"><img class="img-responsive" src="img/redeem-gift.png" alt="redeem-gift">Bank Detail</a></li> -->
+            <!-- <li ng-click="myprofile()" ><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="order-status">My Profile</a></li> -->
+            <li ng-click="notification()"><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png"
+                        alt="mechanic-profile-menu">{{data.localAppLanguage.notifications}}</a></li>
+
+            <!-- <li ng-click="gulfCorner()"><a href=""><img class="img-responsive" src="img/gulf-corner-menu.png" alt="gulf-corner-menu">Gulf Corner</a></li> -->
+
+            <!-- <li ng-click="Contests()"><a href=""><img class="img-responsive" src="img/Contests.png" alt="gulf-corner-menu">Contests</a></li> -->
+            <li ng-click="referAFriendNonMLP()"><a href=""><img class="img-responsive" src="img/refer-friend.png"
+                        alt="refer-friend">{{data.localAppLanguage.refer_a_friend}}</a></li>
+            <li ng-click="ReferalReportNonMLP()"><a href=""><img class="img-responsive"
+                        src="img/product-earning-menu.png"
+                        alt="refer-friend">{{data.localAppLanguage.referral_report}}</a></li>
+
+            <!-- <li ng-if="!otherRole"><a href="tel:18001236224"><img class="img-responsive" src="img/contact-us.png" alt="contact-us">Contact Us</a></li> -->
+            <li ng-click="logout()"><a href=""><img class="img-responsive" src="img/logout.png" alt="Logout"
+                        style="width: 40px;">{{data.localAppLanguage.logout}}</a></li>
+        </ul>
+    </div>
+    <div style="padding:0 15px; " ng-if="modeProject == 'Gulf'">
+        <span style="color:#fe3200!important;font-size:30px;cursor:pointer" onclick="openNav()">
+            <img src="img/Menu-bar-new.png" alt="menu" style="width:19px;padding-top: 10px;">
+        </span>
+        <!-- <div class="notification">
+            <ion-toggle ion-toggle-text ng-true-value="'S-oil'" ng-false-value="'Gulf'" type="modeProject"
+              ng-model="modeProject" class="item" ng-change="modeChange(modeProject)" style="left: 15%;
+              padding-top: 13px;">
+              <b style="position: absolute;
+                color: #000000; margin-left: 20px; padding: 4px;">{{ modeProject || 'Gulf' }}</b>
+            </ion-toggle>
+          </div> -->
+    </div>
+
+    <div style="padding:0 15px; " ng-if="modeProject == 'S-oil'">
+        <span style="color:#fe3200!important;font-size:30px;cursor:pointer" onclick="openNav()">
+            <img src="img/Menu-bar-new_Soil.png" alt="menu" style="width:19px;padding-top: 10px;">
+        </span>
+    </div>
+
+    <script type="text/javascript">
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+</header>

@@ -1,0 +1,587 @@
+<style>
+    .notification .img-responsive {
+        padding: 10px;
+        position: relative;
+        width: 55px;
+    }
+
+    .notification-1 .img-responsive {
+        padding: 10px;
+        position: relative;
+        width: 48px;
+    }
+
+    .number {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        color: #000;
+        font-size: 13px;
+        min-width: 15px;
+        text-align: center;
+    }
+
+    /*Start from here*/
+    /*Start from here*/
+    .login-logo {
+        position: relative;
+    }
+
+    .login-logo img {
+        padding-top: 0;
+    }
+
+    i.fa.fa-facebook-square {
+        color: #FE3200;
+        font-size: 26px;
+    }
+
+    /*li.redeem {
+    width: 100px;
+}*/
+    .code-scanner {
+        /*min-width: 100px;*/
+        position: relative;
+    }
+
+    li.redeem a .redeem-span,
+    .code-scanner a .code-span {
+        position: relative;
+    }
+
+    li.redeem a,
+    .code-scanner a {
+        color: #000;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 500;
+    }
+
+    span.img-name {
+        position: absolute;
+        bottom: -81px;
+        /* bottom: 30px; */
+        left: 50px;
+        transform: translate(-50%, 0px);
+        text-align: center;
+        line-height: 1.1;
+        width: 91px;
+    }
+
+    .code-scanner span.img-name {
+        bottom: 0;
+        transform: translate(-50%, -16px);
+        font-size: 15px;
+        left: 50%;
+    }
+
+    .bg-color12-content span {
+        font-size: 10px;
+    }
+
+    .home-bg {
+        height: 100%;
+        overflow: auto;
+    }
+
+    section.section-pad-top {
+        padding-bottom: 20px;
+    }
+
+    @media screen and (min-width:360px) and (max-width:740px) {
+        .redeem img {
+            width: 118px;
+        }
+
+        span.img-name {
+            /* bottom: -90px; */
+            bottom: 30px !important;
+            left: 57px;
+            width: 92px;
+            font-size: 10px;
+        }
+
+        span.img-name.scan-code {
+            bottom: -5px !important;
+            /* bottom: 30px !important; */
+            left: 50%;
+            width: 92px;
+            font-size: 12px;
+        }
+
+        .redeem.redeem-now span.img-name {
+            bottom: -101px;
+        }
+
+        .redeem img {
+            margin-top: 10px;
+        }
+    }
+
+    @media screen and (min-width:411px) and (max-width:731px) {
+        .redeem img {
+            margin-top: 23px;
+            width: 120px;
+        }
+
+        span.img-name {
+            /* bottom: -103px; */
+            bottom: 30px !important;
+            left: 60px;
+            width: 92px;
+        }
+
+        span.img-name.scan-code {
+            bottom: -5px !important;
+            /* bottom: 30px !important; */
+            left: 50%;
+            width: 92px;
+            font-size: 12px;
+        }
+    }
+
+    .item {
+        border-color: transparent;
+        background-color: transparent;
+        /* color: #fff;
+        position: relative;
+        z-index: 2;
+        display: block;
+        margin: -1px; */
+        padding: 13px 16px 20px;
+        border-width: 0px;
+        /* border-style: transparent; */
+        font-size: 12px;
+    }
+
+    .toggle-small .track{
+        border: 0;
+        width: 70px !important;
+        height: 25px !important;
+        background: #fff;
+
+    }
+
+    .toggle-small .handle {
+        top: 22px;
+        left: 10px;
+        width: 18px;
+        height: 18px;
+        box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
+        background: #009689;
+    }
+
+    /* .toggle .handle {
+        top: inherit;
+    } */
+
+    .item-toggle .toggle {
+        position: initial;
+        top: 0px;
+        right: 16px;
+        z-index: 3;
+    }
+
+    .toggle-small.item-toggle .toggle {
+        top: 0px;
+        padding-top: 10px;
+    }
+
+    .toggle-small input:checked+.track .handle {
+        -webkit-transform: translate3d(65px, 0, 0);
+        transform: translate3d(65px, 0, 0);
+        background: #009689;
+        
+    }
+
+    .toggle-small input:checked+.track {
+        background: #fff;
+    }
+
+    .toggle input:checked+.track .handle {
+        /* -webkit-transform: translate3d(20px, 0, 0); */
+        /* transform: translate3d(20px, 0, 0); */
+        /* background-color: #fff; */
+        left: 8px;
+        /* left: auto !important;
+        right: 10px !important;
+        top: 2px !important; */
+    }
+    @media screen and (min-width: 393px) and (max-width: 851px) {
+        .redeem img {
+            width: 135px;
+        }
+
+        .text-center.img-name1 {
+            text-align: center;
+            position: absolute;
+            width: 118px;
+            /* bottom: 0; */
+            left: 8px;
+            top: 90px;
+            /* transform: translate(7%, 130px); */
+            font-size: 10px;
+        }
+
+        li.redeem a .redeem-span,
+        .code-scanner a .code-span {
+            position: relative;
+        }
+
+        li.redeem {
+            position: relative;
+        }
+    }
+
+    .text-center.img-name1 {
+        text-align: center;
+        position: absolute;
+        width: 118px;
+        left: 8px;
+        top: 90px;
+        font-size: 10px;
+    }
+</style>
+<ion-view cache-view="false">
+    <!-- html for Gulf -->
+    <div ng-if="modeProject == 'Gulf'" class="home-bg">
+
+        <div class="notification" ng-if="shownotification">
+            <a class="pull-right" href="" ng-click="notification()" style="position: relative;">
+                <img class="img-responsive" src="img/notification-4.png" alt="">
+                <span class="number">{{notificationCount}}</span>
+            </a>
+        </div>
+
+
+        <div class="notification-1" ng-if="!shownotification">
+            <a class="pull-right" href="" ng-click="notification()" style="position: relative;">
+                <img class="img-responsive" style="margin: 9px 0;width: 35px;" src="img/notification-5.png" alt="">
+            </a>
+        </div>
+
+        <div class="notification">
+            <span class="pull-right"
+                style="color: #fff !important;padding: 18px 0 18px 5px;position: relative;font-size: 12px;">{{localAppLanguage.tier}}
+                -
+                {{currentTier}}</span>
+        </div>
+
+        <div class="notification">
+            <span class="pull-right" style="color: #fff !important;padding-top: 13px;position: relative;width:100px;">
+                <select class="form-control" ng-model="selectedLanguage"
+                    style="height:34px !important;margin-left: -2px;" ng-change="switchLanguage(selectedLanguage)">
+                    <!-- <option value="" selected="selected">Switch Language</option> -->
+                    <option ng-repeat="x in AvailabelLanguage" value="{{x.lang_name}}">{{x.lang_name}}</option>
+                </select>
+            </span>
+        </div>
+
+        <div class="notification" style="float: right;">
+            <ion-toggle ion-toggle-text ng-true-value="'S-oil'" ng-false-value="'Gulf'" type="modeProject"
+                ng-model="modeProject" class="item" ng-change="modeChange(modeProject)">
+                <b style="position: absolute;
+                color: #000000; margin-left: 20px; padding: 4px;margin-top: 5px;">{{ modeProject || 'Gulf' }}</b>
+            </ion-toggle>
+        </div>
+
+        <nav-directive></nav-directive>
+
+        <section class="section-pad-top home-page-1" style="margin-top: 12%;">
+            <div class="login-logo" style="position: absolute;left: 50%;margin:6% auto 0;
+               transform: translate(-50%, -50%);">
+                <a href="">
+                    <img class="img-responsive" src="img/logo.png" alt="blue-bg-with-logo-half" style="width:120px;">
+                </a>
+            </div>
+
+            <div class="container-fluid" style="margin-top:5%;">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 welcome-content" style="margin-top:55px;">
+                        <h4 style="color:#fff;">{{localAppLanguage.welcome}}, {{userName}}</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <ul class="home-image-detail">
+                            <li class="redeem" ng-click="redeemNow()">
+                                <a href=""><span class="redeem-span">
+                                        <img class="img-responsive" src="img/redeem-new-multi2.png" alt="gulf-wallet">
+                                        <span class="img-name1 text-center">{{localAppLanguage.redeem_gift}}
+                                            <div style="margin-top: 2px;"> {{pointBalance}}</div>
+                                        </span>
+                                </a>
+                            </li>
+
+                            <li class="redeem" ng-click="dashboard()">
+                                <a href=""><span class="redeem-span"><img class="img-responsive"
+                                            src="img/my-earnings-multi.png" alt="redeem-now"><span
+                                            class="img-name1 text-center">{{localAppLanguage.my_earnings}}</span></span></a>
+                            </li>
+                            <li class="redeem" ng-click="productEarning()">
+                                <a href=""><span class="redeem-span"><img class="img-responsive"
+                                            src="img/Product-earning-multi.png" alt="point structure"><span
+                                            class="img-name1 text-center">{{localAppLanguage.product_earnings}}</span></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="code-scanner" ng-click="couponCode()">
+                                    <img class="img-responsive" src="img/scan-code-multi.png" alt="code">
+                                    <span class="img-name scan-code">{{localAppLanguage.scan_code}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xs-12" style="padding-right:0;">
+                                <div class="transcation-bg">
+                                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-right:0;">
+                                        <div class="bg-color12">
+                                            <div class="bg-color-img"><img class="img-responsive" src="img/customer.png"
+                                                    alt="Customer"></div>
+                                            <div class="bg-color12-content" ng-click="planner()">
+                                                <span>{{localAppLanguage.my_customer}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-right:0;">
+                                        <div class="bg-color12">
+                                            <div class="bg-color-img"><img class="img-responsive"
+                                                    src="img/product-earning.png" alt=""></div>
+                                            <div class="bg-color12-content" ng-click="transactionSummary()">
+                                                <span>{{localAppLanguage.point_statement}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-right:0;">
+                                        <div class="bg-color12">
+                                            <div class="bg-color-img"><img class="img-responsive"
+                                                    src="img/gulf-corner.png" alt="Gulf-corner"></div>
+                                            <div class="bg-color12-content" ng-click="gulfCorner()">
+                                                <span>{{localAppLanguage.gulf_corner}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <nav class="navbar  navbar-fixed-bottom">
+                <div class="login-footer">
+                    <div class="container-fluid ">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4 col-sm-4 border-orange">
+                                <ul class="list-inline">
+                                    <li><a href="tel:18001236224"><img class="img-responsive" src="img/phone-call.png"
+                                                alt="code"></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-xs-4 col-sm-4 border-orange">
+                                <ul class="list-inline text-center">
+                                    <li><a href="" ng-click="goTofacebook()"><i class="fa fa-facebook-square"
+                                                aria-hidden="true" style="color:#3b5998;font-size: 30px;"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-xs-4 col-sm-4 chat-footer">
+                                <ul class="list-inline">
+                                    <li class="pull-right"><a href="" ng-click="goTOchatBoxHome()"><img
+                                                class="img-responsive" src="img/chat-box.png" alt="code"
+                                                style="width: 38px;margin-top: 2px;"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </footer>
+    </div>
+
+    <!-- html for S-Oil -->
+    <div ng-if="modeProject == 'S-oil'" class="home-bg_mode">
+
+        <div class="notification" ng-if="shownotification">
+            <a class="pull-right" href="" ng-click="notification()" style="position: relative;">
+                <img class="img-responsive" src="img/bell_Soil.png" alt="">
+                <span class="number">{{notificationCount}}</span>
+            </a>
+        </div>
+
+
+        <div class="notification-1" ng-if="!shownotification">
+            <a class="pull-right" href="" ng-click="notification()" style="position: relative;">
+                <img class="img-responsive" style="margin: 9px 0;width: 35px;" src="img/bell_Soil.png" alt="">
+            </a>
+        </div>
+
+        <div class="notification">
+            <span class="pull-right"
+                style="color: #fff !important;padding: 18px 0 18px 5px;position: relative;font-size: 12px;">{{localAppLanguage.tier}}
+                -
+                {{currentTier}}</span>
+        </div>
+
+        <div class="notification">
+            <span class="pull-right" style="color: #fff !important;padding-top: 13px;position: relative;width:100px;">
+                <select class="form-control" ng-model="selectedLanguage"
+                    style="height:34px !important;margin-left: -2px;" ng-change="switchLanguage(selectedLanguage)">
+                    <option value="" selected="selected">Switch Language</option>
+                    <option ng-repeat="x in AvailabelLanguage" value="{{x.lang_name}}">{{x.lang_name}}</option>
+                </select>
+            </span>
+        </div>
+
+        <div class="notification" style="float: right;">
+            <ion-toggle ion-toggle-text ng-true-value="'S-oil'" ng-false-value="'Gulf'" type="modeProject"
+                ng-model="modeProject" class="item" ng-change="modeChange(modeProject)">
+                <b style="position: absolute;
+                color: #000000; margin-left: 20px; padding: 4px;margin-top: 5px;">{{ modeProject || 'Gulf' }}</b>
+            </ion-toggle>
+        </div>
+
+        <nav-directive></nav-directive>
+
+        <section class="section-pad-top home-page-1" style="width: 100%;">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6 welcome-content">
+                        <div class="login-logo1" style="margin-bottom: 15px;margin-top: 35px">
+                            <a>
+                                <img class="img-responsive" style="width: 150px;" src="img/Soil_logo.png"
+                                    alt="Soil_logo">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-6 welcome-content">
+                        <div class="login-logo1" style="margin-bottom: 15px;">
+                            <a>
+                                <img class="img-responsive" style="height: 150px;margin: 0 auto;" src="img/cartoon.png"
+                                    alt="cartoon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12" style="color:#ffffff;margin:0 auto;">
+                        <h4 style="color:#fff;">{{localAppLanguage.welcome}}, {{userName}}</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <ul class="home-image-detail">
+                            <li class="redeem" ng-click="redeemNow()">
+                                <a href=""><span class="redeem-span">
+                                        <img class="img-responsive" src="img/redeem-now-langg_Soil.png"
+                                            alt="gulf-wallet">
+                                            <span class="img-name1 text-center" style="color:#000;">{{localAppLanguage.redeem_gift}}
+                                                <div style="margin-top: 2px; color:#000;"> {{pointBalance}}</div>
+                                            </span>
+                                </a>
+                            </li>
+                            <li class="redeem" ng-click="dashboard()">
+                                <a href=""><span class="redeem-span"><img class="img-responsive"
+                                            src="img/my-earnings-multi_Soil.png" alt="redeem-now"><span
+                                            class="img-name1 text-center" style="color:#000;">{{localAppLanguage.my_earnings}}</span></span></a>
+                            </li>
+                            <li class="redeem" ng-click="productEarning()">
+                                <a href=""><span class="redeem-span"><img class="img-responsive"
+                                            src="img/Product-earning-multi_Soil.png" alt="point structure"><span
+                                            class="img-name1 text-center" style="color:#000;">{{localAppLanguage.product_earnings}}</span></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="code-scanner" ng-click="couponCode()">
+                                    <img class="img-responsive" src="img/scan-code-multiple.png" alt="code">
+                                    <span class="img-name scan-code">{{localAppLanguage.scan_code}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xs-12" style="padding-right:0;">
+                                <div class="transcation-bg">
+                                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-right:0;">
+                                        <div class="bg-color12">
+                                            <div class="bg-color-img"><img class="img-responsive"
+                                                    src="img/my-customer-Soil.png" alt="Customer"></div>
+                                            <div class="bg-color12-content" ng-click="planner()">
+                                                <span>{{localAppLanguage.my_customer}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-right:0;">
+                                        <div class="bg-color12">
+                                            <div class="bg-color-img"><img class="img-responsive"
+                                                    src="img/product-earning_Soil.png" alt=""></div>
+                                            <div class="bg-color12-content" ng-click="transactionSummary()">
+                                                <span>{{localAppLanguage.point_statement}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-right:0;">
+                                        <div class="bg-color12">
+                                            <div class="bg-color-img"><img class="img-responsive"
+                                                    src="img/gulf-corner_Soil.png" alt="Gulf-corner"></div>
+                                            <div class="bg-color12-content" ng-click="gulfCorner()">
+                                                <span>{{localAppLanguage.gulf_corner}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <nav class="navbar  navbar-fixed-bottom">
+                <div class="login-footer">
+                    <div class="container-fluid ">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4 col-sm-4 border-orange">
+                                <ul class="list-inline">
+                                    <li><a href="tel:18001236224"><img class="img-responsive"
+                                                src="img/phone-call_Soil.png" alt="code"></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-xs-4 col-sm-4 border-orange">
+                                <ul class="list-inline text-center">
+                                    <li><a href="" ng-click="goTofacebook()"><i class="fa fa-facebook-square"
+                                                aria-hidden="true" style="color:#3b5998;font-size: 30px;"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-xs-4 col-sm-4 chat-footer">
+                                <ul class="list-inline">
+                                    <li class="pull-right"><a href="" ng-click="goTOchatBoxHome()"><img
+                                                class="img-responsive" src="img/messanger_Soil.png" alt="code"
+                                                style="width: 38px;margin-top: 2px;"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </footer>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</ion-view>

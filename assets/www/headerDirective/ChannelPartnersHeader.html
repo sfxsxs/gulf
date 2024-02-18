@@ -1,0 +1,41 @@
+<header>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+
+
+
+            <li ng-click="openTransactionSummary()"><a href=""><img class="img-responsive"
+                        src="img/transaction-summary.png" alt="order-status">{{data.localAppLanguage.point_statement}}</a>
+            </li>
+
+            <li><a href="" ng-click="CPgulfCorner()"><img class="img-responsive" src="img/redeem-gift.png"
+                        alt="redeem-gift">{{data.localAppLanguage.gulf_corner}}</a></li>
+            <!--  <li ><a href="" ng-click="nearByMachinc()"><img class="img-responsive" src="img/redeem-gift.png" alt="redeem-gift">Near By</a></li>
+ -->
+            <li ng-click="promocode()"><a href=""><img class="img-responsive" src="img/dashboard.png"
+                        alt="dashboard">{{data.localAppLanguage.amazon_cash_back}}</a></li>
+
+            <li ng-click="logout()"><a href=""><img class="img-responsive" src="img/logout.png" alt="Logout"
+                        style="width: 40px;">{{data.localAppLanguage.logout}}</a></li>
+        </ul>
+    </div>
+    <div style="padding:0 15px; " ng-if="modeProject == 'Gulf'"><span
+            style="color:#fe3200!important;font-size:30px;cursor:pointer" onclick="openNav()"><img
+                src="img/Menu-bar-new.png" alt="menu" style="width:19px;padding-top: 10px;"></span> </div>
+                
+    <div style="padding:0 15px; " ng-if="modeProject == 'S-oil'"><span
+            style="color:#fe3200!important;font-size:30px;cursor:pointer" onclick="openNav()"><img
+                src="img/Menu-bar-new_Soil.png" alt="menu" style="width:19px;padding-top: 10px;"></span> </div>
+
+    <script type="text/javascript">
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+</header>

@@ -1,0 +1,145 @@
+<ion-view>
+  <style>
+    .body-bg-1.cp-login {
+      background-image: url(./img/gulf-background-new.png);
+    }
+
+    .login-otp h4 {
+      color: #1f3d8a;
+      margin: 0 auto 30px auto;
+    }
+
+    #fromdate,
+    #todate {
+      border: 1px solid #1f3d8a;
+      border-radius: 4px;
+    }
+
+    .form-control {
+      border-radius: 4px;
+    }
+
+    footer .login-footer {
+      background-color: #004382;
+      /* For browsers that do not support gradients */
+      background-image: linear-gradient(to right, #004382 10%, #0094d6 50%, #004382);
+      /* Standard syntax (must be last) */
+      padding: 8px 0;
+    }
+
+    i.fa.fa-facebook-square {
+      color: #fff !important;
+    }
+
+    .form-control.user-name,
+    .gulf-btn {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      color: #fff !important;
+    }
+
+    .mechani-list thead {
+      background-color: #1f3d8a;
+    }
+
+    .button.button-positive {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      border-radius: 10px;
+      color: #fff;
+    }
+  </style>
+  <div ng-class="{'body-bg-1 cp-login':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img class="img-responsive"
+          src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+
+    <channel-partners-header></channel-partners-header>
+    <!-- <nav-directive></nav-directive> -->
+    <!-- <header>
+      <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <ul>
+    <li  ng-click="dashboard()"><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">Dashboard</a></li>
+          
+           <li ng-if="so" ng-click="addMechanic()"><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">Add Mechanic</a></li>
+      <li ng-if="so" ng-click="mechProfile()"><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">Mechanic Profile</a></li>
+          
+            <li ng-if="mech" ng-click="myProfile()"><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">My Profile</a></li>
+      <li ng-click="productEarning()"><a href=""><img class="img-responsive" src="img/product-earning-menu.png" alt="product-earning-menu">Product Earning</a></li>
+      <li ng-click="couponCode()"><a href=""><img class="img-responsive" src="img/code-check-in.png" alt="code-check-in">Code Check In</a></li>
+      <li ng-click="transactionSummary()"><a href=""><img class="img-responsive" src="img/transaction-summary.png" alt="transaction-summary">Transaction Summary</a></li>
+      <li><a href=""><img class="img-responsive" src="img/redeem-gift.png" alt="redeem-gift">Redeem Gift</a></li>
+      <li  ng-if="so"  ng-click="orderStatus()"><a href=""><img class="img-responsive" src="img/order-status.png" alt="order-status">Order Status</a></li>
+          <li ng-click="myorder()" ng-if="mech"><a href=""><img class="img-responsive" src="img/order-status.png" alt="order-status">My order</a></li>
+      <li ng-click="gulfCorner()"><a href=""><img class="img-responsive" src="img/gulf-corner-menu.png" alt="gulf-corner-menu">Gulf Corner</a></li>
+      <li ng-if="mech" ng-click="referAFriend()"><a href=""><img class="img-responsive" src="img/refer-friend.png" alt="refer-friend">Refer a Friend</a></li>
+      <li ><a  href="tel:+918904720084"><img class="img-responsive" src="img/contact-us.png" alt="contact-us">Contact Us</a></li>
+          <li ng-click="logout()"><a href=""><img class="img-responsive" src="img/contact-us.png" alt="contact-us">Logout</a></li>
+    </ul>
+    </div>
+    <div style="padding:0 15px; "><span style="color:#fe3200;font-size:30px;cursor:pointer" onclick="openNav()"><img src="img/menu1.png" alt="menu" style="width:35px"></span> </div>
+  </header> -->
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center gulf-h4">{{data.localAppLanguage.video_gallery}}</h4>
+              <!--           <p class="text-center" style="color:#fff;margin-top
+            :20px;">Two Wheeler Engine oil</p>-->
+              <div class="login-contain text-center padding-top-pixel" style="margin-top: 20px;">
+                <div class="row" ng-repeat="x in AvailableVideo">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="video-gallery" style="margin:0 auto;width:90%;">
+                      <div class="mechanic-phot11" style="background-color: transparent !important;">
+                        <iframe width="260" height="144" ng-src="{{x.gc_youtube_link| trusted}}" frameborder="0"
+                          allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                      </div>
+                      <p>{{x.gc_description}}</p>
+                    </div>
+                  </div>
+                </div>
+                <!--   <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="video-gallery" style="margin:0 auto;width:90%;">
+                    <div class="mechanic-phot11" style="background-color: transparent !important;">
+                      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xmhnNUotIaE?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p>Who is Mr. Pride?<br>Locker</p>
+                  </div>
+                </div>
+              </div>-->
+
+                <div class="table-responsive mechani-list product-earning" ng-show="false">
+                  <table id="productEarning" class="table">
+                    <thead>
+                      <tr>
+                        <th>{{data.localAppLanguage.description}}</th>
+                        <th>{{data.localAppLanguage.view}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+
+      <channel-partners-footer></channel-partners-footer>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</ion-view>

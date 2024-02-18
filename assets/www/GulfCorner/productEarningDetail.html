@@ -1,0 +1,131 @@
+<ion-view>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()">
+      <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half">
+      <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png"
+        alt="left-arrow-white"></a></div>
+    <nav-directive></nav-directive>
+    <!-- <header>
+      <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <ul>
+    <li  ng-click="dashboard()"><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">Dashboard</a></li>
+          
+           <li ng-if="so" ng-click="addMechanic()"><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">Add Mechanic</a></li>
+      <li ng-if="so" ng-click="mechProfile()"><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">Mechanic Profile</a></li>
+          
+            <li ng-if="mech" ng-click="myProfile()"><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">My Profile</a></li>
+      <li ng-click="productEarning()"><a href=""><img class="img-responsive" src="img/product-earning-menu.png" alt="product-earning-menu">Product Earning</a></li>
+      <li ng-click="couponCode()"><a href=""><img class="img-responsive" src="img/code-check-in.png" alt="code-check-in">Code Check In</a></li>
+      <li ng-click="transactionSummary()"><a href=""><img class="img-responsive" src="img/transaction-summary.png" alt="transaction-summary">Transaction Summary</a></li>
+      <li><a href=""><img class="img-responsive" src="img/redeem-gift.png" alt="redeem-gift">Redeem Gift</a></li>
+      <li ng-if="so"  ng-click="orderStatus()"><a href=""><img class="img-responsive" src="img/order-status.png" alt="order-status">Order Status</a></li>
+          <li ng-click="myorder()" ng-if="mech"><a href=""><img class="img-responsive" src="img/order-status.png" alt="order-status">My order</a></li>
+      <li ng-click="gulfCorner()"><a href=""><img class="img-responsive" src="img/gulf-corner-menu.png" alt="gulf-corner-menu">Gulf Corner</a></li>
+      <li ng-if="mech" ng-click="referAFriend()"><a href=""><img class="img-responsive" src="img/refer-friend.png" alt="refer-friend">Refer a Friend</a></li>
+      <li ><a  href="tel:+918904720084"><img class="img-responsive" src="img/contact-us.png" alt="contact-us">Contact Us</a></li>
+          <li ng-click="logout()"><a href=""><img class="img-responsive" src="img/contact-us.png" alt="contact-us">Logout</a></li>
+    </ul>
+    </div>
+    <div style="padding:0 15px; "><span style="color:#fe3200;font-size:30px;cursor:pointer" onclick="openNav()"><img src="img/menu1.png" alt="menu" style="width:35px"></span> </div>
+  </header> -->
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center gulf-h4">{{data.localAppLanguage.product_earnings}}</h4>
+              <p class="text-center" style="color:#fff;margin-top
+            :30px;font-weight: bold;">{{prdocutDetailHeader}}</p>
+              <div class="login-contain  padding-top-pixel">
+                <div class="form-group  col-md-12 col-sm-12 col-xs-12" style="padding:0px">
+                  <!--                  <input type="text" class="form-control"  placeholder="Select Pack Color" ng-model="orderNumber">-->
+                  <div class="col-md-5 col-sm-5 col-xs-5" style="padding-right:0px">
+                    <label style="color:#fff;font-weight: bold;margin-top: 5px;">{{data.localAppLanguage.select_brand}}
+                      :</label>
+                  </div>
+                  <div class="col-md-7 col-sm-7 col-xs-7" id="parentBrand">
+                    <select ng-model="selectedBrand" class="form-control" style="text-transform: capitalize;"
+                      id="brand">
+                      <option value="" selected="selected">{{data.localAppLanguage.select_brand}}</option>
+                      <option ng-repeat="x in AvailabelBrand" value="{{x.pdct_name}}">{{x.pdct_name}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group  col-md-12 col-sm-12 col-xs-12" style="padding:0px">
+                  <!--                  <input type="text" class="form-control"  placeholder="Select Pack Color" ng-model="orderNumber">-->
+                  <div class="col-md-5 col-sm-5 col-xs-5" style="padding-right:0px">
+                    <label
+                      style="color:#fff;font-weight: bold;margin-top: 5px;">{{data.localAppLanguage.select_pack_color}}:</label>
+                  </div>
+                  <div class="col-md-7 col-sm-7 col-xs-7" id="colorParent">
+                    <select ng-model="selectedColor" class="form-control" style="text-transform: capitalize;"
+                      id="color">
+                      <option value="" selected="selected">{{data.localAppLanguage.select_pack_color}}</option>
+                      <option ng-repeat="x in AvailabelColor" value="{{x.pdct_pack_color}}">{{x.pdct_pack_color}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+
+                <div class="form-group text-center col-md-12 col-sm-12 col-xs-12">
+                  <button ng-if="modeProject == 'Gulf'" type="submit" class=" btn gulf-btn signupbtn" style="margin-top:10px;"
+                    ng-click="getProductEarningDetails()">{{data.localAppLanguage.submit}}</button>
+
+                    <button ng-if="modeProject == 'S-oil'" type="submit" class=" btn gulf-btn signupbtn" style="margin-top:10px;background-color: #d9aa59;
+                    border: medium none #d9aa59; color: #000 !important;margin-bottom: 30px;"
+                    ng-click="getProductEarningDetails()">{{data.localAppLanguage.submit}}</button>
+                </div>
+
+                <div ng-if="modeProject == 'Gulf'" class="table-responsive mechani-list product-earning">
+                  <table id="productEarning" class="table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>{{data.localAppLanguage.brand}}</th>
+                        <th>{{data.localAppLanguage.pack_size}}</th>
+                        <th>{{data.localAppLanguage.points}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <div ng-if="modeProject == 'S-oil'" class="table-responsive mechani-list product-earning">
+                  <table id="productEarning" class="table">
+                    <thead style="background-color: #d9aa59;">
+                      <tr>
+                        <th style="color: #000;"></th>
+                        <th style="color: #000;">{{data.localAppLanguage.brand}}</th>
+                        <th style="color: #000;">{{data.localAppLanguage.pack_size}}</th>
+                        <th style="color: #000;">{{data.localAppLanguage.points}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</ion-view>

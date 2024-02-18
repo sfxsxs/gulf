@@ -1,0 +1,69 @@
+
+<nav class="navbar  navbar-fixed-bottom" >
+    <div ng-if="modeProject == 'Gulf'" class="login-footer">
+        <div class="container-fluid ">
+
+            <div class="row">
+                <div class="col-md-4 col-xs-4 col-sm-4 border-orange">
+                    <ul class="list-inline">
+                        <li><a href="tel:18001236224"><img class="img-responsive" src="img/phone-call.png"
+                                    alt="code"></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-xs-4 col-sm-4 border-orange">
+                    <ul class="list-inline text-center">
+                        <li><a href="" ng-click="goTofacebook()"><i class="fa fa-facebook-square" aria-hidden="true"
+                                    style="color:#3b5998;font-size: 30px;"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-xs-4 col-sm-4 chat-footer">
+                    <ul class="list-inline">
+                        <li class="pull-right"><a href="" ng-click="home()"><img class="img-responsive"
+                                    src="img/home.png" alt="code"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div ng-if="modeProject == 'S-oil'"  class="login-footer" style="background-color: #fff;
+    background-image: none;">
+        <div class="container-fluid ">
+
+            <div class="row">
+                <div class="col-md-4 col-xs-4 col-sm-4 border-orange">
+                    <ul class="list-inline">
+                        <li><a href="tel:18001236224">
+                            <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/phone-call.png"
+                                    alt="code">
+
+                                    <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/phone-call_Soil.png"
+                                    alt="code">
+                                </a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-xs-4 col-sm-4 border-orange">
+                    <ul class="list-inline text-center">
+                        <li><a href="" ng-click="goTofacebook()"><i class="fa fa-facebook-square" aria-hidden="true"
+                                    style="color:#3b5998 !important;font-size: 30px;"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 col-xs-4 col-sm-4 chat-footer">
+                    <ul class="list-inline">
+                        <li class="pull-right"><a href="" ng-click="home()">
+                            <img ng-if="modeProject == 'Gulf'" class="img-responsive"
+                                    src="img/home.png" alt="code">
+
+                                    <img ng-if="modeProject == 'S-oil'" class="img-responsive"
+                                    src="img/home_Soil.png" alt="code">
+                                </a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</nav>
