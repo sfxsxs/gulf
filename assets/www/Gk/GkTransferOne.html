@@ -1,0 +1,68 @@
+<ion-view>
+  <link rel="stylesheet" href="lib/datePicker/jquery-ui.css">
+  <script type="text/javascript" src="lib/datePicker/jquery-ui.js"></script>
+  <style>
+    .balance-transfer-img img.img-responsive {
+      margin: 0 auto;
+      width: 150px;
+    }
+  </style>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}" id="top">
+    <section class="section-pad-top">
+      <div class="container-fluid">
+        <div class="login-otp">
+          <div class="row">
+            <div class="login-contain padding-top-pixel Mechanic-max-height">
+              <form method="" class="add-mechanic-details">
+                <div class="form-group">
+                  <div class="col-md-12 col-sm-12 col-xs-12 text-center balance-transfer-img" style="margin-top: 15%;">
+                    <img class="img-responsive" src="img/thank-you-notification.png" alt="thank-you-notification">
+                  </div>
+                </div>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top:20px;">
+                  <p>Your Bank Account Verification<br>is in process!!</p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav class="navbar  navbar-fixed-bottom">
+        <div class="login-footer">
+          <div class="container-fluid ">
+            <div class="row">
+              <div class="col-md-6 col-xs-6 col-sm-6 border-orange">
+                <ul class="list-inline">
+                  <li><a href="tel:+9118001236224"><img class="img-responsive" src="img/phone-call.png" alt="code"></a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </nav>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+
+    function maxLengthCheck(object) {
+      if (object.value.length > object.max.length)
+        object.value = object.value.slice(0, object.max.length)
+    }
+
+    function blockSpecialChar(e) {
+      var k = e.keyCode;
+      return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || (k >= 48 && k <= 57));
+    }
+  </script>
+</ion-view>

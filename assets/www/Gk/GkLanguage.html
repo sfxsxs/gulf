@@ -1,0 +1,282 @@
+<ion-view>
+  <link rel="stylesheet" href="lib/datePicker/jquery-ui.css">
+  <script type="text/javascript" src="lib/datePicker/jquery-ui.js"></script>
+  <style>
+    .popup-container.popup-showing {
+      margin-top: 19% !important;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+      padding-left: 0px;
+      background-color: transparent;
+    }
+
+    .Mechanic-max-height .radio label {
+      line-height: normal !important;
+    }
+
+    input[type=radio] {
+      margin: 0px 0 0;
+    }
+
+    .radio {
+      margin-top: 12px;
+    }
+
+    .checkbox input[type=checkbox],
+    .checkbox-inline input[type=checkbox],
+    .radio input[type=radio],
+    .radio-inline input[type=radio] {
+      margin-top: 3px;
+    }
+
+    span.user-type {
+      font-size: 18px;
+    }
+
+    input[type=radio] {
+      width: 15px;
+      height: 15px;
+    }
+
+    .Mechanic-max-height label {
+      height: 40px;
+    }
+
+    label.checkbox-inline {
+      font-size: 16px;
+    }
+
+    footer .login-footer {
+      background-color: #EB5B24;
+      position: relative;
+    }
+
+
+
+    .checkbox-inline,
+    .checkbox-inline a {
+      color: #000A47;
+    }
+
+    .gulf-btn {
+      background-color: #000A47;
+      padding: 6px 25px;
+      font-size: 16px;
+    }
+
+    input[type=checkbox] {
+      width: 17px;
+      height: 17px;
+      background-color: green;
+    }
+
+    .checkbox-inline input[type=checkbox] {
+      margin-left: -25px;
+    }
+
+    .body-bg-1 {
+      background-image: url(./img/APP-PAGES-045.png);
+    }
+
+    span.user-type {
+      font-size: 18px;
+      color: #000A47;
+      font-weight: bold;
+    }
+
+    .login-otp {
+      padding-top: 30%;
+    }
+
+    .login-otp h4 {
+      color: #000A47;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .navbar-brand {
+      padding: 22px 15px;
+    }
+
+    .Mechanic-max-height .gulf-btn {
+      margin-left: -15%;
+    }
+
+    @media screen and (min-width:320px) and (max-width:359px) {
+      .navbar-brand {
+        padding: 13px 15px;
+        font-size: 15px;
+      }
+    }
+
+    @media screen and (min-width:320px) and (max-width:640px) {
+      footer .login-footer {
+        padding-top: 8px !important;
+      }
+    }
+
+    @media screen and (min-width:411px) and (max-width:823px) {
+      footer .login-footer {
+        padding-top: 6px !important;
+      }
+
+      .checkbox-inline,
+      .checkbox-inline a {
+        font-size: 17px;
+      }
+
+      .navbar-brand {
+        padding: 27px 15px;
+      }
+    }
+
+    /******Custom Radio Button starts *********/
+    .Mechanic-max-height label {
+      line-height: normal;
+    }
+
+    .radio-custom {
+      opacity: 0;
+      position: absolute;
+    }
+
+    .radio-custom,
+    .radio-custom-label {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .radio-custom-label {
+      position: relative;
+    }
+
+    .radio-custom+.radio-custom-label:before {
+      content: '';
+      background: #EB5B24;
+      border: 2px solid #EB5B24;
+      display: inline-block;
+      vertical-align: middle;
+      width: 20px;
+      height: 20px;
+      padding: 2px;
+      margin-right: 10px;
+      text-align: center;
+      margin-top: -5px;
+    }
+
+    .radio-custom+.radio-custom-label:before {
+      border-radius: 50%;
+    }
+
+    .radio-custom:checked+.radio-custom-label:before {
+      content: "\f00c";
+      font-family: 'FontAwesome';
+      color: #fff;
+    }
+
+
+    /******Custom Radio Button Ends*********/
+
+    .button.ng-binding.button-positive {
+      background-color: #000A47 !important;
+    }
+
+    .popup-body span,
+    .popup-title {
+      color: #000A47;
+      font-weight: bold;
+    }
+  </style>
+  <nav class="navbar navbar-fixed-top non-mlp-header">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <div id="top" ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <section class="section-pad-top">
+      <div class="container-fluid">
+        <div class="login-otp">
+          <div class="row">
+            <h4 class="text-center gulf-h4">Select Language</h4>
+            <div class="login-contain padding-top-pixel Mechanic-max-height">
+              <form method="" class="add-mechanic-details">
+                <div class="form-group">
+                  <div class="col-md-3 col-sm-3 col-xs-3">
+                    <label for="user-name" style="font-weight: bold;font-size:18px;"></label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div ng-repeat="x in listOfLanguages">
+                      <input id="{{$index}}" class="radio-custom" name="radio-group" type="radio"
+                        ng-model="data.userSelectedLanguage" value="{{x}}">
+                      <label for="{{$index}}" class="radio-custom-label"><span class="user-type">{{x}}</span></label>
+                    </div>
+
+
+                  </div>
+                </div>
+
+
+                <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                  <button type="button" class=" btn gulf-btn signupbtn " ng-click="submitLanguage()">Next</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav class="navbar  navbar-fixed-bottom">
+        <div class="login-footer">
+          <div class="container-fluid ">
+            <div class="row">
+              <div class="col-md-12 col-xs-12 col-sm-12 border-orange">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </footer>
+
+  </div>
+  <script>
+    $(function () {
+      $(".radio-custom").css("background-color", "yellow");
+    });
+
+
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+
+    function maxLengthCheck(object) {
+      if (object.value.length > object.max.length)
+        object.value = object.value.slice(0, object.max.length)
+    }
+
+    function maxLengthCheckPhoneNumber(object) {
+      if (object.value.length > object.max.length)
+        object.value = object.value.slice(0, object.max.length)
+    }
+
+    function blockSpecialChar(e) {
+      var k = e.keyCode;
+      console.log(e.length);
+      console.log("keyup");
+
+      return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || (k >= 48 && k <= 57));
+    }
+  </script>
+</ion-view>
