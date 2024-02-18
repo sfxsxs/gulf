@@ -1,0 +1,114 @@
+<ion-view>
+ <script src="lib/datePicker/bootstrap-datepicker.js"></script>
+    <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+        <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()">
+            <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half">
+            <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png"
+              alt="left-arrow-white">
+            </a></div>
+        <nav-directive></nav-directive>
+
+        <section class="section-pad-top">
+            <div class="container">
+                <div class=" login-otp">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <h4 class="text-center gulf-h4">Dashboard</h4>
+                            <div class="login-contain padding-top-pixel">
+                                <form method="" class="dashboard" style=" padding: 10px 20px;">
+                                    <!-- <div class="form-group" ng-if="so">
+                                        <img class="dashboard-img img-responsive" ng-src="{{dashboardImg}}" alt="dashboard-1">
+                                    </div> -->
+                                           <div class="form-group"  ng-show="so">
+                                        <div class="col-md-6 col-sm-6 col-xs-6 date-img" style="position: relative;">
+                                            <div class='input-group date' id="fromdateDashBoard">
+                                                <input type="text" class="form-control" placeholder="From Date" style="padding:6px 2px;height:30px;" ng-model="fromdate" readonly>
+                                                <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                             </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 date-img" style="position: relative;">
+                                            <div class='input-group date' id="todateDashBoard">
+                                                <input type="text" class="form-control" placeholder="To Date" style="padding:6px 2px;height:30px;" ng-model="todate" readonly>
+                                                <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                             </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div  ng-if="so" class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                                    <button type="button" class=" btn gulf-btn signupbtn" ng-click="getDashboardDetail()" style="margin-top: 15px;">Submit</button>
+                                </div>
+                                    <!-- <div class="form-group" ng-if="false">
+                                        <textarea class="form-control" rows="5" id="comment" ng-disabled="true">{{flashNews}}</textarea>
+                                    </div> -->
+                                    <!-- <div class="form-group" ng-click="mechListValidation()"  ng-if="so">
+                                        <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/mechanic-pending-validation.png" alt="mechanic-pending-validation">Mechanics Pending Validation {{pendingValidation}}</a>
+                                    </div> -->
+                                    <div class="form-group" ng-click="MechProfile()">
+                                        <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/Mechanics-Validated.png" alt="mechanic-validated">Mechanics Validated {{validated}}</a>
+                                    </div>
+                                    <div class="form-group" ng-click="activeMechanic()">
+                                        <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/active-mechanic.png" alt="mechanic-validated">Active Mechanics {{activeMechanics}}</a>
+                                    </div>
+                                     <div class="form-group" ng-click="inactiveMechanic()">
+                                        <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/inactive.png" >Inactive Mechanics {{inActiveMechanics}}</a>
+                                    </div>
+                                    <div class="form-group" ng-click="volumeAchieved()">
+                                        <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/volume-archived.png" alt="mechanic-validated" style="width: 15px;">Total Volumes Achieved {{totalVolume}} L</a>
+                                    </div>
+                                    <div class="form-group" ng-click="codeCheckedList()">
+                                        <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/code-checked-in-111.png" alt="mechanic-validated">Codes Checked-in {{codesChecked}}</a>
+                                    </div>
+                                    <div class="form-group" ng-click="scanNextCode()">
+                                        <a href="" class=" form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/earned-points.png" alt="earned-points" style="width:16px;">Points Earned {{PointsEarned}}</a>
+                                    </div>
+                                    <div class="form-group"  ng-if="otherRole">
+                                        <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/volume-archived.png" alt="mechanic-validated" style="width: 15px;">MCO {{Mco}} </a>
+                                    </div>
+                                    <div class="form-group"  ng-if="otherRole">
+                                        <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/volume-archived.png" alt="mechanic-validated" style="width: 15px;">DEO {{Deo}} </a>
+                                    </div>
+                                    <div class="form-group" ng-if="otherRole">
+                                        <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/volume-archived.png" alt="mechanic-validated" style="width: 15px;">PCMO {{Pcmo}} </a>
+                                    </div>
+
+                                    <div class="form-group"   ng-if="so" ng-click="tierMechanicBlue()">
+                                        <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/mechanic-pending-validation.png" alt="mechanic-pending-validation">Blue {{Blue}}</a>
+                                    </div>
+                                    <div class="form-group"   ng-if="so" ng-click="tierMechanicSilver()">
+                                        <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/mechanic-pending-validation.png" alt="mechanic-pending-validation">Silver {{Silver}}</a>
+                                    </div>
+                                    <div class="form-group"   ng-if="so" ng-click="tierMechanicGold()">
+                                        <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/mechanic-pending-validation.png" alt="mechanic-pending-validation">Gold {{Gold}}</a>
+                                    </div>
+                                    <div class="form-group"   ng-if="so" ng-click="tierMechanicPlatinum()">
+                                            <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/mechanic-pending-validation.png" alt="mechanic-pending-validation">Platinum {{Platinum}}</a>
+                                    </div>
+                                   
+                                    <div class="form-group"   ng-if="so" ng-click="tierMechanicTitanium()">
+                                            <a href="" class="form-control btn gulf-btn signupbtn" style="text-align:left;"><img src="img/mechanic-pending-validation.png" alt="mechanic-pending-validation">Titanium {{Titanium}}</a>
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <footer-directive></footer-directive>
+
+        </footer>
+    </div>
+    <script>
+        function openNav() {
+           document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+</ion-view>

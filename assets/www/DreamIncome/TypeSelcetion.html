@@ -1,0 +1,101 @@
+<ion-view>
+    <link rel="stylesheet" href="lib/datePicker/jquery-ui.css">
+    <script type="text/javascript" src="lib/datePicker/jquery-ui.js"></script>
+    <style>
+        .popup-container.popup-showing {
+            margin-top: 19% !important;
+        }
+
+        .select2-container .select2-selection--single .select2-selection__rendered {
+            padding-left: 0px;
+            background-color: transparent;
+        }
+
+        .Mechanic-max-height .radio label {
+            line-height: normal !important;
+        }
+
+        input[type=radio] {
+            margin: 0px 0 0;
+        }
+
+        .radio {
+            margin-top: 12px;
+        }
+
+        .checkbox input[type=checkbox],
+        .checkbox-inline input[type=checkbox],
+        .radio input[type=radio],
+        .radio-inline input[type=radio] {
+            margin-top: 3px;
+        }
+
+        span.user-type {
+            font-size: 18px;
+        }
+
+        input[type=radio] {
+            width: 15px;
+            height: 15px;
+        }
+
+        .Mechanic-max-height label {
+            height: 40px;
+        }
+
+        label.checkbox-inline {
+            font-size: 16px;
+        }
+    </style>
+
+    <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+        <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img
+                    class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+        <nav-directive></nav-directive>
+
+        <section class="section-pad-top">
+            <div class="container">
+                <div class=" login-otp">
+                    <div class="row">
+                        <h4 class="text-center gulf-h4">Choose Vehicle Type</h4>
+                        <div class="login-contain padding-top-pixel Mechanic-max-height">
+                            <form method="" class="add-mechanic-details">
+                                <div class="form-group">
+                                    <div class="col-md-4 col-sm-4 col-xs-4">
+                                        <label for="user-name" style="font-weight: bold;font-size:18px;"></label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="radio" ng-repeat="x in mechanictype">
+                                            <label><input type="radio" name="optradio" ng-model="data.Type"
+                                                    value="{{x}}"><span class="user-type">{{x}}</span></label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                                    <button type="button" class=" btn gulf-btn signupbtn "
+                                        ng-click="MechnaicTypeSelction()">NEXT</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <footer-directive></footer-directive>
+        </footer>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+</ion-view>
