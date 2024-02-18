@@ -1,0 +1,111 @@
+<ion-view>
+  <style>
+    footer {
+      padding-top: 35px;
+    }
+
+    .back-arrow1 {
+      margin-top: 10px;
+    }
+
+    .back-arrow1 img {
+      width: 18px;
+    }
+  </style>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <div class="back-arrow1"> <a class="pull-right" href="" onclick="window.history.back()"><img
+                    class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+              <div class="clearfix"></div>
+              <h4 class="text-center gulf-h4">Product Earnings</h4>
+              <p class="text-center" style="color:#fff;margin-top
+            :30px;font-weight: bold;">{{prdocutDetailHeader}}</p>
+              <div class="login-contain  padding-top-pixel">
+                <div class="form-group  col-md-12 col-sm-12 col-xs-12" style="padding:0px">
+                  <!--                  <input type="text" class="form-control"  placeholder="Select Pack Color" ng-model="orderNumber">-->
+                  <div class="col-md-5 col-sm-5 col-xs-5" style="padding-right:0px">
+                    <label style="color:#fff;font-weight: bold;margin-top: 5px;">Select Brand :</label>
+                  </div>
+                  <div class="col-md-7 col-sm-7 col-xs-7" id="selectBrandChatParent">
+                    <select ng-model="selectedBrand" class="form-control" style="text-transform: capitalize;"
+                      id="selectBrandChat">
+                      <option value="" selected="selected">Select Brand</option>
+                      <option ng-repeat="x in AvailabelBrand" value="{{x.pdct_name}}">{{x.pdct_name}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group  col-md-12 col-sm-12 col-xs-12" style="padding:0px">
+                  <!--                  <input type="text" class="form-control"  placeholder="Select Pack Color" ng-model="orderNumber">-->
+                  <div class="col-md-5 col-sm-5 col-xs-5" style="padding-right:0px">
+                    <label style="color:#fff;font-weight: bold;margin-top: 5px;">Select Pack Color :</label>
+                  </div>
+                  <div class="col-md-7 col-sm-7 col-xs-7" id="colorChatParent">
+                    <select ng-model="selectedColor" class="form-control" style="text-transform: capitalize;"
+                      id="colorChat">
+                      <option value="" selected="selected">Select Pack Color</option>
+                      <option ng-repeat="x in AvailabelColor" value="{{x.pdct_pack_color}}">{{x.pdct_pack_color}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+
+                <div class="form-group text-center col-md-12 col-sm-12 col-xs-12">
+                  <button type="submit" class=" btn gulf-btn signupbtn" style="margin-top:10px;"
+                    ng-click="getProductEarningDetails()">Submit</button>
+                </div>
+                <div class="table-responsive mechani-list product-earning">
+                  <table id="productEarning" class="table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Brand</th>
+                        <th>Pack Size</th>
+                        <th>Points</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="clearfix"></div>
+
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
+  <!--   <footer-directive></footer-directive>-->
+  <footer>
+    <nav class="navbar  navbar-fixed-bottom">
+      <div class="login-footer">
+        <div class="container-fluid ">
+          <div class="row">
+            <div class="col-md-6 col-xs-6 col-sm-6 border-orange">
+              <ul class="list-inline">
+                <li><a href="tel:18001236224"><img class="img-responsive" src="img/phone-call.png" alt="code"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </footer>
+
+</ion-view>

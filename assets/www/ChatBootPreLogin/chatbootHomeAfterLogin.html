@@ -1,0 +1,318 @@
+<ion-view>
+    <style>
+        a:focus,
+        a:hover {
+            color: #23527c;
+            text-decoration: underline;
+
+            font-weight: bold;
+        }
+
+        .popup-container.popup-showing {
+            visibility: visible;
+        }
+
+        .popup-container {
+            height: 100%;
+        }
+
+        .popup-container.popup-showing {
+            position: fixed !important;
+        }
+    </style>
+    <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+        <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom">
+
+            <header ng-if="modeProject == 'Gulf'" class="chat-header navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            <img class="img-responsive" src="img/gulf-logo.png" alt="">
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6" style="margin-top: 15px;">
+                            <p>{{data.localAppLanguage.chat_with_gulf}}</p>
+                        </div>
+                        <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img
+                                    class="img-responsive" src="img/left-arrow-white.png"
+                                    alt="blue-bg-with-logo-half"></a></div>
+
+                    </div>
+                </div>
+
+            </header>
+
+            <header ng-if="modeProject == 'S-oil'" class="chat-header navbar-fixed-top" style="background-color: #000;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            <img class="img-responsive" src="img/gulf-logo.png" alt="">
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6" style="margin-top: 15px;">
+                            <p>{{data.localAppLanguage.chat_with_gulf}}</p>
+                        </div>
+                        <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img
+                                    class="img-responsive" src="img/left-arrow-white.png"
+                                    alt="blue-bg-with-logo-half"></a></div>
+
+                    </div>
+                </div>
+
+            </header>
+        </nav>
+
+        <section style=" margin-top:50px;">
+            <div class="line text-center">
+                <p style="margin:0px;"><img class="img-responsive" src="img/Chatbot_today.png" alt="contact-us"></p>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row chaatboooot-design">
+                    <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+                    <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+                        <ul class="new-chatboot">
+                            <li style="border-radius:10px 10px 0 0;">{{data.localAppLanguage.hi}}{{userName}}.
+                                {{data.localAppLanguage.welcome_to_gulf_master_mechanic_chatbot}}.
+                                {{data.localAppLanguage.please_select_the_option_from_the_list_below}}:</li>
+                            <li ng-click="goToBrochure()"><a
+                                    href="">{{data.localAppLanguage.learn_more_about_program}}</a></li>
+                            <li ng-click="goToProgrmaDetails()"><a
+                                    href="">{{data.localAppLanguage.know_program_earnings}}</a></li>
+                            <li ng-click="goToEarnPoints()"><a
+                                    href="">{{data.localAppLanguage.enter_code_or_scan_code}}</a><img
+                                    src="img/ticked.png" alt="ticked" class="admin-profile-tick" ng-show="scanCodeView">
+                            </li>
+                            <li ng-click="goTOredeemPoint()" target="/#redeemView1"><a
+                                    href="">{{data.localAppLanguage.want_to_redeem}}?</a><img src="img/ticked.png"
+                                    alt="ticked" class="admin-profile-tick" ng-show="redeemView"></li>
+                            <li ng-click="goToTxn()"><a href="">{{data.localAppLanguage.point_statement}}</a><img
+                                    src="img/ticked.png" alt="ticked" class="admin-profile-tick"
+                                    ng-show="transactionView"></li>
+                            <!-- <li ng-click="goToReferFriend()"><a href="">Refer a Friend</a><img src="img/ticked.png" alt="ticked" class="admin-profile-tick" ng-show="ReferAfriendView"></li> -->
+                            <li ng-click="goToMyCustomer()"><a href="">{{data.localAppLanguage.my_customer}}</a><img
+                                    src="img/ticked.png" alt="ticked" class="admin-profile-tick"
+                                    ng-show="MyCustomerView"></li>
+                            <li ng-click="goToUpdateContactDetails()"><a
+                                    href="">{{data.localAppLanguage.update_contact_details}}</a><img
+                                    src="img/ticked.png" alt="ticked" class="admin-profile-tick"
+                                    ng-show="contactDetailView"></li>
+                            <li><a href="tel:18001236224">{{data.localAppLanguage.talk_to_customer_care}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div ng-show="scanCodeView" id="scanCodeView1">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group chat-bot-mechanic pull-right">
+                                <p class=" btn gulf-btn signupbtn-1">
+                                    {{data.localAppLanguage.enter_code_or_scan_code}}<span class="triangle"></span></p>
+                                <img src={{mechProfileImage}} alt="" class="admin-profile-img-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row chaatboooot-design">
+                        <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+                        <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+                            <ul class="new-chatboot">
+                                <li style="background-color: #fff;" class="newChatBotLi">
+                                    {{data.localAppLanguage.choose_from_cash_coupon_options_below}}</li>
+                                <li ng-click="scanCodePostLogin()"><a href=""
+                                        class="newChatBotAncherUnderline">{{data.localAppLanguage.enter_qr_code}}</a>
+                                </li>
+                                <li ng-click="scanCodePostLogin()" class="newChatBotAncherUnderline"><a
+                                        href="">{{data.localAppLanguage.scan_qr_code}}</a></li>
+                                <li class="newChatBotLi">
+                                    {{data.localAppLanguage.in_case_you_need_more_information_please_get_in_touch_with_our_customer_care}},{{data.localAppLanguage.call}}
+                                    <span style="font-size: 14px">18001236224</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="redeemView" id="redeemView1">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group chat-bot-mechanic pull-right">
+                                <p class=" btn gulf-btn signupbtn-1">{{data.localAppLanguage.want_to_redeem}}?<span
+                                        class="triangle"></span></p><img src={{mechProfileImage}} alt=""
+                                    class="admin-profile-img-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row chaatboooot-design">
+                        <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+                        <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+                            <ul class="new-chatboot">
+                                <li style="background-color: #fff" class="newChatBotLi">
+                                    {{data.localAppLanguage.choose_from_cash_coupon_options_below}}</li>
+                                <li class="newChatBotLi">
+                                    {{data.localAppLanguage.just_select_the_reward_of_your_choice_click_on_redeem_button}}
+                                </li>
+                                <li ng-click="redeemNow()"><a href=""
+                                        class="newChatBotAncherUnderline">{{data.localAppLanguage.want_to_redeem_now_}}?
+                                    </a></li>
+                                <li ng-click="RedemptionSummary()"><a href=""
+                                        class="newChatBotAncherUnderline">{{data.localAppLanguage.redemption_summary}}</a>
+                                </li>
+                                <li class="newChatBotLi">
+                                    {{data.localAppLanguage.in_case_you_need_more_information_please_get_in_touch_with_our_customer_care}},{{data.localAppLanguage.call}}
+                                    <span style="font-size: 14px">18001236224</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="transactionView" id="transactionView1">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group chat-bot-mechanic pull-right">
+                                <p class=" btn gulf-btn signupbtn-1">{{data.localAppLanguage.point_statement}}<span
+                                        class="triangle"></span></p><img src={{mechProfileImage}} alt=""
+                                    class="admin-profile-img-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row chaatboooot-design">
+                        <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+                        <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+                            <ul class="new-chatboot">
+                                <li style="background-color: #fff;" class="newChatBotLi">
+                                    {{data.localAppLanguage.choose_from_cash_coupon_options_below}}</li>
+                                <li ng-click="txnSummary()"><a href=""
+                                        class="newChatBotAncherUnderline">{{data.localAppLanguage.latest_point_statement}}</a>
+                                </li>
+                                <li ng-click="txnSummary()"><a href=""
+                                        class="newChatBotAncherUnderline">{{data.localAppLanguage.point_statement}}</a>
+                                </li>
+                                <li class="newChatBotLi">
+                                    {{data.localAppLanguage.in_case_you_need_more_information_please_get_in_touch_with_our_customer_care}},{{data.localAppLanguage.call}}
+                                    <span style="font-size: 14px;">18001236224</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="ReferAfriendView" id="ReferAfriendView1">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group chat-bot-mechanic pull-right">
+                                <p class=" btn gulf-btn signupbtn-1">Refer a Friend<span class="triangle"></span></p>
+                                <img src={{mechProfileImage}} alt="" class="admin-profile-img-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row chaatboooot-design">
+                        <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+                        <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+                            <ul class="new-chatboot">
+                                <li style="background-color: #fff;" class="newChatBotLi">You can also earn points by
+                                    referring your Mechanic friend to this program.<span ng-click="referfriend()"
+                                        class="newChatBotAncherUnderline">Click here to refer Now</span></li>
+                                <li class="newChatBotLi">On 10 Positive referrals you will earn Rs.100 via
+                                    Paytm.positive Referral is defined as a referral who is validated by our Sales
+                                    Officer.</li>
+                                <li class="newChatBotLi">
+                                    {{data.localAppLanguage.in_case_you_need_more_information_please_get_in_touch_with_our_customer_care}},{{data.localAppLanguage.call}}
+                                    <span style="font-size: 14px;">18001236224</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="MyCustomerView" id="MyCustomerView1">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group chat-bot-mechanic pull-right">
+                                <p class=" btn gulf-btn signupbtn-1">{{data.localAppLanguage.my_customer}}<span
+                                        class="triangle"></span></p><img src={{mechProfileImage}} alt=""
+                                    class="admin-profile-img-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row chaatboooot-design">
+                        <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+                        <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+                            <ul class="new-chatboot">
+                                <li style="background-color: #fff;" class="newChatBotLi">
+                                    {{data.localAppLanguage.ou_can_keep_a_record_of_your_customers_vehicle_details_its_servicing_schedules}}
+                                </li>
+                                <li ng-click="gotoAddCustomer()"><a href=""><strong
+                                            class="newChatBotAncherUnderline">{{data.localAppLanguage.click_here_to_record_customer_vehicle_details}}</strong></a>
+                                </li>
+                                <li class="newChatBotLi">
+                                    {{data.localAppLanguage.in_case_you_need_more_information_please_get_in_touch_with_our_customer_care}},{{data.localAppLanguage.call}}<span
+                                        style="font-size:14px;">18001236224</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="contactDetailView" id="contactDetailView1">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group chat-bot-mechanic pull-right">
+                                <p class=" btn gulf-btn signupbtn-1">
+                                    {{data.localAppLanguage.update_contact_details}}<span class="triangle"></span></p>
+                                <img src={{mechProfileImage}} alt="" class="admin-profile-img-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row chaatboooot-design">
+                        <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+                        <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+                            <ul class="new-chatboot">
+                                <li style="background-color: #fff;" class="newChatBotLi">
+                                    {{data.localAppLanguage.you_can_update_your_address_by_clicking_on_edit_icon_located_in}}
+                                    <strong>{{data.localAppLanguage.my_profile_page}}</strong></li>
+                                <li><a href="" ng-click="editProfile()" class="newChatBotAncherUnderline">
+                                        {{data.localAppLanguage.want_to_update_my_mobile_number_}} ?</a></li>
+                                <li ng-click="editProfile()"><a href=""
+                                        class="newChatBotAncherUnderline">{{data.localAppLanguage.i_want_to_update_my_address}}?</a>
+                                </li>
+                                <li ng-click="mechIDView()"><a href=""
+                                        class="newChatBotAncherUnderline">{{data.localAppLanguage.what_is_my_gulf_mechanic_id_}}?</a><img
+                                        src="img/ticked.png" alt="ticked" class="admin-profile-tick"
+                                        ng-show="mechanicIDView"></li>
+                                <li class="newChatBotLi">
+                                    {{data.localAppLanguage.in_case_you_need_more_information_please_get_in_touch_with_our_customer_care}},{{data.localAppLanguage.call}}<span
+                                        style="font-size: 14px;">18001236224</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-show="mechanicIDView" id="mechanicIDView1">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group chat-bot-mechanic pull-right">
+                                <p class=" btn gulf-btn signupbtn-1">
+                                    {{data.localAppLanguage.what_is_my_gulf_mechanic_id_}}?<span
+                                        class="triangle"></span></p><img src={{mechProfileImage}} alt=""
+                                    class="admin-profile-img-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row chaatboooot-design">
+                        <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+                        <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+                            <ul class="new-chatboot">
+                                <li style="background-color: #fff;" class="newChatBotLi">
+                                    {{data.localAppLanguage.gulf_master_mechanic_id_is_7_digit_alpha_numeric_code_assigned_to_every_mechanic_as_an_identification_code}}
+                                </li>
+                                <li><a href="" ng-click="editProfile()"
+                                        class="newChatBotAncherUnderline">{{data.localAppLanguage.the_first_two_character_is_alphabets_and_rest_5_characters_are_numeric}}.</a>
+                                </li>
+                                <li class="newChatBotLi">
+                                    {{data.localAppLanguage.you_can_trace_your_mechanic_id_by_visiting}} <a href=""
+                                        class="newChatBotAncherUnderline"
+                                        ng-click="editProfile()">{{data.localAppLanguage.my_profile}}</a></li>
+                                <li class="newChatBotLi">
+                                    {{data.localAppLanguage.in_case_you_need_more_information_please_get_in_touch_with_our_customer_care}},{{data.localAppLanguage.call}}
+                                    <span style="font-size: 14px;">18001236224</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <footer-directive></footer-directive>
+        </footer>
+    </div>
+
+
+</ion-view>

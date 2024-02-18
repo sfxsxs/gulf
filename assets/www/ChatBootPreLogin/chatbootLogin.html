@@ -1,0 +1,153 @@
+<ion-view>
+  <style>
+    .chat-bot-mechanic .gulf-btn.signupbtn img {
+      width: 40px;
+      margin-right: 10px;
+    }
+  </style>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    
+    <header ng-if="modeProject == 'Gulf'" class="chat-header navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-3">
+            <img class="img-responsive" src="img/gulf-logo.png" alt="">
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 15px;">
+            <p>Chat with Gulf</p>
+          </div>
+          <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img
+                class="img-responsive" src="img/left-arrow-white.png" alt="blue-bg-with-logo-half"></a></div>
+        </div>
+      </div>
+
+    </header>
+
+    <header ng-if="modeProject == 'S-oil'" class="chat-header navbar-fixed-top" style="background-color: #000;">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-3">
+            <img class="img-responsive" src="img/gulf-logo.png" alt="">
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 15px;">
+            <p>Chat with Gulf</p>
+          </div>
+          <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img
+                class="img-responsive" src="img/left-arrow-white.png" alt="blue-bg-with-logo-half"></a></div>
+        </div>
+      </div>
+    </header>
+    <!--   <header class="chat-header container-fluid">
+    <div class="row" style="padding: 3px 0 3px 0;">
+      <div class="col-sm-2 col-xs-2 col-md-2" style="padding: 0 5px;"><a href="#"><img class="img-responsive" src="img/gulf-logo.png" alt="mechanic-profile-menu" style="width:50px;"></a></div>
+      <div class="col-sm-8 col-xs-8 col-md-8 text-center" style="font-size: 13px;font-weight:bold;"><a href="#">Gulf Master Mechanic Chat Help</a></div>
+      <div class="col-sm-2 col-xs-2 col-md-2"><span style="color:#fff !important;font-size:30px;cursor:pointer;float:right" onclick="openNav()">&#9776;</span></div>
+    </div>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <ul>
+        <li><a href="#"><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">Mechanic Profile</a></li>
+        <li><a href="#"><img class="img-responsive" src="img/product-earning-menu.png" alt="product-earning-menu">Product Earning</a></li>
+        <li><a href="#"><img class="img-responsive" src="img/code-check-in.png" alt="code-check-in">Code Check In</a></li>
+        <li><a href="#"><img class="img-responsive" src="img/transaction-summary.png" alt="transaction-summary">Transaction Summary</a></li>
+        <li><a href="#"><img class="img-responsive" src="img/redeem-gift.png" alt="redeem-gift">Redeem Gift</a></li>
+        <li><a href="#"><img class="img-responsive" src="img/order-status.png" alt="order-status">Order Status</a></li>
+        <li><a href="#"><img class="img-responsive" src="img/gulf-corner-menu.png" alt="gulf-corner-menu">Gulf Corner</a></li>
+        <li><a href="#"><img class="img-responsive" src="img/refer-friend.png" alt="refer-friend">Refer a Friend</a></li>
+        <li><a href="#"><img class="img-responsive" src="img/contact-us.png" alt="contact-us">Contact Us</a></li>
+      </ul>
+    </div>
+  </header> -->
+
+    <section>
+      <div class="line text-center">
+        <p style="margin:0px;"><img class="img-responsive" src="img/Chatbot_today.png" alt="contact-us"></p>
+      </div>
+      <div class="container-fluid">
+        <div class="form-group">
+          <a href="" class=" btn gulf-btn signupbtn" ng-click="howToLogin()"><img src="img/redeem-gift-1.png"
+              alt="login">How to login into App <span class="triangle"></span></a><img src="img/profile_901.png" alt=""
+            class="admin-profile-img" style="    width: 60px;
+    height: 60px;
+    float: right;
+    border-radius: 50%;    margin-top: 8px;">
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="well chat-well text-center">
+              <p class="chat-p">Login by following the below steps:Step 1: Enter 10 digit registered mobile number in
+                the App login page and submit <br>Step 2: Enter the 4 digit OTP received on the registered mobile
+                number.</p>
+              <p class="border-height"></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+            <div class="well chat-well text-center">
+              <p class="chat-p"><a href="" ng-click="goToLogin()"><strong>Click Here </strong></a> to login now – Click
+                here will be directed to login page </p>
+              <p class="border-height"></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+            <div class="well chat-well ">
+              <p class="chat-p">I have forgot my Password <a href="" ng-click="goToForgotPassword()"> Click Here</a> to
+                get your password</p>
+              <!-- <p class="chat-p"> <a href="" ng-click="goToForgotPassword()"><strong>I have forgetten my password</strong></a></p> -->
+              <p class="border-height"></p>
+            </div>
+          </div>
+        </div>
+        <!--  <div class="row">
+      <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+        <div class="well chat-well ">
+          <p class="chat-p"> <a href=""><strong>I don't have login details</strong></a><br>Once Gulf Sales officer meets you and validates you, you will become Gulf Master Mechanic Program Member</strong></p>
+          <p class="border-height"></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+        <div class="well chat-well">
+          <p class="chat-p">you will receive your login credentials Via SMS. You can then login into Gulf Master Mechanic: Mobile App</p>
+          <p class="border-height"></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="well chat-well ">
+          <p class="chat-p">In case u need more information, please get in touch with our customer care, call <span style="font-size">xxxxxxxx</span></p>
+          <p class="border-height"></p>
+        </div>
+      </div>
+    </div> -->
+      </div>
+    </section>
+    <footer>
+      <nav class="navbar  navbar-fixed-bottom">
+        <div class="login-footer">
+          <div class="container-fluid ">
+            <div class="row">
+              <div class="col-md-6 col-xs-6 col-sm-6 border-orange">
+                <ul class="list-inline">
+                  <li><a href="tel:18001236224"><img class="img-responsive" src="img/phone-call.png" alt="code"></a>
+                  </li>
+                </ul>
+              </div>
+              <!-- <div class="col-md-6 col-xs-6 col-sm-6">
+              <ul class="list-inline">
+                <li class="pull-right"><a href="#"><img class="img-responsive" src="img/home.png" alt="code"></a></li>
+              </ul>
+            </div> -->
+            </div>
+          </div>
+        </div>
+      </nav>
+    </footer>
+  </div>
+
+</ion-view>

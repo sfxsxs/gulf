@@ -1,0 +1,141 @@
+<style>
+  .admin-profile-img,
+  .admin-profile-img-1 {
+    margin-right: 0 !important;
+    width: 60px;
+    margin-bottom: 10px;
+  }
+
+  .admin-profile-img {
+    float: right;
+    height: 40px;
+    border-radius: 50%;
+    width: 40px;
+  }
+
+  .admin-profile-img-1 {
+    float: left;
+  }
+
+  .want-to-reedem {
+    float: left;
+  }
+
+  .want-to-reedem,
+  .want-to-reedem-1 {
+    width: 80%;
+  }
+
+  .want-to-reedem-1 {
+    float: right;
+  }
+
+  @media screen and (min-width:320px) and (max-width:359px) {
+
+    .want-to-reedem,
+    .want-to-reedem-1 {
+      width: 78%;
+    }
+  }
+</style>
+<ion-view>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <header class="chat-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-3">
+            <img class="img-responsive" src="img/gulf-logo.png" alt="">
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 heading-margin-chat">
+            <p>Chat with Gulf</p>
+          </div>
+          <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img
+                class="img-responsive" src="img/left-arrow-white.png" alt="blue-bg-with-logo-half"></a></div>
+          <!--<div class="col-md-3 col-sm-3 col-xs-3">
+        <p><a href=""  onclick="window.history.back()">Back </a></p>
+      </div>-->
+        </div>
+      </div>
+
+    </header>
+    <section>
+      <!--<div class="line text-center">
+   <p style="margin:0px;"><img class="img-responsive" src="img/Chatbot_today.png" alt="contact-us"></p>
+ </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="well chat-well text-center">
+          <p class="chat-p">you can update your address by clicking on Edit icon located in <a href="" ng-click="preLoginNotAloowed()"><strong>My Profile Page </strong></a></p>
+          <p class="border-height"></p>
+        </div>
+      </div>
+    </div>-->
+      <div class="line text-center" style="margin-bottom:20px;">
+        <p style="margin:0px;"><img class="img-responsive" src="img/Chatbot_today.png" alt="contact-us"></p>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <!--  <h5 class="text-center" style="color:#fff;">Want to Redeem?<span><img  src="img/profile-90.png" alt="" class="admin-profile-img"></span></h5> -->
+            <div class="well chat-well want-to-reedem">
+              <p class="chat-p"><a href="" ng-click="goTOredeemPoint()">Update Contact Details </a></p>
+              <p class="border-height"></p>
+            </div><img src="{{mechProfileImage}}" alt="" class="admin-profile-img" style="z-index:1;position:relative;">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+            <div class="well chat-well text-center want-to-reedem-1">
+              <p class="chat-p">you can update your address by clicking on Edit icon located in <a href=""
+                  ng-click="preLoginNotAloowed()"><strong>My Profile Page </strong></a></p>
+              <p class="border-height"></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+            <div class="well chat-well text-center want-to-reedem-1">
+              <p class="chat-p"> <a href="" ng-click=editProfile()><strong>I Want to Update my Mobile</strong></a></p>
+              <p class="border-height"></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+            <div class="well chat-well text-center want-to-reedem-1">
+              <p class="chat-p"> <a href="" ng-click=editProfile()><strong>I Want to Update my Address</strong></a></p>
+              <p class="border-height"></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+            <div class="well chat-well text-center want-to-reedem-1">
+              <p class="chat-p"> <a href="" ng-click="goToMechanicId()"><strong>What is My Gulf Mechanic Id
+                  </strong></a></p>
+              <p class="border-height"></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+            <div class="well chat-well text-center want-to-reedem-1">
+              <p class="chat-p">In case u need more information, please get in touch with our customer care, call <span
+                  >+9118001236224</span></p>
+              <p class="border-height"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+</ion-view>

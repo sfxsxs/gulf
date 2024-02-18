@@ -1,0 +1,91 @@
+<ion-view>
+  <style>
+    #mySidenavScan img {
+      float: left;
+      margin-right: 10px;
+      width: 35px;
+    }
+
+    #mySidenavScan li {
+      clear: both;
+      display: block;
+      height: 35px;
+      line-height: 35px;
+      margin-bottom: 5px;
+      vertical-align: middle;
+    }
+  </style>
+
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow" ng-if="!Qa"> <a class="pull-right" href="" onclick="window.history.back()"><img
+          class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+    <nav-directive ng-if="!Qa"></nav-directive>
+    <header ng-if="Qa">
+      <div id="mySidenavScan" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
+        <ul>
+          <li ng-click="changepassword()"><a href=""><img class="img-responsive" src="img/product-earning-menu.png"
+                alt="My Customer">Change Password</a></li>
+          <li><a href="tel:18001236224"><img class="img-responsive" src="img/contact-us.png" alt="contact-us">Contact
+              Us</a></li>
+          <li ng-click="logout()"><a href=""><img class="img-responsive" src="img/contact-us.png"
+                alt="contact-us">Logout</a></li>
+        </ul>
+      </div>
+      <div style="padding:0 15px; "><span style="color:#fe3200;font-size:30px;cursor:pointer" onclick="openNav1()"><img
+            src="img/menu1.png" alt="menu" style="width:35px"></span> </div>
+    </header>
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center gulf-h4">Verify Code</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <form method="" style="padding-top:20px;">
+                  <p>Scan/Enter your Gulf Coupon Code here for verification</p>
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <!-- <div class="mechanic-photo1" ng-click="ScanBarCode()"></div>-->
+
+                      <div ng-click="ScanBarCode()"><img class="img-responsive" src="img/scan-code.png" alt="code"
+                          style="  width: 120px; margin: 10px auto;"></div>
+                    </div>
+                  </div>
+                  <p><strong>OR</strong></p>
+                  <div class="form-group text-center username-login">
+                    <input type="text" class="form-control" placeholder="Enter 12 Digit Code" ng-model="QrCodeData">
+                  </div>
+                  <p>Code can be entered <br> For example: 987654321011</p>
+                  <!-- <div class="form-group text-center username-login">
+                  <input type="text" class="form-control"  placeholder="Add Promo Code or Gift Card"  ng-model="contestCode"><i class="fa fa-camera" aria-hidden="true"></i>
+                </div> -->
+                  <!-- <div class="input-group" style="margin-bottom:15px;">
+                  <input type="text" class="form-control"  placeholder="Add Promo Code or Gift Card"  ng-model="contestCode">
+                  <span class="input-group-addon" ng-click="contestCodeScan()"><i class="fa fa-camera" aria-hidden="true" style="color:#f15a22"></i></span>
+                </div> -->
+
+                  <div class="form-group text-center">
+                    <button type="submit" class=" btn gulf-btn signupbtn" ng-click="submitQrCodeData()">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer ng-if="!Qa">
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+  <script>
+    function openNav1() {
+      document.getElementById("mySidenavScan").style.width = "250px";
+    }
+    function closeNav1() {
+      document.getElementById("mySidenavScan").style.width = "0";
+    }
+  </script>
+
+</ion-view>

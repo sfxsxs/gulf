@@ -1,0 +1,100 @@
+<ion-view>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"> 
+      <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half">
+      <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png"
+        alt="left-arrow-white"></a></div>
+    <header>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+          <li><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png"
+                alt="mechanic-profile-menu">Mechanic Profile</a></li>
+          <li><a href=""><img class="img-responsive" src="img/product-earning-menu.png"
+                alt="product-earning-menu">Product Earning</a></li>
+          <li><a href=""><img class="img-responsive" src="img/code-check-in.png" alt="code-check-in">Code Check In</a>
+          </li>
+          <li><a href=""><img class="img-responsive" src="img/transaction-summary.png"
+                alt="transaction-summary">Transaction Summary</a></li>
+          <li><a href=""><img class="img-responsive" src="img/redeem-gift.png" alt="redeem-gift">Redeem Gift</a></li>
+          <li><a href=""><img class="img-responsive" src="img/order-status.png" alt="order-status">Order Status</a></li>
+          <li><a href=""><img class="img-responsive" src="img/gulf-corner-menu.png" alt="gulf-corner-menu">Gulf
+              Corner</a></li>
+          <!-- <li><a href=""><img class="img-responsive" src="img/refer-friend.png" alt="refer-friend">Refer a Friend</a></li> -->
+          <li><a href=""><img class="img-responsive" src="img/contact-us.png" alt="contact-us">Contact Us</a></li>
+        </ul>
+      </div>
+      <div style="padding:0 15px; "><span style="color:#fe3200;font-size:30px;cursor:pointer" onclick="openNav()"><img
+            src="img/menu1.png" alt="menu" style="width:35px"></span> </div>
+    </header>
+    <section class="recommendation">
+      <div class="container-fluid recommendation-chart" ng-show="segmentblock">
+        <h4 class="text-center" style="color:#fff;">Select Sagment</h4>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4">
+            <div class="home-image-detail">
+              <a href="" class="redeem"><img class="img-responsive" src="img/two-wheeler-vehicle.png"
+                  alt="gulf-walletgulf-wallet">
+              </a>
+            </div>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8" style="padding-left: 0;">
+            <div class="form-group">
+              <a href="" class=" form-control  gulf-btn signupbtn" ng-click="getColor('MCO')">MCO</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4">
+            <div class="home-image-detail">
+              <a href="" class="redeem"><img class="img-responsive" src="img/car-motor-oil1.png" alt="car-motor-oil1">
+              </a>
+            </div>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8" style="padding-left: 0;">
+            <div class="form-group">
+              <a href="" class=" form-control  gulf-btn signupbtn" ng-click="getColor('DEO')">DEO</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4">
+            <div class="home-image-detail">
+              <a href="" class="redeem"><img class="img-responsive" src="img/commercial-vehicle-oil1.png"
+                  alt="commercial-vehicle-oil1">
+              </a>
+            </div>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-8" style="padding-left: 0;">
+            <div class="form-group">
+              <a href="" class=" form-control  gulf-btn signupbtn" ng-click="getColor('PCMO')">PCMO</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- color block below -->
+      <div class="col-md-8 col-sm-8 col-xs-8 colorblock" id="colorblock" style="padding-left: 0;" ng-show="colorblock">
+        <!--  <div class="form-group">
+            <a href=""  class=" form-control  gulf-btn signupbtn">{{color}}</a>
+          </div> -->
+
+      </div>
+
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+  <footer>
+    <footer-directive></footer-directive>
+  </footer>
+</ion-view>

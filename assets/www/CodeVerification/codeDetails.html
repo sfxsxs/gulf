@@ -1,0 +1,212 @@
+<ion-view>
+    <style>
+        #mySidenavScan img {
+            float: left;
+            margin-right: 10px;
+            width: 35px;
+        }
+
+        #mySidenavScan li {
+            clear: both;
+            display: block;
+            height: 35px;
+            line-height: 35px;
+            margin-bottom: 5px;
+            vertical-align: middle;
+        }
+
+        .codeVerification10 {
+            border-bottom: 1px solid #fff;
+            padding-bottom: 10px;
+        }
+    </style>
+
+    <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+        <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img
+                    class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+        <nav-directive ng-if="!Qa"></nav-directive>
+        <header ng-if="Qa">
+            <div id="mySidenavScan" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
+                <ul>
+                    <li ng-click="codeVerification()"><a href=""><img class="img-responsive" src="img/verification.png"
+                                alt="code-check-in">Code Verification</a></li>
+                    <li ng-click="changepassword()"><a href=""><img class="img-responsive"
+                                src="img/product-earning-menu.png" alt="My Customer">Change Password</a></li>
+                    <li><a href="tel:18001236224"><img class="img-responsive" src="img/contact-us.png"
+                                alt="contact-us">Contact Us</a></li>
+
+                    <li ng-click="logout()"><a href=""><img class="img-responsive" src="img/contact-us.png"
+                                alt="contact-us">Logout</a></li>
+                </ul>
+            </div>
+            <div style="padding:0 15px; "><span style="color:#fe3200;font-size:30px;cursor:pointer"
+                    onclick="openNav1()"><img src="img/menu1.png" alt="menu" style="width:35px"></span> </div>
+        </header>
+        <section class="section-pad-top">
+            <div class="container-fluid">
+                <div class=" login-otp">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <h4 class="text-center gulf-h4">Code Verification Result</h4>
+                        </div>
+
+                        <div ng-repeat="code in codeList">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12 codeVerification10">
+                                <div class="login-contain padding-top-pixel Mechanic-max-height">
+                                    <form method="" class="add-mechanic-details">
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <label for="user-name">Coupon Code No. :</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <input type="text" class="nonEdit" id="user-name" ng-model="code.QRCode"
+                                                    ng-disabled="true">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <label for="user-name">Product Name :</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <input type="text" class="nonEdit" id="user-name"
+                                                    ng-model="code.Productname" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <label for="user-name">SKU Group :</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <input type="text" class="nonEdit" id="user-name"
+                                                    ng-model="code.ProductSKUGroup" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group"
+                                            ng-if="code.pdct_mlp_points != '0' || code.pdct_mlp_points != 0">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <label for="user-name">MLP Points:</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <input type="text" class="nonEdit" id="user-name"
+                                                    ng-model="code.pdct_mlp_points" ng-disabled="true">
+                                                <!--code.pdct_mlp_points changed to mlpPointsEarned  on 14th Apr 2020 - fh043-->
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <label for="user-name">Cash Coupon :</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <input type="text" class="nonEdit" id="user-name"
+                                                    ng-model="code.newcashCoupon" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <label for="user-name">Total Points Earned :</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <input type="text" class="nonEdit" id="user-name"
+                                                    ng-model="code.PointsEarned" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <label for="user-name">User Id :</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <input type="text" class="nonEdit" id="user-name"
+                                                    ng-model="code.MechanicID" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <label for="user-name">User Name :</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <input type="text" class="nonEdit" id="user-name"
+                                                    ng-model="code.MechanicName" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <label for="user-name">User Mobile No. :</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <input type="text" class="nonEdit" id="user-name"
+                                                    ng-model="code.MechanicMobile" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <label for="user-name">User Type :</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <input type="text" class="nonEdit" id="user-name"
+                                                    ng-model="code.usertype" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <label for="user-name">Status :</label>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <input type="text" class="nonEdit" id="user-name" ng-model="code.status"
+                                                    ng-disabled="true">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer ng-if="!Qa">
+            <footer-directive></footer-directive>
+        </footer>
+    </div>
+    <script>
+        function openNav1() {
+            document.getElementById("mySidenavScan").style.width = "250px";
+        }
+        function closeNav1() {
+            document.getElementById("mySidenavScan").style.width = "0";
+        }
+    </script>
+    <!--<header>
+        <nav-directive></nav-directive>
+
+    </header>
+
+    <div class="text-center" style="margin-top: 10%;">
+        <h3>Code verification</h3>
+    </div>
+    <div class="profileContent">
+        
+              <div >
+   <table id="codeList" class="table dt-responsive" style="">
+        <thead>
+            <tr>
+                <th>Coupon Code No.</th>
+                <th>Product Description</th>
+                <th>SKU</th>
+                <th>Points Earned</th>
+                <th>Mechanic Id</th>
+                <th>Mechanic Name</th>
+                <th>Mechanic Mobile No.</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        
+    </table>
+</div>
+    </div>-->
+</ion-view>

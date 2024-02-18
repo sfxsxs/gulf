@@ -1,0 +1,144 @@
+<style>
+  .admin-profile-img,
+  .admin-profile-img-1 {
+    margin-right: 0 !important;
+    width: 60px;
+    margin-bottom: 10px;
+  }
+
+  .admin-profile-img {
+    float: right;
+    height: 40px;
+    border-radius: 50%;
+    width: 40px;
+  }
+
+  .admin-profile-img-1 {
+    float: left;
+  }
+
+  .want-to-reedem {
+    float: left;
+  }
+
+  .want-to-reedem,
+  .want-to-reedem-1 {
+    width: 80%;
+  }
+
+  .want-to-reedem-1 {
+    float: right;
+  }
+
+  @media screen and (min-width:320px) and (max-width:359px) {
+
+    .want-to-reedem,
+    .want-to-reedem-1 {
+      width: 78%;
+    }
+  }
+</style>
+<ion-view>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <header class="chat-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-3">
+            <img class="img-responsive" src="img/gulf-logo.png" alt="">
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 heading-margin-chat">
+            <p>Chat with Gulf</p>
+          </div>
+          <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img
+                class="img-responsive" src="img/left-arrow-white.png" alt="blue-bg-with-logo-half"></a></div>
+          <!--<div class="col-md-3 col-sm-3 col-xs-3">
+        <p><a href=""  onclick="window.history.back()">Back </a></p>
+      </div>-->
+        </div>
+      </div>
+
+    </header>
+    <section>
+      <div class="line text-center">
+        <p style="margin:0px;"><img class="img-responsive" src="img/Chatbot_today.png" alt="contact-us"></p>
+      </div>
+      <div class="container-fluid">
+        <!--<div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="well chat-well text-center">
+          <p class="chat-p">You have selected Enter code or Scan Code
+</p>
+          <p class="border-height"></p>
+        </div>
+      </div>
+    </div>-->
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="well chat-well want-to-reedem">
+              <p class="chat-p"><a href="" ng-click="goTOredeemPoint()">Enter Code or Scan Code </a></p>
+              <p class="border-height"></p>
+            </div><img src="{{mechProfileImage}}" alt="" class="admin-profile-img" style="z-index:1;position:relative;">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+            <div class="well chat-well text-center want-to-reedem-1">
+              <p class="chat-p">You have selected Enter code or Scan Code</p>
+              <p class="border-height"></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+            <div class="well chat-well text-center want-to-reedem-1">
+              <p class="chat-p">Choose from cash coupon options below</p>
+              <p class="border-height"></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+            <div class="well chat-well text-center want-to-reedem-1">
+              <p class="chat-p"> <a href="" ng-click=scanCodePostLogin()><strong>Enter QR code</strong></a></p>
+              <p class="border-height"></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+            <div class="well chat-well text-center want-to-reedem-1">
+              <p class="chat-p"> <a href="" ng-click="scanCodePostLogin()"><strong>Scan QR code</strong></a></p>
+              <p class="border-height"></p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row">
+      <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+        <div class="well chat-well">
+          <p class="chat-p"><a href="" ng-click="goToCodeCheckInHelp()">i am unable to do code check-in</a></p>
+          <p class="border-height"></p>
+        </div>
+      </div>
+    </div> -->
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <img src="img/gulf-logo.png" alt="" class="admin-profile-img-1">
+            <div class="well chat-well text-center want-to-reedem-1">
+              <p class="chat-p">In case you need more information, please get in touch with our customer care, call
+                <span style="font-size: 14px;">+9118001236224</span></p>
+              <p class="border-height"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+
+</ion-view>
