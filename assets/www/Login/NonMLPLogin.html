@@ -1,0 +1,61 @@
+<ion-view>
+        <style type="text/css">
+         .body-bg {
+            background-image: url(./img/login-page-bg.png);
+          }
+          input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly] {
+          background-color: #f15a22;
+        }
+        </style>
+      <div class="body-bg">
+        <div class="login-logo">
+        
+        </div>
+        <section class="login-details">
+          <div class="container ">
+            <div class="padding-top-pixel">
+              <div class="row">
+                <div class="col-md-12 col-xs-12 col-sm-12">  
+                  <div class="login-contain text-center">
+                      <div class="form-group text-center username-login">
+                        <input type="text" class="form-control user-name" placeholder="Username" ng-model="email" onfocus="this.placeholder='' " onblur="this.placeholder='Username' " readonly>
+                      </div>
+                      <div class="form-group text-center password-login">
+                        <input type="password" class="form-control" id="pwd" placeholder="Password" ng-model="password" onfocus="this.placeholder='' " onblur="this.placeholder='Password' ">
+                      </div>
+                      <div class="form-group text-center">
+                         <button type="submit" class=" btn gulf-btn signupbtn" ng-click="Login()">Sign In</button>
+                      </div>
+                      <div class="forget-password text-center" ng-click="forgotPassword()">
+                         <a href="">Forgot Password?<span> Click Here</span></a> 
+                      </div>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <nav class="navbar  navbar-fixed-bottom">
+            <div class="login-footer">
+              <div class="container-fluid ">
+                <div class="row">
+                  <div class="col-md-6 col-xs-6 col-sm-6 border-orange">
+                    <ul class="list-inline">
+                      <li ng-click="phoneClick()"><a href="tel:18001236224"><img class="img-responsive" src="img/phone-call.png" alt="code"></a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 col-xs-6 col-sm-6 chat-footer">
+                    <ul class="list-inline">
+                      <li class="pull-right"><a href="" ng-click=goTOchatBoxHome()><img class="img-responsive" src="img/chat-box.png" alt="code" style="width: 38px;margin-top: 2px;"></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </footer>
+    
+      </div>
+          </ion-view>

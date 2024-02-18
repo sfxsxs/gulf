@@ -1,0 +1,308 @@
+<ion-view>
+    <!-- date picker-->
+  
+    <link rel="stylesheet" href="lib/datePicker/jquery-ui.css" />
+    <script type="text/javascript" src="lib/datePicker/jquery-ui.js"></script>
+    <style>
+      .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-left: 0px;
+        background-color: transparent;
+      }
+    </style>
+  
+    <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+      <div class="back-arrow">
+        <a class="pull-right" href="" ng-click="clickBack()"
+          ><img
+            class="img-responsive"
+            src="img/left-arrow.png"
+            alt="blue-bg-with-logo-half"
+        /></a>
+      </div>
+      <nav-directive></nav-directive>
+  
+      <section class="section-pad-top">
+        <div class="container-fluid">
+          <div class=" login-otp">
+            <div class="row">
+              <h4 class="text-center"> Mechanic Profile</h4>
+  
+              <div class="login-contain padding-top-pixel Mechanic-max-height">
+                <form method="" class="add-mechanic-details">
+                  <!-- <div class="form-group">
+                                      <div class="col-md-12 col-sm-12 col-xs-12" ng-if="all">
+                                          <button type="submit" class=" btn gulf-btn signupbtn pull-right" ng-click="editDetails()">Edit</button>
+                                      </div>
+                                  </div> -->
+  
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <label for="user-name">Name :</label>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="user-name"
+                        ng-model="name"
+                        ng-disabled="true"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <label for="mobile-number">Mobile No :</label>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <input
+                        type="Number"
+                        class="form-control"
+                        placeholder="Mobile No"
+                        ng-model="mobile"
+                        min="10"
+                        max="9999999999"
+                        oninput="maxLengthCheckPhoneNumber(this)"
+                        onkeypress="return blockSpecialChar(event)"
+                        ng-disabled="true"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <label for="user-name">User Type :</label>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="user-type"
+                        ng-model="userType"
+                        ng-disabled="true"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <label for="user-name">Tier :</label>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="user-tyer"
+                        ng-model="tierName"
+                        ng-disabled="true"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <label for="date-of-birth">DOB:</label>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="dtDateOfBirthVliadte"
+                        ng-model="dob"
+                        readonly="true"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <label for="preferred-language"
+                        >Preferred Language :</label
+                      >
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <div id="langValidateParent">
+                        <select
+                          class="form-control"
+                          ng-model="selectedLanguage"
+                          id="langValidate"
+                          ng-disabled="true"
+                        >
+                          <option value="">Preferred Language</option>
+                          <option
+                            ng-repeat="x in AvailabelLanguage"
+                            value="{{ x.lang_name }}"
+                            >{{ x.lang_name }}</option
+                          >
+                        </select>
+                      </div>
+  
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <label for="address">Address :</label>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Room no/Shop no"
+                        rows="5"
+                        id="address1"
+                        ng-model="address1"
+                        ng-change="checkAddress1()"
+                        ng-disabled="true"
+                      />
+                    </div>
+                  </div>
+  
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6"></div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Market name/street"
+                        rows="5"
+                        id="address2"
+                        ng-model="address2"
+                        ng-change="checkAddress2()"
+                        ng-disabled="true"
+                      />
+                    </div>
+                  </div>
+  
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6"></div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Land Mark"
+                        rows="5"
+                        id="address3"
+                        ng-model="address3"
+                        ng-change="checkAddress3()"
+                        ng-disabled="true"
+                      />
+                    </div>
+                  </div>
+  
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <label for="pincode">Pincode :</label>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <input
+                        oninput="maxLengthCheck(this)"
+                        type="number"
+                        min="1"
+                        max="999999"
+                        class="form-control"
+                        placeholder="Pincode"
+                        ng-model="pincode"
+                        ng-change="checkPincode()"
+                        onkeypress="return blockSpecialChar(event)"
+                        ng-disabled="true"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <label for="state">State :</label>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="State"
+                        ng-model="state"
+                        value="{{ state }}"
+                        ng-disabled="true"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <label for="city">City :</label>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="city"
+                        ng-model="city"
+                        value="{{ city }}"
+                        ng-disabled="true"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <label for="area">Area :</label>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <input
+                        type="text"
+                        class="form-control"
+                        placeholder="city"
+                        ng-model="area"
+                        value="{{ area }}"
+                        ng-disabled="true"
+                      />
+                    </div>
+                  </div>
+                  
+                 
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <footer-directive></footer-directive>
+      </footer>
+    </div>
+  
+    <script>
+      function openNav() {
+       document.getElementById("mySidenav").style.width = "280px";
+      }
+  
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+  
+      function maxLengthCheck(object) {
+        if (object.value.length > object.max.length)
+          object.value = object.value.slice(0, object.max.length);
+      }
+  
+      function maxLengthCheckPhoneNumber(object) {
+        if (object.value.length > object.max.length)
+          object.value = object.value.slice(0, object.max.length);
+      }
+  
+      function blockSpecialChar(e) {
+        var k = e.keyCode;
+        return (
+          (k > 64 && k < 91) ||
+          (k > 96 && k < 123) ||
+          k == 8 ||
+          (k >= 48 && k <= 57)
+        );
+      }
+    </script>
+    <style>
+      .ui-state-default,
+      .ui-widget-content .ui-state-default,
+      .ui-widget-header .ui-state-default {
+        border: 1px solid #d3d3d3;
+        /* background: #e6e6e6 url(images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x; */
+        font-weight: normal;
+        color: #042469;
+        font-weight: bold;
+      }
+    </style>
+  </ion-view>
+  

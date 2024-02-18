@@ -1,0 +1,158 @@
+<ion-view>
+    <!-- date picker-->
+  
+    <link rel="stylesheet" href="lib/datePicker/jquery-ui.css" />
+    <script type="text/javascript" src="lib/datePicker/jquery-ui.js"></script>
+    <style>
+      .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-left: 0px;
+        background-color: transparent;
+      }
+    </style>
+  
+    <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+      <div class="back-arrow">
+        <a class="pull-right" href="" ng-click="clickBack()"
+          ><img
+            class="img-responsive"
+            src="img/left-arrow.png"
+            alt="blue-bg-with-logo-half"
+        /></a>
+      </div>
+      <nav-directive></nav-directive>
+  
+      <section class="section-pad-top">
+        <div class="container-fluid">
+          <div class=" login-otp">
+            <div class="row">
+              <h4 class="text-center">Mechanic Earning</h4>
+  
+              <div class="login-contain padding-top-pixel Mechanic-max-height">
+                <form method="" class="dashboard" style=" padding: 10px 20px;">
+                    <div class="form-group pull-right" >
+                        <button type="submit" class=" btn gulf-btn signupbtn" ng-click="viewProfile()">View Profile</button>
+                      </div>
+                    <div class="">
+                      <table  class="table table-bordered">
+                        <thead>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Current Tier</td>
+                            <td>{{currenttier}}</td>
+                          </tr>
+                          <tr>
+                            <td>Total Points Earned</td>
+                            <td>{{pointsearned}}</td>
+                          </tr>
+                          <tr>
+                            <td>Coupon Points</td>
+                            <td>{{couponpoints}}</td>
+                          </tr>
+                          <tr>
+                            <td>Tier Points</td>
+                            <td>{{tierpoints}}</td>
+                          </tr>
+                          <tr>
+                            <td>Other Contest Points</td>
+                            <td>{{othercontestpoints}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="  mechani-list">     
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th colspan="3">Current Period: {{currentperiod}}</th>
+                          </tr>
+                          <tr>
+                            <th></th>
+                            <th>Coupon Scans/Qtr</th>
+                            <th>Vol(L)/Qtr</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Current Achievement</td>
+                            <td>{{currentachievementCoupon}}</td>
+                            <td>{{currentachievementVol}}</td>
+                          </tr>
+                          <tr>
+                            <td>Balance for Upgradation to Next Tier</td>
+                            <td>{{upgradationtonexttierCoupon}}</td>
+                            <td>{{upgradationtonexttierVol}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="">     
+                      <table class="table table-bordered mechani-list">
+                        <thead>
+                          <th>Tier</th>
+                          <th>Criteria</th>
+                          <th>Earnings</th>
+                        </thead>
+                        <tbody  ng-repeat="x in TierList">
+                          <tr>
+                            <td>{{x.tiername}}</td>
+                            <td>{{x.criteria}}</td>
+                            <td>{{x.earnings}}</td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </form> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <footer-directive></footer-directive>
+      </footer>
+    </div>
+  
+    <script>
+      function openNav() {
+       document.getElementById("mySidenav").style.width = "280px";
+      }
+  
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+  
+      function maxLengthCheck(object) {
+        if (object.value.length > object.max.length)
+          object.value = object.value.slice(0, object.max.length);
+      }
+  
+      function maxLengthCheckPhoneNumber(object) {
+        if (object.value.length > object.max.length)
+          object.value = object.value.slice(0, object.max.length);
+      }
+  
+      function blockSpecialChar(e) {
+        var k = e.keyCode;
+        return (
+          (k > 64 && k < 91) ||
+          (k > 96 && k < 123) ||
+          k == 8 ||
+          (k >= 48 && k <= 57)
+        );
+      }
+    </script>
+    <style>
+      .ui-state-default,
+      .ui-widget-content .ui-state-default,
+      .ui-widget-header .ui-state-default {
+        border: 1px solid #d3d3d3;
+        /* background: #e6e6e6 url(images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x; */
+        font-weight: normal;
+        color: #042469;
+        font-weight: bold;
+      }
+    </style>
+  </ion-view>
+  

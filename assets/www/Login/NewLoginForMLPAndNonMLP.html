@@ -1,0 +1,90 @@
+<ion-view>
+  <style>
+    .body-bg {
+      background-image: url(./img/login-page-bg.png);
+    }
+    input.form-control {
+      border-radius: 10px;
+    }
+    .username-login input{
+       height: 40px;
+    }
+    .gulf-btn {
+      padding: 7px 20px;
+    }
+    .button.ng-binding.button-positive{
+ background-color: #000A47 !important;
+}
+.popup-body span,.popup-title {
+ color: #000A47;
+ font-weight: bold;
+}
+  </style>
+<div class="body-bg" >
+ <!--  <div class="login-logo">
+    <a href=""><img class="img-responsive" src="img/master-scan.png" alt="master-scan"></a>
+  </div> -->
+  <section class="login-details">
+    <div class="container ">
+      <div class="padding-top-pixel">
+        <div class="row">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="login-contain text-center">
+<!--              <form  method="">-->
+                <div class="form-group text-center username-login">
+                  <input type="text" class="form-control user-name" placeholder="Enter Mobile No./ User Name" ng-model="username" onfocus="this.placeholder='' " ng-model="mobile"
+                  min="1" max="9999999999" oninput="phoneValidations(this)" onblur="this.placeholder='Enter Mobile No./ User Name' " >
+                </div>
+                <div id="error-text"></div>
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                  <ul class="list-inline text-center">
+                    <li>
+                      <div class="col-md-12 col-xs-12 col-sm-12 checkbox-inline text-center" style="line-height:normal;">
+                        <input type="checkbox" value=""  id="agreeForTandC" checked><span style="color:#000">I agree to the</span> 
+                        <span style="color:#000">
+                          <a  style="color:#000" href="http://www.gulfmastermechanic.in/t-c.php" target="_blank">terms and conditions</a>
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+               
+                <div class="form-group text-center" >
+                   <button type="submit" class=" btn gulf-btn signupbtn" ng-click="Login()">Sign In</button>
+                </div>
+               
+              <!--</form> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script>
+      function maxLengthCheckPhoneNumber(object) {
+      if (object.value.length > object.max.length)
+        object.value = object.value.slice(0, object.max.length)
+    }
+  function phoneValidations(object) {
+    // Check if the length exceeds the maximum allowed
+    if (object.value.length > object.max.length) {
+      object.value = object.value.slice(0, object.max.length);
+    }
+
+    // Check if the value does not start with 9, 8, or 7
+    const isValid = /^[789]/.test(object.value) ;
+    const errorText = document.getElementById('error-text');
+
+    if (!isValid && object.value.length > 0) {
+      // Display a validation error
+      errorText.innerHTML = 'Mobile number must start with 6,7,8,9';
+      errorText.style.color = 'red';
+    } else {
+      // Clear the error text if the validation is successful
+      errorText.innerHTML = '';
+    }
+  }
+</script>
+    </ion-view>
