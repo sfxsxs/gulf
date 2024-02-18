@@ -1,0 +1,207 @@
+<ion-view>
+    <style>
+        .dataTables_wrapper.no-footer a:focus,
+        .dataTables_wrapper.no-footer a:hover {
+
+            text-decoration: none;
+        }
+
+        table.table.dt-responsive.dataTable.no-footer {
+            width: 100% !important;
+        }
+
+        .contest-contain {
+            min-height: 50px;
+            border: 1px solid #000A47;
+            height: auto;
+            padding: 10px;
+        }
+
+        .body-bg-1 {
+            background-image: url(./img/gulf-background.png);
+        }
+
+        p {
+            color: #fff;
+        }
+
+        .login-otp h4 {
+            color: #000A47;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .radio-custom {
+            opacity: 0;
+            position: absolute;
+        }
+
+        .radio-custom,
+        .radio-custom-label {
+            display: inline-block;
+            vertical-align: middle;
+            /* margin: 5px; */
+            cursor: pointer;
+        }
+
+        .login-otp h4 {
+            color: #fff;
+            margin: 0 auto 30px auto;
+        }
+
+        .form-control.user-name,
+        .gulf-btn {
+            background-color: #1f3d8a;
+            border: medium none #1f3d8a;
+            color: #fff !important;
+        }
+
+        .button.button-positive {
+            background-color: #1f3d8a;
+            border: medium none #1f3d8a;
+            border-radius: 10px;
+            color: #fff;
+        }
+
+        #fromdateContest,
+        #todateContest {
+            border: 1px solid #1f3d8a;
+            border-radius: 4px;
+        }
+
+        .input-group.date .form-control {
+            font-size: 11px;
+        }
+    </style>
+    <script src="lib/datePicker/bootstrap-datepicker.js"></script>
+    <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+        <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()">
+                <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png"
+                    alt="blue-bg-with-logo-half">
+                <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png"
+                    alt="left-arrow-white">
+            </a></div>
+
+        <nav-directive></nav-directive>
+
+        <section class="section-pad-top">
+            <div class="container">
+                <div class=" login-otp">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <h4 class="text-center gulf-h4">{{data.localAppLanguage.contests}}</h4>
+                            <div class="login-contain padding-top-pixel">
+                                <form class="transaction-form" style="padding:0;">
+
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-sm-6 col-xs-6 date-img"
+                                            style="position: relative;margin-top: 15px;padding-right:0;">
+                                            <div class='input-group date' id="fromdateContest">
+                                                <input type="text" class="form-control"
+                                                    placeholder="{{data.localAppLanguage.from_date}}"
+                                                    style="padding:6px 2px;height:30px;" ng-model="fromdate" readonly>
+                                                <span class="input-group-addon">
+                                                    <i ng-if="modeProject == 'Gulf'" class="fa fa-calendar"
+                                                        aria-hidden="true"></i>
+                                                    <i ng-if="modeProject == 'S-oil'" class="fa fa-calendar"
+                                                        aria-hidden="true" style="color: #d9aa59;"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 date-img"
+                                            style="position: relative;margin-top: 15px;">
+                                            <div class='input-group date' id="todateContest">
+                                                <input type="text" class="form-control"
+                                                    placeholder="{{data.localAppLanguage.to_date}}"
+                                                    style="padding:6px 2px;height:30px;" ng-model="todate" readonly>
+                                                <span class="input-group-addon">
+                                                    <i ng-if="modeProject == 'Gulf'" class="fa fa-calendar"
+                                                        aria-hidden="true"></i>
+                                                    <i ng-if="modeProject == 'S-oil'" class="fa fa-calendar"
+                                                        aria-hidden="true" style="color: #d9aa59;"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 "
+                                            style="position: relative;margin-top: 15px;">
+                                            <div class='input-group1 date' id="todate3Contest">
+                                                <input ng-if="modeProject == 'Gulf'" type="text" class="form-control"
+                                                    placeholder="{{data.localAppLanguage.search_by_contest_name}}"
+                                                    ng-model="name" style="border: 1px solid #1f3d8a;padding: 5px;">
+
+                                                <input ng-if="modeProject == 'S-oil'" type="text" class="form-control"
+                                                    placeholder="{{data.localAppLanguage.search_by_contest_name}}"
+                                                    ng-model="name" style="border: 1px solid #d9aa59;padding: 0">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <button ng-if="modeProject == 'Gulf'" type="submit"
+                                            class=" btn gulf-btn signupbtn" style="margin-top:18px;"
+                                            ng-click="getContestReport()">{{data.localAppLanguage.submit}}</button>
+
+                                        <button ng-if="modeProject == 'S-oil'" type="submit"
+                                            class=" btn gulf-btn signupbtn" style="margin-top:18px;background-color: #d9aa59;
+                                            border: medium none #d9aa59; color: #000 !important;margin-bottom: 30px;"
+                                            ng-click="getContestReport()">{{data.localAppLanguage.submit}}</button>
+                                    </div>
+
+                                </form>
+                                <div ng-if="modeProject == 'Gulf'" class="col-md-12 col-xs-12 col-sm-12 form-group"
+                                    ng-repeat="x in contestData" ng-show="contestShow">
+                                    <p><b>{{x.contest_name}}</b></p>
+                                    <div class="contest-contain">
+                                        <p>{{x.cc_startdate}}-{{x.cc_enddate}}</p>
+                                        <p></p>
+
+                                    </div>
+                                </div>
+
+                                <div ng-if="modeProject == 'S-oil'" class="col-md-12 col-xs-12 col-sm-12 form-group"
+                                    ng-repeat="x in contestData" ng-show="contestShow">
+                                    <p><b>{{x.contest_name}}</b></p>
+                                    <div class="contest-contain" style="border: 1px solid #d9aa59;">
+                                        <p>{{x.cc_startdate}}-{{x.cc_enddate}}</p>
+                                        <p></p>
+
+                                    </div>
+                                </div>
+                                <!-- <div class="table-responsive mechani-list" >
+                                    <table id="ContestReort" class="table dt-responsive" >
+                                        <thead>
+                                            <tr>
+                                                <th>Contest Period</th>
+                                                <th>Contest Name</th>
+                                                <th>Contest Details</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+
+                                    </table>
+                                </div> -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <footer-directive></footer-directive>
+        </footer>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+
+</ion-view>

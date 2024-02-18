@@ -1,0 +1,126 @@
+<ion-view>
+  <style>
+    .login-contain form {
+      padding: 10px 20px 20px;
+    }
+
+    .body-bg-1 {
+      background-image: url(./img/nonmlp-bg.png);
+    }
+
+    .login-otp {
+      padding-top: 30%;
+    }
+
+    .login-otp h4 {
+      color: #000A47;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    p {
+      color: #000A47;
+      font-size: 15px;
+    }
+
+    .navbar-brand {
+      padding: 22px 15px;
+    }
+
+    .gulf-btn {
+      background-color: #000A47;
+      padding: 6px 25px;
+      font-size: 16px;
+    }
+
+    footer .login-footer {
+      padding: 0px 0 0;
+    }
+
+    .form-control {
+      border: 1px solid #000A47 !important;
+    }
+
+    .button.ng-binding.button-positive {
+      background-color: #000A47 !important;
+    }
+
+    .popup-body span,
+    .popup-title {
+      color: #000A47;
+      font-weight: bold;
+    }
+
+    footer .login-footer {
+      padding: 0px 0 0;
+    }
+
+    .section-pad-top {
+      height: 100%;
+    }
+  </style>
+  <nav class="navbar navbar-fixed-top non-mlp-header" style="background-color:#000A47;">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- <a class="navbar-brand" href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a> -->
+      </div>
+    </div>
+  </nav>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center">Enter OTP <br>One Time Password</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <form method="">
+                  <p>
+                    Please enter OTP sent to<br>your registered mobile number <br>ending with
+                    xxxxxx{{NonMlp_last_digit}}
+                  </p>
+                  <div class="form-group text-center username-login" style="margin: 20px 0;">
+                    <input type="text" class="form-control" placeholder="Enter OTP" ng-model="OTP">
+                  </div>
+
+                  <div class="form-group text-center">
+                    <button type="button" class=" btn gulf-btn signupbtn" ng-click="checkOtp()">Submit</button>
+                  </div>
+                  <p>
+                    Not received OTP?
+                  </p>
+                  <div class="form-group text-center" ng-show="showCall">
+                    <button type="submit" class=" btn gulf-btn signupbtn" ng-click="resendOtp()">Click Here to
+                      Resend</button>
+                  </div>
+                  <div class="form-group text-center" ng-show="!showCall">
+                    <button type="submit" class=" btn gulf-btn signupbtn" ng-click="callOTP()">Call OTP</button>
+                  </div>
+                  <p>
+                    You will receive OTP via call automatically after second attempt
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer>
+    <nav class="navbar  navbar-fixed-bottom" style="background-color:#EB5B24;">
+      <div class="login-footer">
+        <div class="container-fluid ">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12 border-orange">
+              <!-- <ul class="list-inline text-center">
+                     <li><div class="checkbox-inline" style="line-height:normal;"><input type="checkbox" value=""  id="agreeForTandC">I agree to the <span style="cursor:pointer;text-decoration: underline;"><a href="http://www.gulfmastermechanic.in/t-c.php" target="_blank">terms and conditions</a></span></div></li>
+                  </ul> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </footer>
+</ion-view>

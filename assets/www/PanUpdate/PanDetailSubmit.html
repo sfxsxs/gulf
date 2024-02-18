@@ -1,0 +1,225 @@
+<ion-view>
+
+    <style>
+      /******Custom Radio Button starts *********/
+      .body-bg-1 {
+        background-image: url(./img/nonmlp-bg.png);
+      }
+  
+      p {
+        color: #000A47;
+      }
+  
+      label {
+        color: #000A47;
+      }
+  
+      .login-otp h4 {
+        color: #000A47;
+        font-weight: bold;
+        font-size: 24px;
+      }
+  
+      .radio-custom {
+        opacity: 0;
+        position: absolute;
+      }
+  
+      .radio-custom,
+      .radio-custom-label {
+        display: inline-block;
+        vertical-align: middle;
+        /* margin: 5px; */
+        cursor: pointer;
+      }
+  
+      .radio-custom-label {
+        position: relative;
+      }
+  
+      .radio-custom+.radio-custom-label:before {
+        content: '';
+        background: #EB5B24;
+        border: 2px solid #EB5B24;
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        text-align: center;
+      }
+  
+      .radio-custom+.radio-custom-label:before {
+        border-radius: 50%;
+      }
+  
+      .radio-custom:checked+.radio-custom-label:before {
+        content: "\f00c";
+        font-family: 'FontAwesome';
+        color: #fff;
+      }
+  
+      .checkbox-inline input[type=checkbox] {
+        width: 15px;
+        height: 15px;
+      }
+  
+      span.user-type {
+        color: #1f3d8a;
+        position: absolute;
+      }
+  
+      .body-bg-1 {
+        background-image: url(./img/gulf-background-new.png);
+      }
+  
+      .login-otp h4 {
+        color: #1f3d8a;
+        margin: 0 auto 30px auto;
+      }
+  
+      .form-control {
+        border-radius: 4px;
+        border: 1px solid #1f3d8a !important;
+      }
+  
+      footer .login-footer {
+        background-color: #004382;
+        /* For browsers that do not support gradients */
+        background-image: linear-gradient(to right, #004382 10%, #0094d6 50%, #004382);
+        /* Standard syntax (must be last) */
+        padding: 8px 0;
+      }
+  
+      i.fa.fa-facebook-square {
+        color: #fff !important;
+      }
+  
+      .form-control.user-name,
+      .gulf-btn {
+        background-color: #1f3d8a;
+        border: medium none #1f3d8a;
+        color: #fff !important;
+      }
+  
+      .button.button-positive {
+        background-color: #1f3d8a;
+        border: medium none #1f3d8a;
+        border-radius: 10px;
+        color: #fff;
+      }
+      
+    .shadow-box {
+        border: 1px solid;
+        border-radius: 20px;
+        text-align: center;
+        display: grid;
+        place-items: center;
+        margin: 30% 20px;
+        font-size: 1.7em;
+        color: #000;
+        line-height: 1.5;
+        padding: 35px 50px 21px 50px;
+    }
+    .gulf-btn {
+        border-radius: 10px;
+        padding: 8px 20px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .paninput{
+        border: solid 2px #000;
+        box-shadow: none;
+        border-radius: 5px;
+        height: 80px;
+        padding: 5px;
+        font-size: 20px;
+        width: 70%;
+        margin: auto;
+    }
+      /******Custom Radio Button Ends*********/
+    </style>
+  
+    <div  class="body-bg-1">
+      <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()">
+          <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half">
+          <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png"
+            alt="left-arrow-white">
+        </a></div>
+      <!--  <nav-directive></nav-directive> -->
+      <nav-directive ng-if="!nonMlp"></nav-directive>
+      <non-mlp-header ng-if="nonMlp"></non-mlp-header>
+  
+      <section class="section-pad-top">
+        <div class="container">
+          <div class=" login-otp">
+            <div class="row">
+              <div class="col-md-12 col-xs-12 col-sm-12">
+                
+                <div class="login-contain text-center padding-top-pixel">
+                    <div class="" style="margin: 20% 20px;">
+                        
+            
+                        <div class="form-group text-center">
+                            <div class="page-width">
+                                <div style="margin-top: 10px; margin-bottom: 20px;min-height: 110px;margin: auto;">
+                                    <img src="{{panimage}}" id="selectedpanimage" alt="" style="border-radius: 0;width: 150px;height: 100px;">
+                                </div>
+                                <div style="margin-top: 10px; margin-bottom: 20px;min-height: 110px;margin: auto;">
+                                    <img src="{{selfieimage}}" id="selfieimage" alt="" style="border-radius: 0;width: 150px;height: 100px;">
+                                </div>
+                                
+                                <div class="" style="padding: 40px;">
+                                    <p style="font-size:16px;">Yay!! Your PAN image is successfully uploaded. Please enter the 10 Digit PAN number in the box below</p>
+                                    <input type="text" class="paninput" ng-maxlength="10" ng-pattern="^[a-zA-Z0-9_]*$" maxlength="10" ng-model="panno" name="panno" placeholder="Enter your PAN No" style="border: solid 2px #000;
+                                    box-shadow: none;
+                                    border-radius: 5px;
+                                    height: 80px;
+                                    padding: 5px;
+                                    font-size: 20px;
+                                    width: 100%;
+                                    margin: auto;
+                                    text-align: center;"/>  
+
+    
+                                    <!-- <input type="checkbox" name="is_agree" ng-model="is_agree"> I hereby declare that the PAN details submitted here belongs to me. -->
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="form-check" style="text-align:left;">
+                                
+                                <label class="form-check-label" for="exampleCheck1"> 
+                                  <input type="checkbox" class="form-check-input" name="is_agree" ng-model="is_agree" value="1">
+                                  I hereby declare that the PAN details submitted here belongs to me.</label>
+                            </div>
+                            <button  type="button" class=" btn gulf-btn signupbtn" ng-click="submitPanDetail()" class="btn-customize gallery_text">
+                                Submit PAN details</button>
+
+                        </div>
+                    </div>
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <nav class="navbar  navbar-fixed-bottom">
+          <footer-directive ng-if="!nonMlp"></footer-directive>
+          <footer-directive-nonmlp ng-if="nonMlp"></footer-directive-nonmlp>
+        </nav>
+      </footer>
+    </div>
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "280px";
+      }
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+  
+  
+  </ion-view>

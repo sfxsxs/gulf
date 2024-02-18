@@ -1,0 +1,208 @@
+<ion-view>
+  <link rel="stylesheet" href="lib/datePicker/jquery-ui.css">
+  <script type="text/javascript" src="lib/datePicker/jquery-ui.js"></script>
+  <style>
+    .popup-container.popup-showing {
+      margin-top: 19% !important;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+      padding-left: 0px;
+      background-color: transparent;
+    }
+
+    .login-contain form {
+      padding: 30px 20px 20px;
+    }
+
+    p {
+      color: #fff;
+    }
+
+    .login-otp h4 {
+      margin-top: 70px;
+    }
+  </style>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}" id="top">
+
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img class="img-responsive"
+          src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a>
+
+    </div>
+    <non-mlp-header></non-mlp-header>
+    <section class="section-pad-top" ng-show="showoneBankDeatils">
+      <div class="container-fluid">
+        <div class="login-otp">
+          <div class="row">
+            <h4 class="text-center gulf-h4">Bank Account Details</h4>
+            <div class="login-contain padding-top-pixel Mechanic-max-height">
+              <form method="" class="add-mechanic-details">
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="name">Beneficiary Name*:</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" ng-model="beneficiaryName"
+                      style="border-bottom: 1px solid #fff !important;" ng-disabled="!updateDetail">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="name">Account No.*:</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" ng-model="accountNumber"
+                      style="border-bottom: 1px solid #fff !important;" ng-disabled="!updateDetail">
+                  </div>
+                </div>
+                <div class="form-group" ng-show="updateDetail">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="name">Confirm Account No.*:</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" ng-model="confirmAccountNumber"
+                      style="border-bottom: 1px solid #fff !important;">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="name">Bank Name*:</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" ng-model="bankName"
+                      style="border-bottom: 1px solid #fff !important;" ng-disabled="!updateDetail">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="name">IFSC Code*:</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" ng-model="ifscCode"
+                      style="border-bottom: 1px solid #fff !important;" ng-disabled="!updateDetail">
+                  </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div ng-if="!updateDetail" class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                  <button type="button" class=" btn gulf-btn signupbtn " ng-click="editBankDetails()">Edit Bank
+                    Detail</button>
+                </div>
+                <div ng-if="updateDetail" class="form-group col-md-12 col-sm-12 col-xs-12 text-center"
+                  style="margin-top:20px;">
+                  <label class="checkbox-inline" style="line-height:normal;"><input type="checkbox" value=""
+                      id="bankAccountAccess">I agree to share my bank account details</label>
+                </div>
+                <div ng-if="updateDetail" class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                  <button type="button" class=" btn gulf-btn signupbtn " ng-click="updateBankDetails()"
+                    ng-disabled="btnBank">Update Bank Detail</button>
+                </div>
+
+                <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                  <button type="button" class=" btn gulf-btn signupbtn " ng-click="redeemNow()">Continue With Same Bank
+                    Account Detail</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-pad-top" ng-if="showoneRupe">
+      <div class="container-fluid">
+        <div class="login-otp">
+          <div class="row">
+            <div class="login-contain padding-top-pixel Mechanic-max-height">
+              <form method="" class="add-mechanic-details">
+                <div class="form-group">
+                  <div class="col-md-12 col-sm-12 col-xs-12 text-center balance-transfer-img">
+                    <img class="img-responsive" src="img/balance-transfer.png" alt="balance-transfer">
+                  </div>
+                </div>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top:20px;"
+                  ng-click="goNext" ()>
+                  <p>We are transffering Rupee One<br>in your bank account <br>for verifing your bank account.</p>
+                </div>
+                <!--     <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                      <button type="button" class=" btn gulf-btn signupbtn " ng-click="goNext()">Submit (Later need to change based on status)</button>
+                    </div> -->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-pad-top" ng-if="resultSatatus">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12" ng-if="valid">
+
+              <div class="login-contain text-center padding-top-pixel">
+                <div class="thumb-sign">
+                  <img class="img-responsive" src="img/conguralation-thumb.png" alt="conguralation-thumb"
+                    style="color:#fff;">
+                </div>
+                <h4 class="text-center gulf-h4">Congratulations !!</h4>
+
+                <p>Your Bank Account has been verified.<br>
+                  Now you can scan code and get rewards </p>
+                <div class="form-group text-center sucessful">
+                  <button type="submit" class=" btn gulf-btn signupbtn" ng-click="letsProceed()"><span>Ok, Lets
+                      proceed</span><img style="width:30px;float:left;" class="img-responsive"
+                      src="img/scan-next-code.png" alt="scan-next-code"></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-xs-12 col-sm-12" ng-if="inValid">
+
+              <div class="login-contain text-center padding-top-pixel">
+                <div class="thumb-sign">
+                  <img class="img-responsive" src="img/sorry-thumb.png" alt="sorry-thumb" style="color:#fff;">
+                  <h4 class="text-center gulf-h4">Oops, Sorry !!</h4>
+                </div>
+                <p>Your Bank Account verification is unsuccessful.<br>
+                  Please Enter the correct bank details.</p>
+                <div class="form-group text-center sucessful">
+                  <button type="submit" class=" btn gulf-btn signupbtn" ng-click="reEnterDetail()"><span>Re-enter Bank
+                      Details</span><img style="width:30px;float:left;" class="img-responsive"
+                      src="img/scan-next-code.png" alt="scan-next-code"></button>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <footer>
+      <footer>
+        <footer-directive-nonmlp></footer-directive-nonmlp>
+      </footer>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+
+    function maxLengthCheck(object) {
+      if (object.value.length > object.max.length)
+        object.value = object.value.slice(0, object.max.length)
+    }
+
+    function blockSpecialChar(e) {
+      var k = e.keyCode;
+      return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || (k >= 48 && k <= 57));
+    }
+  </script>
+</ion-view>

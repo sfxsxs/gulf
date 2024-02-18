@@ -1,0 +1,76 @@
+<style>
+  input[type="checkbox"] {
+    width: 17px;
+    /*Desired width*/
+    height: 17px;
+    /*Desired height*/
+  }
+</style>
+<ion-view>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img class="img-responsive"
+          src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+    <nav-directive></nav-directive>
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center gulf-h4" style="margin-top: 15%;">Conversion of NON MLP user to MLP user</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <form action="/action_page.php" method="">
+                  <p><strong>Search Non MLP User</strong></p>
+                  <div class="form-group text-center username-login">
+                    <input type="text" class="form-control" placeholder="Enter UserId" ng-model="referralDataa">
+                  </div>
+                  <div class="form-group text-center">
+                    <button type="button" class=" btn gulf-btn signupbtn" ng-click="referralChecking()">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive mechani-list" ng-if="afterSubmit">
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Mobile No.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!--   <div ng-repeat="option in list">-->
+              <tr>
+                <td>
+                  <!-- <input type="checkbox" value="">-->
+                  <input type="checkbox" ng-value="retailerPkId" ng-click="getCheckedTrue()" ng-model="testChecked" />
+
+                </td>
+                <td>{{referredName}}</td>
+                <td>{{referredMobileNo}}</td>
+              </tr>
+              <!--  </div>-->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
+</ion-view>

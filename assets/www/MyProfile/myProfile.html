@@ -1,0 +1,524 @@
+<ion-view>
+  <link rel="stylesheet" href="lib/datePicker/jquery-ui.css" />
+  <script type="text/javascript" src="lib/datePicker/jquery-ui.js"></script>
+  <style>
+    .popup-container.popup-showing {
+      margin-top: 19% !important;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+      padding-left: 0px;
+      background-color: transparent;
+    }
+  </style>
+
+  <div id="top" ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow">
+      <a class="pull-right" href="" ng-click="clickBack()"> 
+        <img ng-if="modeProject == 'Gulf'" class="img-responsive" style="margin: 15px 15px;width: 17px;" src="img/left-arrow.png" alt="blue-bg-with-logo-half"/>
+        <img ng-if="modeProject == 'S-oil'" class="img-responsive" style="margin: 15px 15px;width: 17px;" src="img/left-arrow-white.png" alt="blue-bg-with-logo-half"/>
+    </a>
+    </div>
+    <nav-directive></nav-directive>
+
+    <section class="section-pad-top">
+      <div class="container-fluid">
+        <div class="login-otp">
+          <div class="row">
+            <h4 class="text-center gulf-h4">{{data.localAppLanguage.my_profile}}</h4>
+            <div class="login-contain padding-top-pixel Mechanic-max-height">
+              <form method="" class="add-mechanic-details">
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <img
+                      ng-src="{{ mechProfileImage }}"
+                      alt=""
+                      style="width: 85px;
+    height: 85px;"
+                      ng-click="uploadProfilePhoto()"
+                      id="profilePic"
+                    />
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <!-- <p style="margin-top: 35px;">Mechanic Id:{{usd_code}}</p>-->
+                    <p style="font-size:15px;font-weight:bold">{{data.localAppLanguage.mechanic_id}}:</p>
+                    <p style="font-size:15px;font-weight:bold">
+                      {{ usd_code }}
+                    </p>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="user-category">{{data.localAppLanguage.userType}} :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input
+                      type="text"
+                      class="nonEdit"
+                      id="user-category"
+                      ng-model="data.user_category"
+                      ng-disabled="true"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="user-category">{{data.localAppLanguage.tier}} :</label>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input
+                      type="text"
+                      class="nonEdit"
+                      id="current-tier"
+                      ng-model="data.current_tier"
+                      ng-disabled="true"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="user-name">{{data.localAppLanguage.name}}* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input
+                      type="text"
+                      class="nonEdit"
+                      id="user-name"
+                      ng-model="data.usd_firstname"
+                      ng-disabled="all"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="mobile-number">{{data.localAppLanguage.mobile_no}}* :</label>
+                  </div>
+                  <!--<div class="col-md-6 col-sm-6 col-xs-6">
+                                        <input id="mobile-number" type="tel" class="nonEdit" ng-model="usd_mobile" ng-disabled="true">
+                                    </div>-->
+                  <div
+                    class="col-md-6 col-sm-6 col-xs-6"
+                    ng-click="mechUpadteMobile()"
+                  >
+                    <div class="input-group" style="display:flex;">
+                      <input
+                        id="mobile-number"
+                        type="tel"
+                        class="nonEdit"
+                        ng-model="usd_mobile"
+                        ng-disabled="true"
+                      />
+                      <div
+                        class="input-group-append"
+                        style="margin-left: -50px;padding-top: 5px;"
+                      >
+                        <span class="input-group-text"
+                          ><img
+                            src="img/lock.png"
+                            alt="lock"
+                            style="width:15px;"
+                        /></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="date-of-birth">{{data.localAppLanguage.dob}}:</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input
+                      type="text"
+                      class="nonEdit"
+                      ng-model="usd_dob"
+                      id="wcdobMyProfile"
+                      ng-disabled="all"
+                      readonly
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="preferred-language"
+                      >{{data.localAppLanguage.preferred_language}}* :</label
+                    >
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input
+                      ng-if="all"
+                      type="text"
+                      class="nonEdit"
+                      id="user-name"
+                      ng-model="data.selectedLanguage"
+                      ng-disabled="all"
+                    />
+                    <div ng-show="!all" id="langMyProfileParent">
+                      <select
+                        class="form-control"
+                        ng-model="data.selectedLanguage"
+                        ng-disabled="all"
+                        id="langMyProfile"
+                      >
+                        <option
+                          ng-repeat="x in AvailabelLanguage"
+                          value="{{ x.lang_name }}"
+                          >{{ x.lang_name }}</option
+                        >
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="address">{{data.localAppLanguage.address}}* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input
+                      type="text"
+                      class="nonEdit"
+                      ng-model="data.address1"
+                      ng-disabled="all"
+                      placeholder="Room no/Shop"
+                      rows="1"
+                      id="address1"
+                      ng-change="checkAddress1()"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6"></div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input
+                      type="text"
+                      class="nonEdit"
+                      ng-model="data.address2"
+                      ng-disabled="all"
+                      placeholder="{{data.localAppLanguage.market_name_street}}"
+                      rows="1"
+                      id="address2"
+                      ng-change="checkAddress2()"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6"></div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input
+                      type="text"
+                      class="nonEdit"
+                      ng-model="data.address3"
+                      ng-disabled="all"
+                      placeholder="{{data.localAppLanguage.landmark}}"
+                      rows="1"
+                      id="address3"
+                      ng-change="checkAddress3()"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="pincode">{{data.localAppLanguage.pincode}}* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input
+                      oninput="maxLengthCheck(this)"
+                      type="number"
+                      min="1"
+                      max="999999"
+                      class="nonEdit"
+                      placeholder="Pincode"
+                      ng-model="data.pincode"
+                      ng-change="checkPincode()"
+                      ng-disabled="all"
+                      onkeypress="return blockSpecialChar(event)"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="state">{{data.localAppLanguage.state}}* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input
+                      type="text"
+                      class="nonEdit"
+                      placeholder="State"
+                      ng-model="state"
+                      value="{{ state }}"
+                      ng-disabled="true"
+                    />
+                    <!--   <select  class="js-example-basic-single"  style="background-color: transparent !important" ng-change="onStateChange()" ng-model="data.selectedState" style= "width: 195px;background-color: blue;"   ng-disabled="all">
+                   
+                 <option ng-repeat="x in AvailabelState" value="{{x.pm_statename}}">{{x.pm_statename}}</option>
+            </select >-->
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="city">{{data.localAppLanguage.city}}* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input
+                      type="text"
+                      class="nonEdit"
+                      placeholder="city"
+                      ng-model="city"
+                      value="{{ city }}"
+                      ng-disabled="true"
+                    />
+                    <!--   <select  class="js-example-basic-single" ng-change="onCityChange()" ng-model="data.selectedCity" style= "width: 195px;background-color: blue;"  ng-disabled="all" >
+                        <option ng-repeat="x in AvailabelCity" value="{{x.pm_district_name}}">{{x.pm_district_name}}</option>
+            </select>-->
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="area">{{data.localAppLanguage.area}}* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div ng-show="!all" id="areaMyprofileParent">
+                      <select
+                        class="form-control"
+                        ng-change="onAreaChange()"
+                        ng-model="data.selectedArea"
+                        style="background-color: blue;"
+                        ng-disabled="all"
+                        id="areaMyprofile"
+                      >
+                        <option
+                          ng-repeat="x in AvailabelArea"
+                          value="{{ x.pm_po_name }}"
+                          >{{ x.pm_po_name }}</option
+                        >
+                      </select>
+                    </div>
+                    <div ng-show="all">
+                      <input
+                        type="text"
+                        class="nonEdit"
+                        placeholder="Area"
+                        ng-model="data.selectedArea"
+                        ng-disabled="all"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" ng-show="areaNotAvailable">
+                  <div class="col-md-6 col-sm-6 col-xs-6"></div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      ng-model="newArea"
+                      placeholder="Area"
+                    />
+                  </div>
+                </div>
+                <div class="form-group" ng-if="data.user_category=='Loyalty User'">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="date-of-birth">{{data.localAppLanguage.pan_no}}:</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input
+                      type="text"
+                      class="nonEdit"
+                      ng-model="data.pan_number"
+                      id="panno"
+                      ng-disabled="all"
+                      readonly
+                    />
+                  </div>
+                </div>
+                <div class="form-group" ng-if="data.user_category=='Loyalty User' && data.pan_availability == 'Approved'">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="date-of-birth">{{data.localAppLanguage.pan_image}}:</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <img src="{{data.pan_image}}" style="max-width: 100%; height: 100px;">
+                  </div>
+                </div>
+                <div ng-if="modeProject == 'Gulf'"
+                  class="form-group col-md-12 col-sm-12 col-xs-12 text-center"
+                >
+                  <button
+                    type="button"
+                    class=" btn gulf-btn signupbtn "
+                    ng-click="gotoPanPopupPage()"
+                    ng-if="data.user_category=='Loyalty User' && data.pan_availability != 'Approved'"
+                  >
+                  {{data.localAppLanguage.update_pan}}
+                  </button>
+                  <button
+                    type="button"
+                    class=" btn gulf-btn signupbtn "
+                    ng-click="changePassword()"
+                    ng-if="all"
+                  >
+                  {{data.localAppLanguage.change_password}}
+                  </button>
+
+
+                  <button
+                    type="button"
+                    class=" btn gulf-btn signupbtn "
+                    ng-click="editDetails()"
+                    ng-if="all"
+                  >
+                  {{data.localAppLanguage.edit}}
+                  </button>
+                  <button
+                    type="button"
+                    class=" btn gulf-btn signupbtn "
+                    ng-click="submitDetails()"
+                    ng-if="!all"
+                  >
+                  {{data.localAppLanguage.submit}}
+                  </button>
+                </div>
+
+                <div ng-if="modeProject == 'S-oil'" class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                <button
+                  type="button"
+                  class=" btn gulf-btn signupbtn "
+                  ng-click="changePassword()"
+                  ng-if="all"
+                  style="background-color: #d9aa59;
+                      border: medium none #d9aa59; color: #000 !important;margin-bottom: 30px;"
+                >
+                {{data.localAppLanguage.change_password}}
+                </button>
+                <button
+                  type="button"
+                  class=" btn gulf-btn signupbtn "
+                  ng-click="editDetails()"
+                  ng-if="all"
+                  style="background-color: #d9aa59;
+                      border: medium none #d9aa59; color: #000 !important;margin-bottom: 30px;"
+                >
+                {{data.localAppLanguage.edit}}
+                </button>
+                <button
+                  type="button"
+                  class=" btn gulf-btn signupbtn "
+                  ng-click="submitDetails()"
+                  ng-if="!all"
+                  style="background-color: #d9aa59;
+                      border: medium none #d9aa59; color: #000 !important;margin-bottom: 30px;"
+                >
+                {{data.localAppLanguage.submit}}
+                </button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+     document.getElementById("mySidenav").style.width = "280px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+
+    function maxLengthCheck(object) {
+      if (object.value.length > object.max.length)
+        object.value = object.value.slice(0, object.max.length);
+    }
+
+    function blockSpecialChar(e) {
+      var k = e.keyCode;
+      return (
+        (k > 64 && k < 91) ||
+        (k > 96 && k < 123) ||
+        k == 8 ||
+        (k >= 48 && k <= 57)
+      );
+    }
+  </script>
+
+  <!-- <header>
+           <nav-directive></nav-directive>
+        
+        </header>
+    
+    <div class="text-center">
+                                        <h3>My Profile</h3>
+    </div>
+    <div class="profileContent">
+     <div class="row">
+        <div class="col-md-6 col-xs-6 col-sm-6">Mechanic Id :</div>
+         <div class="col-md-6 col-xs-6 col-sm-6">{{usd_code}}</div>
+        </div>
+        <div class="row">
+        <div class="col-md-6 col-xs-6 col-sm-6">Name :</div>
+         <div class="col-md-6 col-xs-6 col-sm-6">{{usd_firstname}}</div>
+        </div>
+        <div class="row">
+        <div class="col-md-6 col-xs-6 col-sm-6">Mobile No :</div>
+         <div class="col-md-6 col-xs-6 col-sm-6">{{usd_mobile}}</div>
+        </div>
+        <div class="row">
+        <div class="col-md-6 col-xs-6 col-sm-6">DOB :</div>
+         <div class="col-md-6 col-xs-6 col-sm-6">{{usd_dob}}</div>
+        </div>
+        <div class="row">
+        <div class="col-md-6 col-xs-6 col-sm-6">Address :</div>
+         <div class="col-md-6 col-xs-6 col-sm-6">{{usd_caddress}}</div>
+        </div>
+        <div class="row">
+        <div class="col-md-6 col-xs-6 col-sm-6">Pincode:</div>
+         <div class="col-md-6 col-xs-6 col-sm-6">{{usd_cpincode}}</div>
+        </div>
+        <div class="row">
+        <div class="col-md-6 col-xs-6 col-sm-6">State :</div>
+         <div class="col-md-6 col-xs-6 col-sm-6">{{state_name}}</div>
+        </div>
+         <div class="row">
+        <div class="col-md-6 col-xs-6 col-sm-6">City :</div>
+         <div class="col-md-6 col-xs-6 col-sm-6">{{city_name}}</div>
+        </div>
+         <div class="row">
+        <div class="col-md-6 col-xs-6 col-sm-6">Area :</div>
+         <div class="col-md-6 col-xs-6 col-sm-6">{{area_name}}</div>
+        </div>
+         <div class="row">
+        <div class="col-md-6 col-xs-6 col-sm-6">Preferred Language :</div>
+         <div class="col-md-6 col-xs-6 col-sm-6">{{lang_name}}</div>
+        </div>
+    </div>
+    <footer>
+        <div class="login-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 col-xs-4 col-sm-4">
+                        <ul class="only-image-footer">
+                            <li class="text-center flot-left"><a href="#"><img class="img-responsive" src="img/phone.png" alt="code"></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-xs-4 col-sm-4">
+                        <ul class="only-image-footer">
+                            <li><a href="#"><img class="img-responsive" src="img/home-1.png" alt="code"></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-xs-4 col-sm-4">
+                        <ul class="only-image-footer">
+                            <li class="messanger-logo"><a href="#"><img class="img-responsive" src="img/messanger.png" alt="code"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+  <!--    </footer>-->
+</ion-view>

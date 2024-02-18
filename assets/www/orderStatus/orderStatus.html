@@ -1,0 +1,114 @@
+<ion-view>
+  <script src="lib/datePicker/bootstrap-datepicker.js"></script>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" ng-click="clickBack()">
+      <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png" alt="left-arrow">
+      <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png" alt="left-arrow-white">
+
+    </a></div>
+    <nav-directive></nav-directive>
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center gulf-h4">Check Order Status</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <form method="" style="  padding: 0px 20px 5px;">
+                  <div class="form-group text-center col-md-12 col-sm-12 col-xs-12">
+                    <input type="text" class="form-control" placeholder="Enter Order No." ng-model="orderNumber">
+                  </div>
+                  <div class="form-group text-center col-md-12 col-sm-12 col-xs-12">
+                    <input type="text" class="form-control" placeholder="Enter Mechanic Id or Mobile No."
+                      ng-model="MechIdOrNumber">
+                  </div>
+                  <div class="form-group date-picker-img">
+                    <div class="col-md-6 col-sm-6 col-xs-6" style="position: relative;">
+                      <div class='input-group date' id="fromdateOrderStatus">
+                        <input type="text" class="form-control" placeholder="From Date"
+                          style="padding:6px 2px;height:30px;" ng-model="fromDate" readonly>
+                        <span class="input-group-addon">
+                          <i ng-if="modeProject == 'Gulf'" class="fa fa-calendar" aria-hidden="true"></i>
+                          <i ng-if="modeProject == 'S-oil'" class="fa fa-calendar" aria-hidden="true" style="color: #d9aa59;"></i>                        
+                        </span>
+                      </div>
+                      <!-- <input type="text" class="form-control" placeholder="From Date" style="padding:6px 2px;height:30px;" id="fromdateOrderStatus" ng-model="fromDate"><img src="img/date-picker.png" alt="date-picker">-->
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6" style="position: relative;">
+                      <div class='input-group date' id="todateOrderStatus">
+                        <input type="text" class="form-control" placeholder="To Date"
+                          style="padding:6px 2px;height:30px;" ng-model="toData" readonly>
+                        <span class="input-group-addon">
+                          <i ng-if="modeProject == 'Gulf'" class="fa fa-calendar" aria-hidden="true"></i>
+                          <i ng-if="modeProject == 'S-oil'" class="fa fa-calendar" aria-hidden="true" style="color: #d9aa59;"></i>                        </span>
+                      </div>
+                      <!-- <input type="text" class="form-control" placeholder="From To" style="padding:6px 2px;height:30px;" id="todateOrderStatus" ng-model="toData">
+                    <img src="img/date-picker.png" alt="date-picker">-->
+                    </div>
+                  </div>
+                  <div class="form-group text-center">
+                    <button ng-if="modeProject == 'Gulf'" type="submit" class=" btn gulf-btn signupbtn" style="margin-top:10px;"
+                      ng-click="orderStatusReportTable()">Submit</button>
+
+                      <button ng-if="modeProject == 'S-oil'" type="submit" class=" btn gulf-btn signupbtn" style="margin-top:10px;background-color: #d9aa59;
+                      border: medium none #d9aa59; color: #000 !important;margin-bottom: 30px;"
+                      ng-click="orderStatusReportTable()">Submit</button>
+                  </div>
+
+                  <div ng-if="modeProject == 'Gulf'" class="table-responsive mechani-list">
+                    <table id="orderList" class="table dt-responsive" style="">
+                      <thead>
+                        <tr>
+                          <!-- <th>S No.</th>-->
+                          <th>Order No</th>
+                          <th>Description</th>
+                          <th>Status</th>
+                          <th>Total Points Redeemed</th>
+                          <th>Points Redeemed Excl Tax</th>
+                          <th>TDS Payable</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div ng-if="modeProject == 'S-oil'" class="table-responsive mechani-list">
+                    <table id="orderList" class="table dt-responsive">
+                      <thead style="background-color: #d9aa59;">
+                        <tr>
+                          <!-- <th>S No.</th>-->
+                          <th style="color: #000;">Order No</th>
+                          <th style="color: #000;">Description</th>
+                          <th style="color: #000;">Status</th>
+                          <th style="color: #000;" >Total Points Redeemed</th>
+                          <th style="color: #000;">Points Redeemed Excl Tax</th>
+                          <th style="color: #000;">TDS Payable</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</ion-view>

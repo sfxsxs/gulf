@@ -1,0 +1,324 @@
+<ion-view>
+  <style>
+    /******Custom Radio Button starts *********/
+
+    .radio-custom {
+      opacity: 0;
+      position: absolute;
+    }
+
+    .radio-custom,
+    .radio-custom-label {
+      display: inline-block;
+      vertical-align: middle;
+      /* margin: 5px; */
+      cursor: pointer;
+    }
+
+    .radio-custom-label {
+      position: relative;
+    }
+
+    .radio-custom+.radio-custom-label:before {
+      content: '';
+      background: #EB5B24;
+      border: 2px solid #EB5B24;
+      display: inline-block;
+      vertical-align: middle;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      text-align: center;
+    }
+
+    .radio-custom+.radio-custom-label:before {
+      border-radius: 50%;
+    }
+
+    .radio-custom:checked+.radio-custom-label:before {
+      content: "\f00c";
+      font-family: 'FontAwesome';
+      color: #fff;
+    }
+
+    .checkbox-inline input[type=checkbox] {
+      width: 15px;
+      height: 15px;
+    }
+
+    span.user-type {
+      color: #1f3d8a;
+      position: absolute;
+    }
+
+    .body-bg-1.cp-login {
+      background-image: url(./img/gulf-background-new.png);
+    }
+
+    .login-otp h4 {
+      color: #1f3d8a;
+      margin: 0 auto 30px auto;
+    }
+
+    .form-control {
+      border-radius: 4px;
+      border: 1px solid #1f3d8a !important;
+    }
+
+    footer .login-footer {
+      background-color: #004382;
+      /* For browsers that do not support gradients */
+      background-image: linear-gradient(to right, #004382 10%, #0094d6 50%, #004382);
+      /* Standard syntax (must be last) */
+      padding: 8px 0;
+    }
+
+    i.fa.fa-facebook-square {
+      color: #fff !important;
+    }
+
+    .form-control.user-name,
+    .gulf-btn {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      color: #fff !important;
+    }
+
+    .button.button-positive {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    p {
+      color: #1f3d8a;
+      /* font-weight: 300 !important; */
+    }
+
+    /******Custom Radio Button Ends*********/
+  </style>
+
+  <div ng-class="{'body-bg-1 cp-login':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img class="img-responsive"
+          src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+    <non-mlp-header></non-mlp-header>
+
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12" ng-if="valid">
+              <h4 class="text-center gulf-h4">{{data.localAppLanguage.code_check_in_successful}}</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <div class="thumb-sign">
+                  <img class="img-responsive" src="img/conguralation-thumb.png" alt="conguralation-thumb"
+                    style="color:#fff;">
+                </div>
+                <div ng-if="promoShow">
+                  <!-- <p ng-if="promocodevalid && amazoncodevalid">{{data.localAppLanguage.congrats}}!
+                    {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}}
+                    {{data.localAppLanguage.points}}, {{prdctPointsPC}} {{data.localAppLanguage.promo_code_points}}
+                    {{data.localAppLanguage.and}} {{prdctPointsAM}} {{data.localAppLanguage.amazon_points}}
+                    {{data.localAppLanguage.with}} {{data.localAppLanguage.this}}
+                    {{data.localAppLanguage.code_check_in}}!</p> -->
+                  <p ng-if="promocodevalid">{{data.localAppLanguage.congrats}}!
+                    {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}}
+                    {{data.localAppLanguage.points}}, {{prdctPointsPC}} {{data.localAppLanguage.promo_code_points}}
+                    {{data.localAppLanguage.with}} {{data.localAppLanguage.this}}
+                    {{data.localAppLanguage.code_check_in}}! 
+                  </p>
+                  <!-- <p ng-if="amazoncodevalid && !promocodevalid">{{data.localAppLanguage.congrats}}!
+                    {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}}
+                    {{data.localAppLanguage.points}}, {{prdctPointsAM}} {{data.localAppLanguage.amazon_points}}
+                    {{data.localAppLanguage.with}} {{data.localAppLanguage.this}}
+                    {{data.localAppLanguage.code_check_in}}! <br /> {{data.localAppLanguage.promo_code_is_invalid}}</p> -->
+                  <p ng-if="!promocodevalid">{{data.localAppLanguage.congrats}}!
+                    {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}}
+                    {{data.localAppLanguage.points}} {{data.localAppLanguage.with}} {{data.localAppLanguage.this}}
+                    {{data.localAppLanguage.code_check_in}}!
+                    <br /> {{data.localAppLanguage.promo_code_is_invalid}}
+                  </p>
+                </div>
+                <!-- <div ng-if="amazonShow && !promoShow">
+                  <p ng-if="amazoncodevalid">{{data.localAppLanguage.congrats}}!
+                    {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}}
+                    {{data.localAppLanguage.points}} , {{prdctPointsAM}} {{data.localAppLanguage.amazon_points}}
+                    {{data.localAppLanguage.with}} {{data.localAppLanguage.this}}
+                    {{data.localAppLanguage.code_check_in}}!</p>
+                  <p ng-if="!amazoncodevalid">{{data.localAppLanguage.congrats}}!
+                    {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}}
+                    {{data.localAppLanguage.points}} {{data.localAppLanguage.with}} {{data.localAppLanguage.this}}
+                    {{data.localAppLanguage.code_check_in}}!,
+                  </p>
+                </div> -->
+                <div ng-if="promoShow">
+                  <p ng-if="promocodevalid">{{data.localAppLanguage.congrats}}!
+                    {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}}
+                    {{data.localAppLanguage.points}} , {{prdctPointsPC}} {{data.localAppLanguage.promo_code_points}}
+                    {{data.localAppLanguage.with}} {{data.localAppLanguage.this}}
+                    {{data.localAppLanguage.code_check_in}}!</p>
+                  <p ng-if="!promocodevalid">{{data.localAppLanguage.congrats}}!
+                    {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}}
+                    {{data.localAppLanguage.points}} {{data.localAppLanguage.with}} {{data.localAppLanguage.this}}
+                    {{data.localAppLanguage.code_check_in}}! , <br /> {{data.localAppLanguage.promo_code_is_invalid}}
+                  </p>
+                </div>
+                <div ng-if="!promoShow">
+                  <p> {{data.localAppLanguage.congrats}}!
+                    {{data.localAppLanguage.you_have_earned}} {{TotalEarnedPointsForCodeCheckin}}
+                    {{data.localAppLanguage.points}} {{data.localAppLanguage.with}} {{data.localAppLanguage.this}}
+                    {{data.localAppLanguage.code_check_in}}!</p>
+                </div>
+
+                <!-- <p ng-if="promocodevalid && amazoncodevalid">Congrats! You have earned {{TotalEarnedPointsForCodeCheckin}} points, {{prdctPointsPC}} Promo code points and {{prdctPointsAM}} Amazon points with this
+Code check in! </p>
+
+<p ng-if="promocodevalid && !amazoncodevalid">Congrats! You have earned {{TotalEarnedPointsForCodeCheckin}} points and {{prdctPointsPC}} Promo code points with this
+Code check in! <br/> Amazon code is invalid </p>
+
+<p ng-if="amazoncodevalid && !promocodevalid">Congrats! You have earned {{TotalEarnedPointsForCodeCheckin}} points and {{prdctPointsAM}} Amazon points with this
+  Code check in!  <br/> Promo code is invalid  </p>
+ 
+  <p ng-if="!promocodevalid && !amazoncodevalid">Congrats! You have earned {{TotalEarnedPointsForCodeCheckin}} points <br/> Promo Code and Amazon code is invalid </p> -->
+
+                <div class="form-group text-center sucessful">
+                  <button type="submit" class=" btn gulf-btn signupbtn"
+                    ng-click="scanNextCode()"><span>{{data.localAppLanguage.scan_next_code}}</span><img
+                      style="width:30px;float:left;" class="img-responsive" src="img/scan-next-code.png"
+                      alt="scan-next-code"></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="col-md-12 col-xs-12 col-sm-12"  ng-if="inValid">
+            <h4 class="text-center gulf-h4">Code Check In Unsuccessful</h4>
+            <div class="login-contain text-center padding-top-pixel">
+              <div class="thumb-sign">
+                <img class="img-responsive" src="img/sorry-thumb.png" alt="sorry-thumb" style="color:#fff;">
+              </div>
+              <p>Sorry, this is an invalid code.<br> Please scan a valid code.</p>
+
+              <div class="form-group text-center sucessful">
+                <button type="submit" class=" btn gulf-btn signupbtn" ng-click="scanNextCode()"><span>Scan Next Code</span><img style="width:30px;float:left;" class="img-responsive" src="img/scan-next-code.png" alt="scan-next-code"></button>
+              </div>
+            </div>
+          </div> -->
+            <div class="col-md-12 col-xs-12 col-sm-12" ng-if="AllinValid == true">
+              <h4 class="text-center gulf-h4">{{data.localAppLanguage.error}}</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <div class="thumb-sign">
+                  <img class="img-responsive" src="img/sorry-thumb.png" alt="sorry-thumb" style="color:#fff;">
+                </div>
+                <p>
+                  {{data.localAppLanguage.sorry_you_seem_to_have_entered_an_invalid_code_please_check_and_enter_the_correct_code}}
+                </p>
+
+                <div class="form-group text-center sucessful">
+                  <button type="submit" class=" btn gulf-btn signupbtn"
+                    ng-click="scanNextCode()"><span>{{data.localAppLanguage.scan_next_code}}</span><img
+                      style="width:30px;float:left;" class="img-responsive" src="img/scan-next-code.png"
+                      alt="scan-next-code"></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-xs-12 col-sm-12" ng-if="inactive">
+              <h4 class="text-center gulf-h4">Error</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <div class="thumb-sign">
+                  <img class="img-responsive" src="img/sorry-thumb.png" alt="sorry-thumb" style="color:#fff;">
+                </div>
+                <p>{{data.localAppLanguage.this_code_is_expried_and_not_applicable_for_you}}</p>
+
+                <div class="form-group text-center sucessful">
+                  <button type="submit" class=" btn gulf-btn signupbtn"
+                    ng-click="scanNextCode()"><span>{{data.localAppLanguage.scan_next_code}}</span><img
+                      style="width:30px;float:left;" class="img-responsive" src="img/scan-next-code.png"
+                      alt="scan-next-code"></button>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-md-12 col-xs-12 col-sm-12"  ng-if="AmzonPromoinValid">
+          <h4 class="text-center gulf-h4">Error</h4>
+          <div class="login-contain text-center padding-top-pixel">
+            <div class="thumb-sign">
+              <img class="img-responsive" src="img/sorry-thumb.png" alt="sorry-thumb" style="color:#fff;">
+            </div>
+            <p>Sorry, this is an invalid code.<br> Please scan a valid code.</p>
+            
+            <div class="form-group text-center sucessful">
+              <button type="submit" class=" btn gulf-btn signupbtn" ng-click="scanNextCode()"><span>Scan Next Code</span><img style="width:30px;float:left;" class="img-responsive" src="img/scan-next-code.png" alt="scan-next-code"></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-xs-12 col-sm-12"  ng-if="AmzoninValid">
+          <h4 class="text-center gulf-h4">Code Check In Unsuccessful</h4>
+          <div class="login-contain text-center padding-top-pixel">
+            <div class="thumb-sign">
+              <img class="img-responsive" src="img/sorry-thumb.png" alt="sorry-thumb" style="color:#fff;">
+            </div>
+            <p>Sorry, this is an invalid code.<br> Please scan a valid code.</p>
+            
+            <div class="form-group text-center sucessful">
+              <button type="submit" class=" btn gulf-btn signupbtn" ng-click="scanNextCode()"><span>Scan Next Code</span><img style="width:30px;float:left;" class="img-responsive" src="img/scan-next-code.png" alt="scan-next-code"></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-xs-12 col-sm-12"  ng-if="promoinValid">
+          <h4 class="text-center gulf-h4">Code Check In Unsuccessful</h4>
+          <div class="login-contain text-center padding-top-pixel">
+            <div class="thumb-sign">
+              <img class="img-responsive" src="img/sorry-thumb.png" alt="sorry-thumb" style="color:#fff;">
+            </div>
+            <p>Sorry, this is an invalid code.<br> Please scan a valid code.</p>
+            
+            <div class="form-group text-center sucessful">
+              <button type="submit" class=" btn gulf-btn signupbtn" ng-click="scanNextCode()"><span>Scan Next Code</span><img style="width:30px;float:left;" class="img-responsive" src="img/scan-next-code.png" alt="scan-next-code"></button>
+            </div>
+          </div>
+        </div>
+           -->
+            <div class="col-md-12 col-xs-12 col-sm-12" ng-if="used">
+              <h4 class="text-center gulf-h4">{{data.localAppLanguage.code_check_in_unsuccessful}}</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <div class="thumb-sign">
+                  <img class="img-responsive" src="img/sorry-thumb.png" alt="sorry-thumb" style="color:#fff;">
+                </div>
+                <p>{{data.localAppLanguage.sorry_this_code_is_already_used}}.
+                  {{data.localAppLanguage.in_case_of_query_call}} </p>
+                <div class="form-group text-center sucessful">
+                  <button type="submit" class=" btn gulf-btn signupbtn"
+                    ng-click="scanNextCode()"><span>{{data.localAppLanguage.scan_next_code}}</span><img
+                      style="width:30px;float:left;" class="img-responsive" src="img/scan-next-code.png"
+                      alt="scan-next-code"></button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <div class="form-group text-center sucessful">
+                <button type="submit" class=" btn gulf-btn signupbtn" ng-click="redeemNow()" style="margin-right: 20px;"
+                  ng-if="valid"><span>{{data.localAppLanguage.redeem_now}}</span></button><button type="submit"
+                  class=" btn gulf-btn signupbtn" ng-click="redeemLater()"
+                  ng-if="valid"><span>{{data.localAppLanguage.redeem_later}}</span></button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive-nonmlp></footer-directive-nonmlp>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
+</ion-view>

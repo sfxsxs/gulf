@@ -1,0 +1,309 @@
+<ion-view>
+    <link rel="stylesheet" href="lib/datePicker/jquery-ui.css">
+    <script type="text/javascript" src="lib/datePicker/jquery-ui.js"></script>
+    <style>
+        .popup-container.popup-showing {
+            margin-top: 19% !important;
+        }
+
+        .select2-container .select2-selection--single .select2-selection__rendered {
+            padding-left: 0px;
+            background-color: transparent;
+        }
+
+        .Mechanic-max-height .radio label {
+            line-height: normal !important;
+        }
+
+        input[type=radio] {
+            margin: 0px 0 0;
+        }
+
+        .body-bg-1 {
+            background-image: url(./img/gulf-background.png);
+        }
+
+        .login-otp {
+            padding-top: 12%;
+        }
+
+        .login-otp h4 {
+            color: #fff;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .Mechanic-max-height .form-control {
+            border-bottom: 1px solid #fff !important;
+            color: #fff;
+        }
+
+        .gulf-btn {
+            background-color: #f15a22;
+            padding: 6px 25px;
+            font-size: 16px;
+            border: medium none #fff;
+        }
+
+        .button.ng-binding.button-positive {
+            background-color: #f15a22 !important;
+        }
+
+        .login-contain form {
+            padding: 7px 20px 20px;
+        }
+
+        .navbar-brand {
+            padding: 22px 15px;
+        }
+
+        .popup-body span,
+        .popup-title {
+
+            color: #000A47;
+            font-weight: bold;
+        }
+
+        .Mechanic-max-height label {
+            color: #fff;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .button.ng-binding.button-positive {
+            background-color: #000A47 !important;
+        }
+
+        .popup-body span,
+        .popup-title {
+            color: #000A47;
+            font-weight: bold;
+        }
+
+        footer .login-footer {
+            padding: 0px 0 0;
+        }
+
+        @media screen and (min-width:320px) and (max-width:359px) {
+            .navbar-brand {
+                padding: 13px 15px;
+                font-size: 15px;
+            }
+        }
+
+        @media screen and (min-width:411px) and (max-width:823px) {
+            .navbar-brand {
+                padding: 27px 15px;
+            }
+        }
+
+        .section-pad-top {
+            height: 100%;
+        }
+
+        .nonEdit {
+            color: black;
+        }
+    </style>
+
+    <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}" id="top">
+        <section class="section-pad-top">
+            <div class="container-fluid">
+                <div class="login-otp">
+                    <div class="row">
+                        <h4 class="text-center gulf-h4">My Profile</h4>
+                        <div class="login-contain padding-top-pixel Mechanic-max-height">
+                            <form method="" class="add-mechanic-details">
+                                <!--    <div class="form-group">
+                                  <div class="col-md-6 col-sm-6 col-xs-6">
+                                      <label for="user-name">User Type*:</label>
+                                  </div>
+                                  <div class="col-md-6 col-sm-6 col-xs-6" >
+                                      <div class="radio">
+                                          <label><input type="radio" name="optradio" ng-model="data.userType" value="Distributor" checked><span class="user-type" >Distributor</span></label>
+                                      </div>
+                                       <div class="radio">
+                                          <label><input type="radio" name="optradio" ng-model="data.userType" value="DSS"><span class="user-type" >DSS</span></label>
+                                      </div>
+                                      <div class="radio">
+                                          <label><input type="radio" name="optradio" ng-model="data.userType" value="Retailer"><span class="user-type">Retailer</span></label>
+                                      </div>
+                                      <div class="radio">
+                                          <label><input type="radio" name="optradio" ng-model="data.userType" value="Mechanic"><span class="user-type" >Mechanic</span></label>
+                                      </div>
+                                       <div class="radio">
+                                          <label><input type="radio" name="optradio" ng-model="data.userType" value="Others"><span class="user-type"  >Others</span></label>
+                                      </div>
+                                    
+                                  </div>
+                              </div> -->
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <label for="name">Name*:</label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <input type="text" class="form-control" ng-model="name" id="name"
+                                            placeholder="Name" ng-disabled={{nameDisable}} autocapitalize="off"
+                                            autocomplete="off" spellcheck="false" autocorrect="off">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <label for="preferred-language">Mobile No*:</label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <input type="text" class="nonEdit form-control" id="user-name"
+                                            placeholder="Mobile No." ng-model="mobileNumber" ng-disabled="true"
+                                            style="color: #fff !important;">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <label for="city">User Type :</label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <input type="text" class=" form-control" placeholder="User Type"
+                                            ng-model="userSubcategory" ng-disabled="true" />
+
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <label for="pincode">Pincode*:</label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <input oninput="maxLengthCheck(this)" type="number" min="1" max="999999"
+                                            class="form-control" placeholder="Pincode" ng-model="pincode"
+                                            ng-change="checkPincode()" ng-disabled={{pinDisable}}
+                                            onkeyup="return blockSpecialChar(event)" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <label for="state">State*:</label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <input type="text" class=" form-control" placeholder="State" ng-model="state"
+                                            ng-disabled="true" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <label for="city">City*:</label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <input type="text" class=" form-control" placeholder="City" ng-model="city"
+                                            ng-disabled="true" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <label for="area">Area* :</label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6" id="areaParent">
+                                        <select class="form-control" ng-change="onAreaChange()"
+                                            ng-disabled={{areaDisable}} ng-model="selectedArea"
+                                            style="background-color: blue;margin-left: -4px;" id="areaDropDown">
+                                            <option value="" selected="selected" ng-disabled="true">Select Area</option>
+                                            <option ng-repeat="x in AvailabelArea" value="{{x.pm_po_name}}"
+                                                ng-disabled={{areaDisable}}>{{x.pm_po_name}}</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <label for="address">Address* :</label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <input type="text" class="form-control" placeholder="Room no/Shop no"
+                                            ng-disabled={{addressDisable}} ng-model="address">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <label for="language">Language* :</label>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6" id="areaParent">
+                                        <select class="form-control" ng-model="selectedLanguage"
+                                            style="background-color: blue;margin-left: -4px;" id="areaDropDown">
+                                            <option value="" selected="selected">Select Language</option>
+                                            <option ng-repeat="x in AvailabelLanguage" value="{{x.lang_name}}">
+                                                {{x.lang_name}}</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group text-center">
+                                            <button type="button" class="btn gulf-btn signupbtn"
+                                                style="margin-top: 15px 0;" ng-click="showLocation()"
+                                                ng-disabled="disabledvalue">Get Current Location</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                                    <button type="button" class=" btn gulf-btn signupbtn "
+                                        ng-click="NonMlpRegistration()" style="margin:8px;">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function maxLengthCheck(object) {
+            if (object.value.length > object.max.length)
+                object.value = object.value.slice(0, object.max.length)
+        }
+
+        function maxLengthCheckPhoneNumber(object) {
+            if (object.value.length > object.max.length)
+                object.value = object.value.slice(0, object.max.length)
+        }
+
+        function blockSpecialChar(e) {
+            var k = e.keyCode;
+            console.log(e.length);
+            console.log("keyup");
+
+            return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || (k >= 48 && k <= 57));
+        }
+
+
+
+
+    </script>
+
+    <script>
+
+    </script>
+
+
+
+
+    <!-- ======  Gulf Deployed Production API start ====== -->
+
+    <!--  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCANxGtdwavv5LVhSM-lIfzxG4gCZUN6qs&callback=initMap"></script> -->
+
+    <!-- ======  Gulf Deployed Production API end ====== -->
+
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAidu05TgX-t7tLyu2jwOUmdxsShE_WKiU&callback=initMap"></script> -->
+</ion-view>

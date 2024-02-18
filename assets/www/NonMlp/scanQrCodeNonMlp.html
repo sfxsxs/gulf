@@ -1,0 +1,334 @@
+<ion-view>
+
+  <style>
+    .body-bg-1 {
+      background-image: url(./img/nonmlp-bg.png);
+    }
+
+    p {
+      color: #000A47;
+    }
+
+    .login-otp h4 {
+      color: #000A47;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .scan-image-class {
+      border-radius: 50%;
+      border: 1px solid #f15a22;
+    }
+
+    input.form-control,
+    .form-control:focus {
+      border: 1px solid #000A47;
+    }
+
+    header {
+      background-color: #000A47;
+      padding: 5px;
+    }
+
+    .form-control {
+      border: 1px solid #000A47;
+      height: unset;
+    }
+
+    /* footer .login-footer{
+    background-color:  #f15a22;
+  } */
+    /******Custom Radio Button starts *********/
+
+
+    .radio-custom {
+      opacity: 0;
+      position: absolute;
+    }
+
+    .radio-custom,
+    .radio-custom-label {
+      display: inline-block;
+      vertical-align: middle;
+      /* margin: 5px; */
+      cursor: pointer;
+    }
+
+    .radio-custom-label {
+      position: relative;
+    }
+
+    .radio-custom+.radio-custom-label:before {
+      content: '';
+      background: #EB5B24;
+      border: 2px solid #EB5B24;
+      display: inline-block;
+      vertical-align: middle;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      text-align: center;
+    }
+
+    .radio-custom+.radio-custom-label:before {
+      border-radius: 50%;
+    }
+
+    .radio-custom:checked+.radio-custom-label:before {
+      content: "\f00c";
+      font-family: 'FontAwesome';
+      color: #fff;
+    }
+
+    .checkbox-inline input[type=checkbox] {
+      width: 15px;
+      height: 15px;
+    }
+
+    span.user-type {
+      color: #000A47;
+      position: absolute;
+    }
+
+    /******Custom Radio Button Ends*********/
+
+
+    /*======*/
+    /*======*/
+    .body-bg-1.cp-login {
+      background-image: url(./img/gulf-background-new.png);
+    }
+
+    .login-otp h4 {
+      color: #1f3d8a;
+      margin: 0 auto 30px auto;
+    }
+
+    #fromdate,
+    #todate {
+      border: 1px solid #1f3d8a;
+      border-radius: 4px;
+    }
+
+    .form-control {
+      border-radius: 4px;
+    }
+
+    footer .login-footer {
+      background-color: #004382;
+      /* For browsers that do not support gradients */
+      background-image: linear-gradient(to right, #004382 10%, #0094d6 50%, #004382);
+      /* Standard syntax (must be last) */
+      padding: 8px 0;
+    }
+
+    i.fa.fa-facebook-square {
+      color: #fff !important;
+    }
+
+    .form-control.user-name,
+    .gulf-btn {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      color: #fff !important;
+    }
+
+    .mechani-list thead {
+      background-color: #1f3d8a;
+    }
+
+    .button.button-positive {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    header {
+      background-color: transparent;
+    }
+
+    span.img-name {
+
+
+      position: absolute;
+      transform: translate(-50%, -42px);
+      text-align: center;
+      line-height: 1.1;
+      /* width: 84px; */
+      color: #000;
+      font-size: 10px;
+    }
+
+    .item {
+      border-color: transparent;
+      background-color: transparent;
+      /* color: #fff;
+        position: relative;
+        z-index: 2;
+        display: block;
+        margin: -1px; */
+      padding: 13px 16px 20px;
+      border-width: 0px;
+      /* border-style: transparent; */
+      font-size: 12px;
+    }
+
+    .toggle-small .track {
+      border: 0;
+      width: 70px;
+      height: 25px;
+      background: #d9aa59;
+    }
+
+    .toggle-small .handle {
+      top: 22px;
+      left: 10px;
+      width: 18px;
+      height: 18px;
+      box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
+      background: #009689;
+    }
+
+    .item-toggle .toggle {
+      position: initial;
+      top: 0px;
+      right: 16px;
+      z-index: 3;
+    }
+
+    .toggle-small.item-toggle .toggle {
+      top: 0px;
+      padding-top: 10px;
+    }
+
+    .toggle-small input:checked+.track .handle {
+      -webkit-transform: translate3d(65px, 0, 0);
+      transform: translate3d(65px, 0, 0);
+      background: #009689;
+    }
+
+    .toggle-small input:checked+.track {
+      background: #d9aa59;
+    }
+
+    .toggle input:checked+.track .handle {
+      /* -webkit-transform: translate3d(20px, 0, 0); */
+      /* transform: translate3d(20px, 0, 0); */
+      /* background-color: #fff; */
+      left: 8px;
+    }
+
+    section.section-pad-top {
+      overflow-x: unset;
+    }
+  </style>
+
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="notification-1">
+      <a class="pull-right" href="" onclick="window.history.go(-1)" style="position: relative;">
+        <img ng-if="modeProject == 'Gulf'" class="img-responsive" style="margin: 15px 15px;width: 17px;" src="img/left-arrow.png" alt="blue-bg-with-logo-half"/>
+        <img ng-if="modeProject == 'S-oil'" class="img-responsive" style="margin: 15px 15px;width: 17px;" src="img/left-arrow-white.png" alt="blue-bg-with-logo-half"/>
+      </a>
+    </div>
+
+    <div class="notification" style="float: right;">
+      <ion-toggle ion-toggle-text ng-true-value="'S-oil'" ng-false-value="'Gulf'" type="modeProject"
+        ng-model="modeProject" class="item" ng-change="modeChange(modeProject)">
+        <b style="position: absolute;
+          color: #000000; margin-left: 20px; padding: 4px;margin-top: 5px;">{{ modeProject || 'Gulf' }}</b>
+      </ion-toggle>
+    </div>
+    <non-mlp-header></non-mlp-header>
+
+    <!-- <div>
+      <ion-toggle ion-toggle-text ng-true-value="'S-oil'" ng-false-value="'Gulf'" type="modeProject"
+        ng-model="modeProject" class="item" ng-change="modeChange(modeProject)">
+        <b style="position: absolute;
+          color: #000000; margin-left: 20px; padding: 4px;">{{ modeProject || 'Gulf' }}</b>
+      </ion-toggle>
+    </div> -->
+
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 ng-if="modeProject == 'Gulf'" class="text-center gulf-h4">{{data.localAppLanguage.code_check_in}}</h4>
+              <h4 ng-if="modeProject == 'S-oil'" class="text-center gulf-h4" style="color: #fff;">
+                {{data.localAppLanguage.code_check_in}}</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <form method="" style="padding-top:20px;">
+                  <p ng-if="modeProject == 'Gulf'">{{data.localAppLanguage.scan_qr_code_here}} </p>
+                  <p ng-if="modeProject == 'S-oil'" style="color: #fff;">{{data.localAppLanguage.scan_qr_code_here}}</p>
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <div class="code-scanner" ng-click="ScanBarCode()">
+
+                        <a href=""><span class="code-span">
+                            <img ng-if="modeProject == 'Gulf'" class="img-responsive scan-image-class"
+                              src="img/scan-code-multi.png" alt="code" style="  width: 120px; margin: 10px auto;">
+
+                            <img ng-if="modeProject == 'S-oil'" class="img-responsive scan-image-class"
+                              src="img/scan-code_Soil.png" alt="code" style="width: 120px; margin: 10px auto;">
+                            <span class="img-name">{{data.localAppLanguage.scan_code}}</span></span>
+                        </a>
+
+                      </div>
+                      <!-- <div ng-click="ScanBarCode()"><img class="img-responsive scan-image-class" src="img/scan-code.png" alt="code" style="  width: 120px; margin: 10px auto;"></div> -->
+
+                    </div>
+                  </div>
+                  <p ng-if="modeProject == 'Gulf'"><strong>{{data.localAppLanguage.or}}</strong></p>
+                  <p ng-if="modeProject == 'S-oil'" style="color: #fff;"><strong>{{data.localAppLanguage.or}}</strong>
+                  </p>
+                  <div class="form-group text-center username-login">
+                    <input type="text" class="form-control" placeholder="{{data.localAppLanguage.enter_12_digit_code}}"
+                      ng-model="QrCodeData">
+                  </div>
+                  <!--  <p>Multiple codes can be entered Separated by comma<br> For example:  9876543210, 9876543210</p> -->
+                  <div class="form-group text-center username-login">
+                    <input type="text" class="form-control"
+                      placeholder="{{data.localAppLanguage.add_promo_code_or_gift_card}}" ng-model="contestCode">
+                  </div>
+
+                  <!-- <div class="form-group text-center username-login">
+                    <input type="text" class="form-control" placeholder="{{data.localAppLanguage.amazon_promocode}}"
+                      ng-model="amazoncode">
+                  </div> -->
+
+                  <div class="form-group text-center" style="margin-top:25px;">
+                    <button ng-disabled="qrsubmited" ng-if="modeProject == 'Gulf'" type="submit" class=" btn gulf-btn signupbtn"
+                      ng-click="submitCodes()">{{submitText}}</button>
+
+                    <button ng-disabled="qrsubmited" ng-if="modeProject == 'S-oil'" type="submit" class=" btn gulf-btn signupbtn"
+                      ng-click="submitCodes()" style="background-color: #d9aa59;
+                      border: medium none #d9aa59; color: #000 !important">{{submitText}}</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-if="modeProject == 'S-oil'" class="col-md-12 col-sm-12 col-xs-12 welcome-content text-center">
+        <div class="login-logo1" style="margin-bottom: 60px;">
+          <a>
+            <img class="img-responsive" style="height: 150px;margin: 0 auto;" src="img/cartoon-2.png" alt="cartoon-2">
+          </a>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive-nonmlp></footer-directive-nonmlp>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</ion-view>
