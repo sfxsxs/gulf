@@ -1,0 +1,194 @@
+<ion-view>
+    <script src="lib/datePicker/bootstrap-datepicker.js"></script>
+    <style>
+        .btn-info {
+            background-color: transparent;
+            border-color: transparent;
+
+        }
+
+        .btn-sm {
+            padding: 0px;
+            margin-top: -4px
+        }
+
+        table.table.dt-responsive.dataTable.no-footer {
+            width: 100% !important;
+        }
+
+        .pane,
+        .view-container {
+            position: absolute !important;
+            /* background: url("../img/gulf-background.png") !important;*/
+        }
+
+        /* .table-responsive {
+    padding-bottom: 50px;
+} */
+    </style>
+
+    <ion-content>
+        <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+            <div class="back-arrow"> <a class="pull-right" href="" ng-click="clickBack()"><img class="img-responsive"
+                        src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+            <nav-directive></nav-directive>
+            <section class="section-pad-top">
+                <div class="container">
+                    <div class=" login-otp">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <h4 class="text-center gulf-h4">Things to do today</h4>
+                                <div class="login-contain padding-top-pixel">
+                                    <form class="transaction-form" style="padding: 20px 20px 20px;">
+                                        <div class="form-group" ng-if="showAh">
+
+                                            <div class="col-md-12 col-sm-12 col-xs-12" id="parentAhListThingsToDo">
+                                                <select class="form-control" ng-change="onAHChange()"
+                                                    ng-model="data.selectedAH" id="ahListThingsToDo">
+                                                    <option value="" selected="selected">Select AH</option>
+                                                    <option ng-repeat="x in AvailabelAH" value="{{x.userid}}">{{x.name}}
+                                                    </option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group" ng-if="showTh">
+
+                                            <div class="col-md-12 col-sm-12 col-xs-12" id="parentThListThingsToDo"
+                                                style="margin-top: 15px;">
+                                                <select class="form-control" ng-model="data.selectedTH"
+                                                    ng-change="onTHChange()" id="thListThingsToDo">
+                                                    <option value="" selected="selected">Select TH</option>
+                                                    <option ng-repeat="x in AvailabelTH" value="{{x.userid}}">{{x.name}}
+                                                    </option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group" ng-if="showSo">
+
+                                            <div class="col-md-12 col-sm-12 col-xs-12" id="parentSoListThingsToDo"
+                                                style="margin-top: 15px;">
+                                                <select class="form-control" ng-model="data.selectedSo"
+                                                    ng-change="onSOChange()" id="soListThingsToDo">
+                                                    <option value="" selected="selected">Select SO</option>
+                                                    <option ng-repeat="x in AvailabelSo" value="{{x.userid}}">{{x.name}}
+                                                    </option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+                                        <div ng-if="true" class="form-group text-center col-md-12 col-sm-12 col-xs-12"
+                                            style="    margin-top: 15px;" id="areaParent">
+                                            <!--
+                                        <select class="form-control" ng-model="data.selectedArea" id="areaDropDown">
+                                            <option value="" selected="selected">Select Area</option>
+                                            <option ng-repeat="x in AvailabelArea" value="{{x.area}}">{{x.area}}</option>
+                                        </select>
+
+-->
+                                            <input type="text" class="form-control" placeholder="Area"
+                                                style="padding:6px 2px;height:30px;" ng-model="data.selectedArea"
+                                                readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12 col-sm-12 col-xs-12 date-img"
+                                                style="position: relative;">
+                                                <div class='input-group date' id="fromdateThings"
+                                                    style="margin-top: 15px;">
+                                                    <input type="text" class="form-control" placeholder="From Date"
+                                                        style="padding:6px 2px;height:30px;" ng-model="fromdate"
+                                                        readonly>
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"
+                                                            aria-hidden="true"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <button type="submit" class=" btn gulf-btn signupbtn"
+                                                style="margin-top:18px;" ng-click="search()">Submit</button>
+                                        </div>
+                                        <div class=" mechani-list">
+                                            <!--table-responsive-->
+                                            <table id="activeMechnaic1" class="table dt-responsive" style="">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>Mechanic Name</th>
+                                                        <th>Status</th>
+
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+
+                                        <div class="row" style="margin-bottom: 100px;">
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <div class="form-group text-center">
+                                                    <button type="button" class="btn gulf-btn signupbtn"
+                                                        style="margin: 15px 0;" ng-click="showLocation()"
+                                                        ng-disabled="disabledvalue">Current Location</button>
+                                                </div>
+                                            </div>
+
+                                            <!-- <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div id="map" style="width:100%;height:200px;margin:0 auto;border: 1px solid #000A47;">
+                                            </div>
+                                        </div> -->
+                                        </div>
+
+                                        <div style=" padding-bottom: 50px;">
+
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </ion-content>
+    <footer>
+        <footer-directive></footer-directive>
+    </footer>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+
+    <script>
+
+    </script>
+    <!-- ======  Gulf Testing API start ====== -->
+
+
+
+    <!-- ======  Gulf Testing API end ====== -->
+
+
+    <!-- ======  Gulf Production API start ====== -->
+
+    <!--  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCANxGtdwavv5LVhSM-lIfzxG4gCZUN6qs&callback=initMap"></script> -->
+
+    <!-- ======  Gulf Deployed Production API end ====== -->
+
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAidu05TgX-t7tLyu2jwOUmdxsShE_WKiU&callback=initMap"></script> -->
+
+</ion-view>

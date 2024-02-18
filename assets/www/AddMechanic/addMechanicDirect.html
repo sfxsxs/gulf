@@ -1,0 +1,241 @@
+<ion-view>
+  <style>
+    .select2-container .select2-selection--single .select2-selection__rendered {
+      padding-left: 0px;
+      background-color: transparent;
+    }
+  </style>
+  <link rel="stylesheet" href="lib/datePicker/jquery-ui.css">
+  <script type="text/javascript" src="lib/datePicker/jquery-ui.js"></script>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" ng-click="clickBack()"><img class="img-responsive"
+          src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+    <nav-directive></nav-directive>
+    <section class="section-pad-top">
+      <div class="container-fluid">
+        <div class=" login-otp">
+          <div class="row">
+            <h4 class="text-center">Add Mechanic</h4>
+            <div class="login-contain padding-top-pixel  Mechanic-max-height">
+              <form method="" class="add-mechanic-details">
+                <div class="form-group" ng-if="showAh">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="preferred-language">Select AH* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6" id="parentAhListadd">
+                    <select class="form-control" ng-change="onAHChange()" ng-model="data.selectedAH" id="ahListadd">
+                      <option value="" selected="selected">Select AH</option>
+                      <option ng-repeat="x in AvailabelAH" value="{{x.userid}}">{{x.name}}</option>
+                    </select>
+
+                  </div>
+                </div>
+                <div class="form-group" ng-if="showTh">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="preferred-language">Select TH* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6" id="parentThListadd">
+                    <select class="form-control" ng-model="data.selectedTH" ng-change="onTHChange()" id="thListadd">
+                      <option value="" selected="selected">Select TH</option>
+                      <option ng-repeat="x in AvailabelTH" value="{{x.userid}}">{{x.name}}</option>
+                    </select>
+
+                  </div>
+                </div>
+                <div class="form-group" ng-if="showSo">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="preferred-language">Select SO* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6" id="parentSoListadd">
+                    <select class="form-control" ng-model="data.selectedSo" ng-change="onSOChange()" id="soListadd">
+                      <option value="" selected="selected">Select SO</option>
+                      <option ng-repeat="x in AvailabelSo" value="{{x.userid}}">{{x.name}}</option>
+                    </select>
+
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="user-name">Name* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="user-name" ng-model="name" placeholder="Name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="mobile-number">Mobile No* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="Number" class="form-control" placeholder="Mobile No" ng-model="mobile" min="1"
+                      max="9999999999" oninput="maxLengthCheckPhoneNumber(this)"
+                      onkeypress="return blockSpecialChar(event)" />
+
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="date-of-birth">DOB :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="wcdob" ng-model="dob" placeholder="Date Of Birth"
+                      readonly="true">
+
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="preferred-language">Preferred Language* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6" id="parentlangauageList">
+                    <select class="form-control" ng-model="selectedLanguage" style="margin-left: -4px;"
+                      id="langauageList">
+                      <option value="" selected="selected">Preferred Language</option>
+                      <option ng-repeat="x in AvailabelLanguage" value="{{x.lang_name}}">{{x.lang_name}}</option>
+                    </select>
+
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="address">Address* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" placeholder="Room no/Shop no" ng-model="address1"
+                      ng-change="checkAddress1()">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" placeholder="Shop Name /Street Name" ng-model="address2"
+                      ng-change="checkAddress2()">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" placeholder="Landmark" ng-model="address3"
+                      ng-change="checkAddress3()">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="pincode">Pincode* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input oninput="maxLengthCheck(this)" type="number" min="1" max="999999" class="form-control"
+                      placeholder="Pincode" ng-model="pincode" ng-change="checkPincode()"
+                      onkeypress="return blockSpecialChar(event)" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="state">State* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" placeholder="State" ng-model="state" value="{{state}}"
+                      ng-disabled="true" />
+
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="city">City* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" placeholder="city" ng-model="city" value="{{city}}"
+                      ng-disabled="true" />
+
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <label for="area">Area* :</label>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6" id="areaParent">
+                      <select class="form-control" ng-change="onAreaChange()" ng-model="selectedArea"
+                        style="background-color: blue;margin-left: -4px;" id="areaDropDown">
+                        <option value="" selected="selected">Select Area</option>
+                        <option ng-repeat="x in AvailabelArea" value="{{x.pm_po_name}}">{{x.pm_po_name}}</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group" ng-show="areaNotAvailable">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <input type="text" class="form-control" ng-model="newArea" placeholder="Area">
+                    </div>
+
+                  </div>
+                </div>
+
+
+
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                  <button type="submit" class=" btn gulf-btn signupbtn pull-right" ng-click="AdddirectMechnaic()"
+                    ng-if="so">Next</button>
+                </div>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                  <button type="submit" class=" btn gulf-btn signupbtn" ng-click="AdddirectMechnaic()"
+                    ng-if="!so">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+
+
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+
+    function maxLengthCheck(object) {
+      if (object.value.length > object.max.length)
+        object.value = object.value.slice(0, object.max.length)
+    }
+
+    function maxLengthCheckPhoneNumber(object) {
+      if (object.value.length > object.max.length)
+        object.value = object.value.slice(0, object.max.length)
+    }
+
+    function blockSpecialChar(e) {
+      var k = e.keyCode;
+      console.log(e.length);
+      console.log("keyup");
+
+      return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || (k >= 48 && k <= 57));
+    }
+  </script>
+  <style>
+    .ui-state-default,
+    .ui-widget-content .ui-state-default,
+    .ui-widget-header .ui-state-default {
+      border: 1px solid #d3d3d3;
+      font-weight: normal;
+      color: #042469;
+      font-weight: bold;
+    }
+  </style>
+</ion-view>

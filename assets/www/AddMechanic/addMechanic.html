@@ -1,0 +1,56 @@
+<ion-view>
+    <!--  <div class="body-bg-1"> -->
+    <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+        <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img
+                    class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+        <nav-directive></nav-directive>
+
+        <section class="section-pad-top">
+            <div class="container">
+                <div class=" login-otp">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <h4 class="text-center  add-mechanic-7">Add Mechanic</h4>
+                            <div class="login-contain text-center padding-top-pixel add-mechanic-8 btn-allignment">
+                                <!-- <form  method="">-->
+                                <div class="form-group text-center">
+                                    <button type="button" class=" form-control btn gulf-btn signupbtn"
+                                        ng-click="addMechanicDirect()"><img src="img/direct.png">Self</button>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="button" class="form-control btn gulf-btn signupbtn"
+                                        ng-click="refferByRetailer()"><img src="img/Reffered-by-retailer.png">Referred
+                                        by Retailer</button>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="button" class="form-control btn gulf-btn signupbtn"
+                                        ng-click="refferByMechanic()"><img src="img/referred-by-mechanic.png">Referred
+                                        by Mechanic</button>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="button" class="form-control btn gulf-btn signupbtn"
+                                        ng-click="nonmlpMechanic()"><img src="img/referred-by-mechanic.png">Non MLP
+                                        Mechanic</button>
+                                </div>
+                                <!--  </form> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <footer-directive></footer-directive>
+        </footer>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+</ion-view>

@@ -1,0 +1,157 @@
+<ion-view>
+    <style>
+        .add-mechanic-8 {
+            margin-top: 15%;
+        }
+
+        label {
+            color: #fff;
+        }
+
+        input {
+            background-color: transparent;
+            border-bottom: 1px solid #fff !important;
+            padding-top: 0 !important;
+            color: #fff !important;
+        }
+
+        .bank-detail-border {
+            border: 1px solid #fff;
+            overflow: hidden;
+            padding: 15px 15px 0 15px;
+        }
+
+        input[type="radio"] {
+            -ms-transform: scale(1.5);
+            /* IE 9 */
+            -webkit-transform: scale(1.5);
+            /* Chrome, Safari, Opera */
+            transform: scale(1.5);
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        /* .dataTables_wrapper.no-footer a:focus,
+        .dataTables_wrapper.no-footer a:hover {
+
+            text-decoration: none;
+        }
+
+        table.table.dt-responsive.dataTable.no-footer {
+            width: 100% !important;
+        }
+
+        table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child,
+        table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child {
+            width: 100px;
+        } */
+    </style>
+
+    <script src="lib/datePicker/bootstrap-datepicker.js"></script>
+
+    <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+        <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()">
+            <img ng-if="modeProject == 'Gulf'"class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half">
+            <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png" alt="blue-bg-with-logo-half"></a></div>
+
+        <channel-partners-header></channel-partners-header>
+
+        <section class="section-pad-top">
+            <div class="container">
+                <div class=" login-otp">
+                    <div class="row">
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                            <button type="button" class=" btn gulf-btn  pull-right" ng-click="addNewBankDeatil()"
+                                style="margin-top:5%;">Add Bank Account</button>
+                        </div>
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <p style="color: #fff;margin-bottom: 15px;margin-top:5%; font-size: 16px;">Select Bank
+                                Account</p>
+                            <div class="login-contain  padding-top-pixel">
+
+                                <div class="bank-detail-border" ng-repeat="x in Details">
+                                    <div class="form-group row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input type="radio" name="bank-detail" value="{{x.bankdetailId}}"
+                                                class="pull-right" ng-model="data.bankAccountSelected"
+                                                ng-checked="{{x.bank_isdefault}}"><br>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <label for="user-name">Beneficiary Name* :</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <label for="user-name">{{x.beneficiary_name}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <label for="user-name">Account No.* :</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <label for="user-name">{{x.beneficiary_account_no}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <label for="user-name">Bank Name* :</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <label for="user-name">{{x.beneficiary_bank_name}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <label for="user-name">IFSC Code:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <label for="user-name">
+                                                {{x.beneficiary_ifsc_code}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center"
+                                    style="margin-top:30px;">
+                                    <button type="button" class=" btn gulf-btn signupbtn "
+                                        ng-click="next()">Next</button>
+                                </div>
+                                <!-- <div class="table-responsive mechani-list product-earning">
+                                    <table id="bankDetailTable" class="table dt-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th>Beneficiary Name</th>
+                                                <th>Account No.</th>
+                                                <th>Bank Name</th>
+                                                <th>IFSC Code</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div> -->
+                            </div>
+                        </div>
+                        <!-- <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                    <button type="button" class=" btn gulf-btn signupbtn " ng-click="addNewBankDeatil()">Add New Bank Detail</button>
+                </div> -->
+                    </div>
+        </section>
+        <footer>
+            <channel-partners-footer></channel-partners-footer>
+        </footer>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</ion-view>

@@ -1,0 +1,65 @@
+<ion-nav>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <!--  <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>-->
+    <nav-directive></nav-directive>
+    <!--  <header>
+      <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <ul>
+    <li  ng-click="dashboard()"><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">Dashboard</a></li>
+          
+           <li ng-if="so" ng-click="addMechanic()"><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">Add Mechanic</a></li>
+      <li ng-if="so" ng-click="mechProfile()"><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">Mechanic Profile</a></li>
+          
+            <li ng-if="mech" ng-click="myProfile()"><a href=""><img class="img-responsive" src="img/mechanic-profile-menu.png" alt="mechanic-profile-menu">My Profile</a></li>
+      <li ng-click="productEarning()"><a href=""><img class="img-responsive" src="img/product-earning-menu.png" alt="product-earning-menu">Product Earning</a></li>
+      <li ng-click="couponCode()"><a href=""><img class="img-responsive" src="img/code-check-in.png" alt="code-check-in">Code Check In</a></li>
+      <li ng-click="transactionSummary()"><a href=""><img class="img-responsive" src="img/transaction-summary.png" alt="transaction-summary">Transaction Summary</a></li>
+      <li><a href=""><img class="img-responsive" src="img/redeem-gift.png" alt="redeem-gift">Redeem Gift</a></li>
+      <li  ng-click="orderStatus()"><a href=""><img class="img-responsive" src="img/order-status.png" alt="order-status">Order Status</a></li>
+          <li ng-click="myorder()" ng-if="mech"><a href=""><img class="img-responsive" src="img/order-status.png" alt="order-status">My order</a></li>
+      <li ng-click="gulfCorner()"><a href=""><img class="img-responsive" src="img/gulf-corner-menu.png" alt="gulf-corner-menu">Gulf Corner</a></li>
+      <li ng-if="mech" ng-click="referAFriend()"><a href=""><img class="img-responsive" src="img/refer-friend.png" alt="refer-friend">Refer a Friend</a></li>
+      <li ><a  href="tel:+918904720084"><img class="img-responsive" src="img/contact-us.png" alt="contact-us">Contact Us</a></li>
+          <li ng-click="logout()"><a href=""><img class="img-responsive" src="img/contact-us.png" alt="contact-us">Logout</a></li>
+    </ul>
+    </div>
+    <div style="padding:0 15px; "><span style="color:#fe3200;font-size:30px;cursor:pointer" onclick="openNav()"><img src="img/menu1.png" alt="menu" style="width:35px"></span> </div>
+  </header> -->
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center gulf-h4">Referral Successful</h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <div class="thumb-sign">
+                  <img class="img-responsive" src="img/conguralation-thumb.png" alt="conguralation-thumb"
+                    style="color:#fff;">
+                </div>
+                <p>{{referrMsg}}</p>
+                <!-- <p style="font-size: 11px;margin-top: 20px;">"Maximum of 10 Mechanics can be referred in a month"</p>-->
+                <div class="form-group text-center sucessful">
+                  <button type="submit" class=" btn gulf-btn signupbtn" ng-click="refferMore()"><span>Refer
+                      More</span><img style="width:30px;float:left;" class="img-responsive" src="img/scan-next-code.png"
+                      alt="scan-next-code"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</ion-nav>

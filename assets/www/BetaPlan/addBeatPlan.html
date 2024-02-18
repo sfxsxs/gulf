@@ -1,0 +1,113 @@
+<ion-view>
+    <style>
+        .select2-container--default .select2-selection--multiple {
+            height: 60px;
+            overflow-y: scroll;
+        }
+    </style>
+
+    <script src="lib/datePicker/bootstrap-datepicker.js"></script>
+    
+    <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+        <div class="back-arrow"> <a class="pull-right" href="" ng-click="clickBack()"><img class="img-responsive"
+                    src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+        <nav-directive></nav-directive>
+        <section class="section-pad-top">
+            <div class="container">
+                <div class=" login-otp">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <h4 class="text-center gulf-h4">Add Beat Plan</h4>
+                            <div class="login-contain padding-top-pixel">
+                                <form class="transaction-form" style="padding: 20px 20px 20px;">
+
+                                    <div class="form-group">
+                                        <div class="form-group" ng-if="showAh">
+
+                                            <div class="col-md-12 col-sm-12 col-xs-12" id="parentAhListAddBeat">
+                                                <select class="form-control" ng-change="onAHChange()"
+                                                    ng-model="data.selectedAH" id="ahListAddBeat">
+                                                    <option value="" selected="selected">Select AH</option>
+                                                    <option ng-repeat="x in AvailabelAH" value="{{x.userid}}">{{x.name}}
+                                                    </option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group" ng-if="showTh">
+
+                                            <div class="col-md-12 col-sm-12 col-xs-12" id="parentThListAddBeat"
+                                                style="margin-top: 15px;">
+                                                <select class="form-control" ng-model="data.selectedTH"
+                                                    ng-change="onTHChange()" id="thListAddBeat">
+                                                    <option value="" selected="selected">Select TH</option>
+                                                    <option ng-repeat="x in AvailabelTH" value="{{x.userid}}">{{x.name}}
+                                                    </option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group" ng-if="showSo">
+
+                                            <div class="col-md-12 col-sm-12 col-xs-12" id="parentSoListAddBeat"
+                                                style="margin-top: 15px;">
+                                                <select class="form-control" ng-model="data.selectedSo"
+                                                    ng-change="onSOChange()" id="soListAddBeat">
+                                                    <option value="" selected="selected">Select SO</option>
+                                                    <option ng-repeat="x in AvailabelSo" value="{{x.userid}}">{{x.name}}
+                                                    </option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 date-img"
+                                            style="position: relative;margin-top: 15px;">
+                                            <div class='input-group date' id="dateToAddBeatPlan">
+                                                <input type="text" class="form-control" placeholder="From Date"
+                                                    style="padding:6px 2px;height:30px;" ng-model="dateForAddPlan"
+                                                    readonly ng-change="dateSelectedForReport()">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"
+                                                        aria-hidden="true"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: 15px;"
+                                            class="form-group text-center col-md-12 col-sm-12 col-xs-12"
+                                            id="parentAreaListinValidateReport">
+                                            <select class="form-control" id="areaListinValidateReport"
+                                                style="background-color:white !important;" multiple="multiple">
+                                                <!--                                            <option value="" selected="selected" >Select Area</option>-->
+                                                <!--                                            <option ng-repeat="x in AvailabelArea" value="{{x.pm_po_name}}">{{x.pm_po_name}}</option>-->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <button type="submit" class=" btn gulf-btn signupbtn" style="margin-top:40px;"
+                                            ng-click="addBeatPlan()">Submit</button>
+                                    </div>
+
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <footer-directive></footer-directive>
+        </footer>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+
+</ion-view>

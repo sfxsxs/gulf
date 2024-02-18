@@ -1,0 +1,179 @@
+<ion-view>
+    <style>
+        .body-bg-1.cp-login {
+            background-image: url(./img/gulf-background-new.png);
+        }
+
+        .login-otp h4 {
+            color: #1f3d8a;
+            margin: 0 auto 30px auto;
+        }
+
+        #fromdate,
+        #todate {
+            border: 1px solid #1f3d8a;
+            border-radius: 4px;
+        }
+
+        .form-control {
+            border-radius: 4px;
+        }
+
+        footer .login-footer {
+            background-color: #004382;
+            /* For browsers that do not support gradients */
+            background-image: linear-gradient(to right, #004382 10%, #0094d6 50%, #004382);
+            /* Standard syntax (must be last) */
+            padding: 8px 0;
+        }
+
+        i.fa.fa-facebook-square {
+            color: #fff !important;
+        }
+
+        .form-control.user-name,
+        .gulf-btn {
+            background-color: #1f3d8a;
+            border: medium none #1f3d8a;
+            color: #fff !important;
+        }
+
+        .mechani-list thead {
+            background-color: #1f3d8a;
+        }
+
+        .button.button-positive {
+            background-color: #1f3d8a;
+            border: medium none #1f3d8a;
+            border-radius: 10px;
+            color: #fff;
+        }
+
+        td {
+            color: #1f3d8a;
+        }
+
+        .table>tbody>tr>td {
+            color: #1f3d8a;
+        }
+    </style>
+
+    <script src="lib/datePicker/bootstrap-datepicker.js"></script>
+
+    <div ng-class="{'body-bg-1 cp-login':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+        <div class="back-arrow"> <a class="pull-right" href="" ng-click="clickBack()">
+            <img ng-if="modeProject == 'Gulf'"class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half">
+            <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png" alt="blue-bg-with-logo-half"></a></div>
+        <channel-partners-header></channel-partners-header>
+
+        <section class="section-pad-top">
+            <div class="container">
+                <div class=" login-otp">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <h4 ng-if="modeProject == 'Gulf'" class="text-center gulf-h4">{{data.localAppLanguage.order_history}}</h4>
+                            <h4 ng-if="modeProject == 'S-oil'" style="color: #fff;" class="text-center gulf-h4">
+                                {{data.localAppLanguage.order_history}}</h4>
+                                <div class="login-contain text-center padding-top-pixel">
+                                    <form method="" style="  padding: 20px 0px 5px;">
+                                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding:0; margin-bottom: 15px;">
+                                            <div class="form-group date-picker-img date-picker-order date-left">
+                                                <div class="col-md-6 col-sm-6 col-xs-6"
+                                                    style="position: relative;padding:0 2px 0 0px">
+                                                    <div class='input-group date' id="fromdate">
+                                                        <input type="text" class="form-control"
+                                                            placeholder="{{data.localAppLanguage.from_date}}"
+                                                            style="padding:6px 2px;height:30px;" ng-model="fromDate"
+                                                            readonly>
+                                                        <span class="input-group-addon" style="padding:6px 3px;">
+                                                            <i ng-if="modeProject == 'Gulf'" class="fa fa-calendar" aria-hidden="true"></i>
+                                                            <i ng-if="modeProject == 'S-oil'" class="fa fa-calendar" aria-hidden="true" style="color: #d9aa59;"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6"
+                                                    style="position: relative;padding:0 0px 0 2px;">
+                                                    <div class='input-group date' id="todate">
+                                                        <input type="text" class="form-control"
+                                                            placeholder="{{data.localAppLanguage.to_date}}"
+                                                            style="padding:6px 2px;height:30px;" ng-model="toData" readonly>
+                                                        <span class="input-group-addon" style="padding:6px 3px;">
+                                                            <i ng-if="modeProject == 'Gulf'" class="fa fa-calendar" aria-hidden="true"></i>
+                                                            <i ng-if="modeProject == 'S-oil'" class="fa fa-calendar" aria-hidden="true" style="color: #d9aa59;"></i>
+                                                        </span>
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group text-center col-md-4 col-sm-4 col-xs-4"></div>
+                                        <div class="clearfix"></div>
+                                        <div class="form-group text-center col-md-8 col-sm-8 col-xs-12" style="padding: 0;">
+                                            <input type="text" class="form-control"
+                                                placeholder="{{data.localAppLanguage.search_by_order_no}}"
+                                                ng-model="orderNumber" style="border: 1px solid #1f3d8a;">
+                                        </div>
+                                        <div class="form-group text-center col-md-4 col-sm-4 col-xs-12" style="padding: 0;">
+                                            <button ng-if="modeProject == 'Gulf'" type="submit" class=" btn gulf-btn signupbtn" style="margin-top:3px;"
+                                                ng-click="orderStatuscheck()">{{data.localAppLanguage.submit}}</button>
+    
+                                                <button ng-if="modeProject == 'S-oil'" type="submit" class=" btn gulf-btn signupbtn" style="margin-top:3px;background-color: #d9aa59;
+                                                border: medium none #d9aa59; color: #000 !important;margin-bottom: 30px;"
+                                                ng-click="orderStatuscheck()">{{data.localAppLanguage.submit}}</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div  ng-if="modeProject == 'Gulf'" class="table-responsive mechani-list">
+                                            <table id="orderListHistory" class="table dt-responsive">
+                                                <thead>
+                                                    <tr>
+                                                        <th>{{data.localAppLanguage.order_date}}</th>
+                                                        <th>{{data.localAppLanguage.order_no}}</th>
+                                                        <th>{{data.localAppLanguage.description}}</th>
+                                                        <th>{{data.localAppLanguage.status}}</th>
+    
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+    
+                                            </table>
+                                        </div>
+    
+                                        <div  ng-if="modeProject == 'S-oil'" class="table-responsive mechani-list">
+                                            <table id="orderListHistory" class="table dt-responsive">
+                                                <thead style="background-color: #d9aa59;">
+                                                    <tr>
+                                                        <th style="color: #000;">{{data.localAppLanguage.order_date}}</th>
+                                                        <th style="color: #000;">{{data.localAppLanguage.order_no}}</th>
+                                                        <th style="color: #000;">{{data.localAppLanguage.description}}</th>
+                                                        <th style="color: #000;">{{data.localAppLanguage.status}}</th>
+    
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+    
+                                            </table>
+                                        </div>
+                                    </form>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <channel-partners-footer></channel-partners-footer>
+        </footer>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</ion-view>
