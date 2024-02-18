@@ -1,0 +1,66 @@
+<ion-view>
+  <style>
+    .gulf-btn {
+      background-color: #f15a22;
+      border: medium none #f15a22;
+      color: #fff !important;
+    }
+
+    .dataTables_wrapper.no-footer a:focus,
+    .dataTables_wrapper.no-footer a:hover {
+
+      text-decoration: none;
+    }
+
+    table.table.dt-responsive.dataTable.no-footer {
+      width: 100% !important;
+    }
+  </style>
+
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img class="img-responsive"
+          src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div>
+    <nav-directive></nav-directive>
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center  add-mechanic-7">Mechanic Profile</h4>
+              <div class="login-contain text-center padding-top-pixel btn-allignment">
+                <form style=" padding: 40px 20px 20px;">
+                  <div class="form-group1 text-center">
+                    <button type="submit" class=" form-control btn gulf-btn signupbtn" ng-click=viewProfileRoute()>View
+                      Profile</button>
+                  </div>
+                  <div class="form-group1 text-center">
+                    <button type="submit" class="form-control btn gulf-btn signupbtn"
+                      ng-click=viewTransactionProfileRoute() style="margin-top:10px;">View Mechanic Performance
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+
+    function maxLengthCheck(object) {
+      if (object.value.length > object.max.length)
+        object.value = object.value.slice(0, object.max.length)
+    }
+
+  </script>
+</ion-view>

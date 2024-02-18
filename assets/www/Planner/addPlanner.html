@@ -1,0 +1,197 @@
+<ion-view>
+  <script src="lib/datePicker/bootstrap-datepicker.js"></script>
+  <style>
+    .login-contain form {
+      padding: 0px 0px;
+    }
+
+    .login-otp h4 {
+      margin-top: 15%;
+    }
+
+    .container-fluid .login-otp .padding-top-pixel {
+      padding-top: 20px;
+    }
+
+
+    label {
+      height: 25px;
+      line-height: 40px;
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+
+    .gulf-btn {
+      margin-right: 15px;
+      margin-top: 20px;
+    }
+
+    .input-group.date .form-control:-moz-placeholder {
+      color: #fff !important;
+      opacity: 1;
+    }
+
+    .input-group.date .form-control::-webkit-input-placeholder {
+      color: #fff;
+    }
+
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+      padding-left: 0px;
+      background-color: transparent;
+      border-bottom: 1px solid #fff !important;
+    }
+  </style>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" ng-click="clickBack()">
+        <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half">
+        <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png"
+          alt="left-arrow-white">
+      </a></div>
+    <nav-directive></nav-directive>
+    <section class="section-pad-top1">
+      <div class="container-fluid">
+        <div class=" login-otp">
+          <div class="row">
+            <h4 class="text-center">{{data.localAppLanguage.add_my_customer}}</h4>
+            <div class="login-contain padding-top-pixel">
+              <form method="" class="add-mechanic-details">
+                <div class="form-group" ng-if="so">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="user-name">{{data.localAppLanguage.mechanic_name}} :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="user-name" ng-model="mechanicName" ng-disabled="true"
+                      style="background-color: transparent;margin-bottom: 5px;border: none;border-bottom: 1px solid #fff !important;box-shadow: none;text-align: left;" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="user-name">{{data.localAppLanguage.name}} * :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="user-name" ng-model="name"
+                      style="background-color: transparent;margin-bottom: 5px;border: none;border-bottom: 1px solid #fff !important;box-shadow: none;text-align: left;" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="mobile-number">{{data.localAppLanguage.mobile_no}}* :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <input type="Number" class="form-control" ng-model="mobile" min="1" max="9999999999"
+                      oninput="maxLengthCheckPhoneNumber(this)"
+                      style="background-color: transparent;margin-bottom: 5px;border: none;border-bottom: 1px solid #fff !important;box-shadow: none;text-align: left;" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="user-name">{{data.localAppLanguage.vehicle_type}} :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6" id="vehicalypeParent">
+                    <select class="form-control" ng-model="vehicalType" ng-change="vehicalTypeChanged()" id="vehicalype"
+                      style="background-color: transparent;margin-bottom: 5px;border: none;border-bottom: 1px solid #fff !important;box-shadow: none;text-align: left;">
+                      <option value="" selected="selected">{{data.localAppLanguage.select_vehicle_type}}</option>
+                      <option ng-repeat="x in AvailabelVehicalType" value="{{x.value}}">{{x.ve_type}}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="user-name">{{data.localAppLanguage.brand}} :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6" id="brandListParent">
+                    <select class="form-control" ng-model="brand" ng-change="brandChanged()" id="brandList"
+                      style="background-color: transparent;margin-bottom: 5px;border: none;border-bottom: 1px solid #fff !important;box-shadow: none;text-align: left;">
+                      <option value="" selected="selected">{{data.localAppLanguage.select_brand}}</option>
+                      <option ng-repeat="x in AvailabelBrand" value="{{x.re_make}}">{{x.re_make}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="user-name">{{data.localAppLanguage.product}} :</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6" id="productListParent">
+                    <select class="form-control" ng-model="modelOfVehical" id="productList"
+                      style="background-color: transparent;margin-bottom: 5px;border: none;border-bottom: 1px solid #fff !important;box-shadow: none;text-align: left;">
+                      <option value="" selected="selected">{{data.localAppLanguage.select_product}}</option>
+                      <option ng-repeat="x in AvailabelmodelOfVehical" value="{{x.recommend}}">{{x.recommend}}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <label for="user-name">{{data.localAppLanguage.next_servicing_due}} *:</label>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <!--  <input type="text" class="form-control" id="AddplannerDate" ng-model="servicingDue" >-->
+                    <div class='input-group date' id="AddplannerDate">
+                      <input type="text" class="form-control" placeholder="Select Date"
+                        style="background-color: transparent;margin-bottom: 0px;border: none;border-bottom: 1px solid #fff !important;box-shadow: none;text-align: left;"
+                        ng-model="servicingDue" readonly>
+                      <span class="input-group-addon" style="background-color: #eee;">
+                        <i ng-if="modeProject == 'Gulf'" class="fa fa-calendar" aria-hidden="true"></i>
+                        <i ng-if="modeProject == 'S-oil'" class="fa fa-calendar" aria-hidden="true"
+                          style="color: #d9aa59;"></i>
+                      </span>
+                    </div>
+
+
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <button ng-if="modeProject == 'Gulf'" type="submit" class=" btn gulf-btn signupbtn pull-right" ng-click="addPlaneer()"
+                    style="margin:20px 15px 0 0;">{{data.localAppLanguage.submit}}</button>
+
+                    <button ng-if="modeProject == 'S-oil'" type="submit" class=" btn gulf-btn signupbtn pull-right" ng-click="addPlaneer()"
+                    style="margin:20px 15px 0 0;background-color: #d9aa59;
+                    border: medium none #d9aa59; color: #000 !important;margin-bottom: 30px;">{{data.localAppLanguage.submit}}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+
+
+
+  <script>
+
+
+    function maxLengthCheck(object) {
+      if (object.value.length > object.max.length)
+        object.value = object.value.slice(0, object.max.length)
+    }
+    function maxLengthCheckPhoneNumber(object) {
+      if (object.value.length > object.max.length)
+        object.value = object.value.slice(0, object.max.length)
+    }
+
+  </script>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+
+    function maxLengthCheck(object) {
+      if (object.value.length > object.max.length)
+        object.value = object.value.slice(0, object.max.length)
+    }
+  </script>
+
+</ion-view>

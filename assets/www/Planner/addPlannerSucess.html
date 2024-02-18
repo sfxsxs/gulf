@@ -1,0 +1,64 @@
+<ion-nav>
+  <style>
+    .gulf-btn1 {
+      background-color: #f15a22;
+      border: medium none #f15a22;
+      color: #fff !important;
+      border-radius: 10px;
+      padding: 5px 5px 5px 15px;
+      margin-top: 25px;
+
+    }
+
+    .sucessful .btn.gulf-btn1.signupbtn>span {
+      float: left;
+      line-height: 2;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+  </style>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()">
+        <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half">
+        <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png"
+          alt="left-arrow-white">
+      </a></div>
+    <nav-directive></nav-directive>
+
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center gulf-h4"></h4>
+              <div class="login-contain text-center padding-top-pixel">
+                <div class="thumb-sign">
+                  <img class="img-responsive" src="img/conguralation-thumb.png" alt="conguralation-thumb"
+                    style="color:#fff;">
+                </div>
+                <p>{{plannerMessage}}</p>
+                <!-- <p style="font-size: 11px;margin-top: 20px;">"Maximum of 10 Mechanics can be referred in a month"</p>-->
+                <div class="form-group text-center sucessful">
+                  <button type="submit" class=" btn gulf-btn1 signupbtn" ng-click="AddMorePlanner()"><span> Add More
+                      Customers</span><img style="width:30px;float:left;" class="img-responsive"
+                      src="img/scan-next-code.png" alt="scan-next-code"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</ion-nav>

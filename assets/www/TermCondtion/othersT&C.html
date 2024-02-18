@@ -1,0 +1,139 @@
+<ion-view>
+  <style>
+    .dataTables_wrapper.no-footer a:focus,
+    .dataTables_wrapper.no-footer a:hover {
+
+      text-decoration: none;
+    }
+
+    table.table.dt-responsive.dataTable.no-footer {
+      width: 100% !important;
+    }
+
+    .contest-contain {
+      min-height: 50px;
+      border: 1px solid #000A47;
+      height: auto;
+      padding: 10px;
+    }
+
+    .login-otp {
+      margin-top: 70px;
+    }
+
+    .body-bg-1 {
+      background-image: url(./img/nonmlp-bg.png);
+    }
+
+    .login-otp h4 {
+      color: #000A47;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .radio-custom {
+      opacity: 0;
+      position: absolute;
+    }
+
+    .radio-custom,
+    .radio-custom-label {
+      display: inline-block;
+      vertical-align: middle;
+      /* margin: 5px; */
+      cursor: pointer;
+    }
+
+
+    .form-control.user-name,
+    .gulf-btn {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      color: #fff !important;
+    }
+
+    .button.button-positive {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    #fromdateContest,
+    #todateContest {
+      border: 1px solid #1f3d8a;
+      border-radius: 4px;
+    }
+
+    a,
+    a:hover,
+    p {
+      color: #337ab7;
+    }
+  </style>
+  <script src="lib/datePicker/bootstrap-datepicker.js"></script>
+
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <!-- <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()"><img class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half"></a></div> -->
+
+    <!-- <non-mlp-header ng-if="regular"></non-mlp-header>
+    <channel-partners-header ng-if="customer"></channel-partners-header> -->
+
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center gulf-h4">Term and Conditions</h4>
+              <div class="login-contain padding-top-pixel">
+                <form class="transaction-form" style="padding: 20px 20px 20px;">
+
+                  <div class="form-group">
+                    <div class="login-footer">
+                      <div class="container-fluid ">
+                        <div class="row">
+                          <div class="col-md-12 col-xs-12 col-sm-12 border-orange">
+                            <ul class="list-inline text-center">
+                              <li>
+                                <div class="checkbox-inline" style="line-height:normal;"><input type="checkbox" value=""
+                                    id="agreeForTandC">I agree to the <span
+                                    style="cursor:pointer;text-decoration: underline;"><a
+                                      href="http://www.gulfmastermechanic.in/t-c.php" target="_blank">terms and
+                                      conditions</a></span></div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group text-center">
+                    <button type="submit" class=" btn gulf-btn signupbtn" style="margin-top:18px;"
+                      ng-click="acceptTermandCondtion()">Submit</button>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <!-- <footer-directive-nonmlp ng-if="regular"></footer-directive-nonmlp>
+        <channel-partners-footer ng-if="customer"></channel-partners-footer> -->
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
+
+</ion-view>

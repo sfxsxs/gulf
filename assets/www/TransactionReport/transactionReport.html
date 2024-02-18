@@ -1,0 +1,262 @@
+<ion-view>
+    <style>
+        .dataTables_wrapper.no-footer a:focus,
+        .dataTables_wrapper.no-footer a:hover {
+
+            text-decoration: none;
+        }
+
+        table.table.dt-responsive.dataTable.no-footer {
+            width: 100% !important;
+        }
+
+        input[readonly]:not(.cloned-text-input),
+        textarea[readonly]:not(.cloned-text-input),
+        select[readonly] {
+            background-color: #ffffff;
+        }
+
+        .popup-container.popup-showing {
+            position: fixed !important;
+        }
+    </style>
+
+    <script src="lib/datePicker/bootstrap-datepicker.js"></script>
+
+    <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+        <div class="back-arrow"> <a class="pull-right" href="" ng-click="clickBack()">
+                <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png"
+                    alt="blue-bg-with-logo-half">
+                <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png"
+                    alt="left-arrow-white"></a></div>
+        <nav-directive></nav-directive>
+        <section class="section-pad-top">
+            <div class="container">
+                <div class=" login-otp">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <h4 ng-if="mech" class="text-center gulf-h4">{{data.localAppLanguage.point_statement}} </h4>
+                            <h4 ng-if="so" class="text-center gulf-h4">Transaction Report</h4>
+                            <div class="login-contain padding-top-pixel">
+                                <form class="transaction-form" style="padding: 20px 20px 20px;">
+                                    <div class="form-group" ng-if="showAh">
+
+                                        <div class="col-md-12 col-sm-12 col-xs-12" id="parentAhListtran">
+                                            <select class="form-control" ng-change="onAHChange()"
+                                                ng-model="data.selectedAH" id="ahListtran">
+                                                <option value="" selected="selected">Select AH</option>
+                                                <option ng-repeat="x in AvailabelAH" value="{{x.userid}}">{{x.name}}
+                                                </option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group" ng-if="showTh">
+
+                                        <div class="col-md-12 col-sm-12 col-xs-12" id="parentThListtran"
+                                            style="margin-top: 15px;">
+                                            <select class="form-control" ng-model="data.selectedTH"
+                                                ng-change="onTHChange()" id="thListtran" style="padding: 6px 12px">
+                                                <option value="" selected="selected">Select TH</option>
+                                                <option ng-repeat="x in AvailabelTH" value="{{x.userid}}">{{x.name}}
+                                                </option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group" ng-if="showSo">
+
+                                        <div class="col-md-12 col-sm-12 col-xs-12" id="parentSoListtran"
+                                            style="margin-top: 15px;">
+                                            <select class="form-control" ng-model="data.selectedSo"
+                                                ng-change="onSOChange()" id="soListtran">
+                                                <option value="" selected="selected">Select SO</option>
+                                                <option ng-repeat="x in AvailabelSo" value="{{x.userid}}">{{x.name}}
+                                                </option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group" ng-show="showTransactionPoints">
+                                        <a href="" class=" form-control btn gulf-btn signupbtn"><img src="img/earned-points.png" alt="earned-points" style="width:16px;">&nbsp;&nbsp;Points Earned {{pointsEarned}}</a>
+                                    </div>
+                                    <div class="form-group"  ng-show="showTransactionPoints">
+                                        <a href="" class="form-control btn gulf-btn signupbtn"><img src="img/points-redeemed.png" alt="points-redeemed"  style="width:25px;">Points Redeemed {{pointsRedeemed}}</a>
+
+                                    </div> -->
+                                    <!-- <div class="form-group"  ng-show="showTransactionPoints">
+                                        <a href="" class="form-control btn gulf-btn signupbtn"><img src="img/points-balance.png" alt="points-balance">&nbsp;&nbsp;Points Balance {{pointBalanceShowIntransaction}}</a>
+                                    </div> -->
+                                    <div ng-if="so" class="form-group text-center col-md-12 col-sm-12 col-xs-12">
+                                        <input type="text" class="form-control"
+                                            placeholder="Search by Mechanic Id & Mobile No."
+                                            ng-model="data.mechIdOrMob">
+                                    </div>
+                                    <div ng-show="mech" class="form-group text-center col-md-12 col-sm-12 col-xs-12">
+                                        <input type="text" class="form-control"
+                                            placeholder="{{data.localAppLanguage.search_by_code}} "
+                                            ng-model="searchByCode">
+                                    </div>
+                                    <div ng-show="mech" class="form-group text-center col-md-12 col-sm-12 col-xs-12">
+                                        <input type="text" class="form-control"
+                                            placeholder="{{data.localAppLanguage.search_by_benefit}} "
+                                            ng-model="searchByBenifit">
+                                    </div>
+                                    <div ng-if="so" class="form-group text-center col-md-12 col-sm-12 col-xs-12"
+                                        id="parentareaTransactionReport">
+                                        <select class="form-control" ng-model="data.selectedArea"
+                                            id="areaTransactionReport">
+                                            <option value="" selected="selected">Select Area</option>
+                                            <option ng-repeat="x in AvailabelArea" value="{{x.pm_po_name}}">
+                                                {{x.pm_po_name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-sm-6 col-xs-6 date-img"
+                                            style="position: relative;margin-top: 15px;">
+                                            <div class='input-group date' id="fromdateTransactionReport">
+                                                <input type="text" class="form-control"
+                                                    placeholder="{{data.localAppLanguage.from_date}}"
+                                                    style="padding:6px 2px;height:30px;" ng-model="fromdate" readonly>
+                                                <span class="input-group-addon">
+                                                    <i ng-if="modeProject == 'Gulf'" class="fa fa-calendar"
+                                                        aria-hidden="true"></i>
+                                                    <i ng-if="modeProject == 'S-oil'" class="fa fa-calendar"
+                                                        aria-hidden="true" style="color: #d9aa59;"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 date-img"
+                                            style="position: relative;margin-top: 15px;">
+                                            <div class='input-group date' id="todateTransactionReport">
+                                                <input type="text" class="form-control"
+                                                    placeholder="{{data.localAppLanguage.to_date}}"
+                                                    style="padding:6px 2px;height:30px;" ng-model="todate" readonly>
+                                                <span class="input-group-addon">
+                                                    <i ng-if="modeProject == 'Gulf'" class="fa fa-calendar"
+                                                        aria-hidden="true"></i>
+                                                    <i ng-if="modeProject == 'S-oil'" class="fa fa-calendar"
+                                                        aria-hidden="true" style="color: #d9aa59;"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <button ng-if="modeProject == 'Gulf'" type="submit"
+                                            class=" btn gulf-btn signupbtn" style="margin-top:18px;"
+                                            ng-click="search()">{{data.localAppLanguage.submit}}</button>
+
+                                        <button ng-if="modeProject == 'S-oil'" type="submit"
+                                            class=" btn gulf-btn signupbtn pull-right" ng-click="search()"
+                                            style="margin:18px;background-color: #d9aa59;
+                                            border: medium none #d9aa59; color: #000 !important;margin-bottom: 30px;">{{data.localAppLanguage.submit}}</button>
+                                    </div>
+
+                                </form>
+
+                                <div ng-if="modeProject == 'Gulf'" class="table-responsive mechani-list" ng-show="!mech">
+                                    <table id="transactionReportTable" class="table dt-responsive" style="">
+                                        <thead>
+                                            <tr>
+                                                <!--<th>S No.</th>-->
+                                                <!--<th>Coupon Code No</th>-->
+                                                <th>Mechanic Name & Id</th>
+                                                <th>Area</th>
+                                                <th>Mobile No</th>
+
+                                                <th>Points Earned</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                                <div ng-if="modeProject == 'Gulf'" class="table-responsive mechani-list" ng-show="mech">
+                                    <table id="transactionReportTable1" class="table dt-responsive">
+                                        <thead>
+                                            <tr>
+                                                <!--<th>S No.</th>-->
+                                                <!--  <th>Coupon code No</th>-->
+                                                <th> {{data.localAppLanguage.date}}</th>
+                                                <th>{{data.localAppLanguage.code_number}} </th>
+                                                <th>{{data.localAppLanguage.benefit_type}}</th>
+                                                <th>{{data.localAppLanguage.points_earned}}</th>
+                                                <th>{{data.localAppLanguage.tier_points}}</th>
+
+
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+
+                                <div ng-if="modeProject == 'S-oil'" class="table-responsive mechani-list" ng-show="!mech">
+                                    <table id="transactionReportTable" class="table dt-responsive" style="">
+                                        <thead style="background-color: #d9aa59;">
+                                            <tr>
+                                                <!--<th>S No.</th>-->
+                                                <!--<th>Coupon Code No</th>-->
+                                                <th style="color: #000;">Mechanic Name & Id</th>
+                                                <th style="color: #000;">Area</th>
+                                                <th style="color: #000;">Mobile No</th>
+
+                                                <th style="color: #000;">Points Earned</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                                <div ng-if="modeProject == 'S-oil'" class="table-responsive mechani-list" ng-show="mech">
+                                    <table id="transactionReportTable1" class="table dt-responsive">
+                                        <thead style="background-color: #d9aa59;">
+                                            <tr>
+                                                <!--<th>S No.</th>-->
+                                                <!--  <th>Coupon code No</th>-->
+                                                <th style="color: #000;"> {{data.localAppLanguage.date}}</th>
+                                                <th style="color: #000;">{{data.localAppLanguage.code_number}} </th>
+                                                <th style="color: #000;">{{data.localAppLanguage.benefit_type}}</th>
+                                                <th style="color: #000;">{{data.localAppLanguage.points_earned}}</th>
+                                                <th style="color: #000;">{{data.localAppLanguage.tier_points}}</th>
+
+
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <footer-directive></footer-directive>
+        </footer>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+
+</ion-view>

@@ -1,0 +1,111 @@
+<ion-view>
+  <div ng-class="{'body-bg-1':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()">
+        <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half">
+        <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png"
+          alt="left-arrow-white">
+      </a></div>
+    <nav-directive></nav-directive>
+
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center gulf-h4" style="margin-top: 15%;">{{data.localAppLanguage.logic_report}}</h4>
+              <!-- <div class="form-group text-center" style="margin-bottom: 30px;">
+                    <button  class=" btn gulf-btn signupbtn pull-right" ng-click="refer()"> Refer</button>
+                  </div> -->
+              <div class="login-contain text-center padding-top-pixel referral">
+                <form style="padding-left:10px;padding-right:10px;">
+
+                  <div class="table-responsive mechani-list">
+                    <table id="LogicReport" class="table table-bordered">
+                      <thead>
+                        <tr>
+
+                          <th></th>
+                          <th colspan="3">{{data.localAppLanguage.milestone_1_volume}}</th>
+                          <th colspan="3">{{data.localAppLanguage.milestone_1_scan}}</th>
+                          <th colspan="3">{{data.localAppLanguage.milestone_2_volume}}</th>
+                          <th colspan="3">{{data.localAppLanguage.milestone_2_scan}}</th>
+
+                        </tr>
+                        <tr>
+
+                          <th>{{data.localAppLanguage.interface}}</th>
+                          <th>{{data.localAppLanguage.volume_in_litres}}</th>
+                          <th>{{data.localAppLanguage.within_days_of_referring}}</th>
+                          <th>{{data.localAppLanguage.points_earn}}</th>
+                          <th>{{data.localAppLanguage.counts_of_scans}}</th>
+                          <th>{{data.localAppLanguage.within_days_of_referring}}</th>
+                          <th>{{data.localAppLanguage.points_earn}}</th>
+                          <th>{{data.localAppLanguage.volume_in_litres}}</th>
+                          <th>{{data.localAppLanguage.within_days_of_referring}}</th>
+                          <th>{{data.localAppLanguage.points_earn}}</th>
+                          <th>{{data.localAppLanguage.counts_of_scans}}</th>
+                          <th>{{data.localAppLanguage.within_days_of_referring}}</th>
+                          <th>{{data.localAppLanguage.points_earn}}</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                      </tbody>
+                    </table>
+                    <!-- <table id="LogicReport" class="table dt-responsive" style="">
+                         <thead>
+                        <tr>
+                           <th>Interface</th>
+                           <th>MileStone 1-Volume(Point Earn) </th>
+                           <th>MileStone 1-Scan(Point Earn)</th>
+                           <th>MileStone 2-Volume(Point Earn) </th>
+                           <th>MileStone 2-Scan(Point Earn)</th>
+                            <th>MileStone 1-Volume(Vol in ltrs)</th>
+                            <th>MileStone 1-Volume(Within days of Referring)</th>
+                            
+                            <th>MileStone 1-Scan(Count of Scans)</th>
+                            <th>MileStone 1-Scan(Within days of Referring)</th>
+                           
+                            <th>MileStone 2-Volume(Vol in ltrs)</th>
+                            <th>MileStone 2-Volume(Within days of Referring)</th>
+                           
+                            <th>MileStone 2-Scan(Count of Scans)</th>
+                            <th>MileStone 2-Scan(Within days of Referring)</th>
+                           
+                         </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                
+                    </table> -->
+                  </div>
+                  <div class="form-group text-center">
+                    <button class=" btn gulf-btn signupbtn" style="margin-top:18px;"
+                      ng-click="refer()">{{data.localAppLanguage.refer}}</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive></footer-directive>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+
+    function maxLengthCheckPhoneNumber(object) {
+      if (object.value.length > object.max.length)
+        object.value = object.value.slice(0, object.max.length)
+    }
+  </script>
+</ion-view>

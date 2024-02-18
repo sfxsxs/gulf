@@ -1,0 +1,150 @@
+<ion-view>
+  <style>
+    .body-bg-1.cp-login {
+      background-image: url(./img/gulf-background-new.png);
+    }
+
+    .login-otp h4 {
+      color: #1f3d8a;
+      margin: 0 auto 30px auto;
+    }
+
+    #fromdate,
+    #todate {
+      border: 1px solid #1f3d8a;
+      border-radius: 4px;
+    }
+
+    .form-control {
+      border-radius: 4px;
+    }
+
+    footer .login-footer {
+      background-color: #004382;
+      /* For browsers that do not support gradients */
+      background-image: linear-gradient(to right, #004382 10%, #0094d6 50%, #004382);
+      /* Standard syntax (must be last) */
+      padding: 8px 0;
+    }
+
+    i.fa.fa-facebook-square {
+      color: #fff !important;
+    }
+
+    .form-control.user-name,
+    .gulf-btn {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      color: #fff !important;
+    }
+
+    .mechani-list thead {
+      background-color: #1f3d8a;
+    }
+
+    .button.button-positive {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    td {
+      color: #1f3d8a;
+    }
+
+    .table>tbody>tr>td {
+      color: #1f3d8a;
+    }
+  </style>
+  <script src="lib/datePicker/bootstrap-datepicker.js"></script>
+  <div ng-class="{'body-bg-1 cp-login':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" onclick="window.history.back()">
+        <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half">
+        <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png"
+          alt="left-arrow-white">
+      </a></div>
+    <non-mlp-header></non-mlp-header>
+
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center gulf-h4" ng-if="modeProject == 'Gulf'" style="margin-top: 15%;">{{data.localAppLanguage.referral_report}}</h4>
+              <h4 class="text-center gulf-h4" ng-if="modeProject == 'S-oil'" style="color: #fff;margin-top: 15%;">{{data.localAppLanguage.referral_report}}</h4>
+              <div class="login-contain text-center padding-top-pixel referral">
+                <form style="padding-left:10px;padding-right:10px;">
+
+                  <div ng-if="modeProject == 'Gulf'" class="table-responsive mechani-list">
+                    <table id="ReferralSatusReport" class="table dt-responsive">
+                      <thead>
+                        <tr>
+                          <th>{{data.localAppLanguage.mobile_no}} </th>
+                          <th> {{data.localAppLanguage.name}} </th>
+                          <th> {{data.localAppLanguage.total_referral_bonus_earned}}</th>
+                          <th>{{data.localAppLanguage.date_of_referral}}</th>
+                          <th>{{data.localAppLanguage.referral_bonus_milestone_one}}:</th>
+                          <th>{{data.localAppLanguage.referral_bonus_milestone_two}} :</th>
+                          <th>{{data.localAppLanguage.date_of_first_milestone}} :</th>
+                          <th>{{data.localAppLanguage.date_of_second_milestone}}:</th>
+
+                          <!-- <th>User Category</th>
+                            <th>User Type </th>
+                            <th>Region </th>
+                            <th>State</th>
+                            <th>City</th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+
+                    </table>
+                  </div>
+
+                  <div ng-if="modeProject == 'S-oil'" class="table-responsive mechani-list">
+                    <table id="ReferralSatusReport" class="table dt-responsive">
+                      <thead style="background: #d9aa59;">
+                        <tr>
+                          <th style="color: #000;">{{data.localAppLanguage.mobile_no}} </th>
+                          <th style="color: #000;"> {{data.localAppLanguage.name}} </th>
+                          <th style="color: #000;"> {{data.localAppLanguage.total_referral_bonus_earned}}</th>
+                          <th style="color: #000;">{{data.localAppLanguage.date_of_referral}}</th>
+                          <th style="color: #000;">{{data.localAppLanguage.referral_bonus_milestone_one}}:</th>
+                          <th style="color: #000;"> style="color: #000;"{{data.localAppLanguage.referral_bonus_milestone_two}} :</th>
+                          <th style="color: #000;">{{data.localAppLanguage.date_of_first_milestone}} :</th>
+                          <th style="color: #000;">{{data.localAppLanguage.date_of_second_milestone}}:</th>
+
+                          <!-- <th>User Category</th>
+                            <th>User Type </th>
+                            <th>Region </th>
+                            <th>State</th>
+                            <th>City</th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+
+                    </table>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive-nonmlp></footer-directive-nonmlp>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</ion-view>

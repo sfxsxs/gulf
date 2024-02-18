@@ -1,0 +1,166 @@
+<ion-view>
+  <style>
+    .body-bg-1.cp-login {
+      background-image: url(./img/gulf-background-new.png);
+    }
+
+    .login-otp h4 {
+      color: #1f3d8a;
+      margin: 0 auto 30px auto;
+    }
+
+    #fromdate,
+    #todate {
+      border: 1px solid #1f3d8a;
+      border-radius: 4px;
+    }
+
+    .form-control {
+      border-radius: 4px;
+    }
+
+    footer .login-footer {
+      background-color: #004382;
+      /* For browsers that do not support gradients */
+      background-image: linear-gradient(to right, #004382 10%, #0094d6 50%, #004382);
+      /* Standard syntax (must be last) */
+      padding: 8px 0;
+    }
+
+    i.fa.fa-facebook-square {
+      color: #fff !important;
+    }
+
+    .form-control.user-name,
+    .gulf-btn {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      color: #fff !important;
+    }
+
+    .mechani-list thead {
+      background-color: #1f3d8a;
+    }
+
+    .button.button-positive {
+      background-color: #1f3d8a;
+      border: medium none #1f3d8a;
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    td {
+      color: #1f3d8a;
+    }
+
+    .table>tbody>tr>td {
+      color: #1f3d8a;
+    }
+  </style>
+  <script src="lib/datePicker/bootstrap-datepicker.js"></script>
+  <div ng-class="{'body-bg-1 cp-login':modeProject == 'Gulf','home-bg_mode':modeProject == 'S-oil'}">
+    <div class="back-arrow"> <a class="pull-right" href="" ng-click="clickBack()">
+        <img ng-if="modeProject == 'Gulf'" class="img-responsive" src="img/left-arrow.png" alt="blue-bg-with-logo-half">
+        <img ng-if="modeProject == 'S-oil'" class="img-responsive" src="img/left-arrow-white.png"
+          alt="left-arrow-white">
+      </a></div>
+    <non-mlp-header></non-mlp-header>
+
+    <section class="section-pad-top">
+      <div class="container">
+        <div class=" login-otp">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12">
+              <h4 class="text-center gulf-h4" style="margin-top: 15%;">Logic Report</h4>
+              <!-- <div class="form-group text-center" style="margin-bottom: 30px;">
+                    <button  class=" btn gulf-btn signupbtn pull-right" ng-click="referNonMLP()"> Refer</button>
+                  </div> -->
+              <div class="login-contain text-center padding-top-pixel referral">
+                <form style="padding-left:10px;padding-right:10px;">
+
+                  <div class="table-responsive mechani-list">
+                    <table id="LogicReport" class="table table-bordered">
+                      <thead>
+                        <tr>
+
+                          <th></th>
+                          <th colspan="3">{{data.localAppLanguage.milestone_1_volume}}</th>
+                          <th colspan="3">{{data.localAppLanguage.milestone_1_scan}}</th>
+                          <th colspan="3">{{data.localAppLanguage.milestone_2_volume}}</th>
+                          <th colspan="3">{{data.localAppLanguage.milestone_2_scan}}</th>
+
+                        </tr>
+                        <tr>
+
+                          <th>{{data.localAppLanguage.interface}}</th>
+                          <th>{{data.localAppLanguage.volume_in_litres}}</th>
+                          <th>{{data.localAppLanguage.within_days_of_referring}}</th>
+                          <th>{{data.localAppLanguage.points_earn}}</th>
+                          <th>{{data.localAppLanguage.counts_of_scans}}</th>
+                          <th>{{data.localAppLanguage.within_days_of_referring}}</th>
+                          <th>{{data.localAppLanguage.points_earn}}</th>
+                          <th>{{data.localAppLanguage.volume_in_litres}}</th>
+                          <th>{{data.localAppLanguage.within_days_of_referring}}</th>
+                          <th>{{data.localAppLanguage.points_earn}}</th>
+                          <th>{{data.localAppLanguage.counts_of_scans}}</th>
+                          <th>{{data.localAppLanguage.within_days_of_referring}}</th>
+                          <th>{{data.localAppLanguage.points_earn}}</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                      </tbody>
+                    </table>
+                    <!-- <table id="LogicReport" class="table dt-responsive" style="">
+                         <thead>
+                        <tr>
+                           <th>Interface</th>
+                           <th>MileStone 1-Volume(Point Earn) </th>
+                           <th>MileStone 1-Scan(Point Earn)</th>
+                           <th>MileStone 2-Volume(Point Earn) </th>
+                           <th>MileStone 2-Scan(Point Earn)</th>
+                            <th>MileStone 1-Volume(Vol in ltrs)</th>
+                            <th>MileStone 1-Volume(Within days of Referring)</th>
+                            
+                            <th>MileStone 1-Scan(Count of Scans)</th>
+                            <th>MileStone 1-Scan(Within days of Referring)</th>
+                           
+                            <th>MileStone 2-Volume(Vol in ltrs)</th>
+                            <th>MileStone 2-Volume(Within days of Referring)</th>
+                           
+                            <th>MileStone 2-Scan(Count of Scans)</th>
+                            <th>MileStone 2-Scan(Within days of Referring)</th>
+                           
+                         </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                
+                    </table> -->
+                  </div>
+                  <div class="form-group text-center">
+                    <button class=" btn gulf-btn signupbtn" style="margin-top:18px;"
+                      ng-click="referNonMLP()">Refer</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <footer-directive-nonmlp></footer-directive-nonmlp>
+    </footer>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "280px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</ion-view>
